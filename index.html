@@ -142,7 +142,6 @@ border:2px solid var(--gold);cursor:pointer;
 .gbtn:active{transform:scale(0.97);box-shadow:0 0 20px rgba(212,168,75,.25)}
 .gbtn:disabled{opacity:.35;cursor:not-allowed;transform:none}
 
-> Илья Русланович:
 .nav{flex-shrink:0;display:flex;background:rgba(14,11,9,.99);border-top:1px solid var(--border);position:relative}
 .nav::before{content:'';position:absolute;top:-1px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.4}
 .nb{flex:1;padding:7px 2px 9px;background:none;border:none;cursor:pointer;color:var(--textdim);font-family:'Cinzel',serif;font-size:7px;letter-spacing:.8px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:2px;transition:color .2s;position:relative}
@@ -315,9 +314,7 @@ var ACH=[
   {id:'a5',icon:'👑',name:'Уровень 20',     desc:'Достигни уровня 20',     rew:50000,  c:function(g){return g.level>=20}},
   {id:'a6',icon:'🛢️',name:'Нефтяной магнат',desc:'Открой нефтебазу',      rew:20000,  c:function(g){return (g.biz['oil']||0)>0}},
   {id:'a7',icon:'✈️',name:'Авиамагнат',     desc:'Открой авиакомпанию',   rew:100000, c:function(g){return (g.biz['airline']||0)>0}},
-
-> Илья Русланович:
-{id:'a8',icon:'🚀',name:'К звёздам',      desc:'Открой космодром',       rew:500000, c:function(g){return (g.biz['space']||0)>0}},
+  {id:'a8',icon:'🚀',name:'К звёздам',      desc:'Открой космодром',       rew:500000, c:function(g){return (g.biz['space']||0)>0}},
   {id:'a9',icon:'⚙️',name:'Технарь',        desc:'Купи 10 апгрейдов',      rew:15000,  c:function(g){return g.upg.length>=10}},
   {id:'a10',icon:'🔥',name:'Верность',      desc:'7 дней подряд',          rew:7000,   c:function(g){return (g.streak||0)>=7}}
 ];
@@ -676,8 +673,6 @@ setInterval(function(){
   document.getElementById('sT').textContent=fmt(G.total);
   sv();
 },100);
-
-> Илья Русланович:
 // ═══ СТАРТ ═══
 ld();
 if(window.Telegram&&window.Telegram.WebApp){
