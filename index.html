@@ -1,17 +1,97 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>COSA NOSTRA</title>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#12100f;--bg2:#1a1612;--gold:#d4a84b;--gold2:#f0c96a;--gold3:#fde8a8;
-  --red:#8b1a1a;--text:#e8d9b8;--textdim:#8a7355;
-  --border:rgba(212,168,75,0.28);--border2:rgba(212,168,75,0.55);--card:rgba(212,168,75,0.06);
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+<script>
+// Test all critical functions
+var BIZ=[{id:'kiosk',name:'Ларёк',icon:'🏪',base:250,inc:5}];
+var UPG=[{id:'cl1',name:'Хватка',icon:'💼',cost:300,desc:'x2 тап',t:'click',m:2}];
+var SK=[{id:'charisma',name:'Харизма',desc:'+8%',max:15,base:500}];
+var G={coins:500,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),biz:{},upg:[],skills:{charisma:0,management:0,connections:0,security:0},ach:[],daily:null,streak:0};
+
+function cIPM(){
+  var am=1;
+  for(var i=0;i<G.upg.length;i++){
+    var uid=G.upg[i];
+    for(var j=0;j<UPG.length;j++){
+      if(UPG[j].id===uid&&UPG[j].t==='all'){am*=UPG[j].m;break;}
+    }
+  }
+  var cm=1+(G.skills.charisma||0)*0.08;
+  var t=0;
+  for(var b=0;b<BIZ.length;b++){
+    var biz=BIZ[b];
+    var n=G.biz[biz.id]||0;
+    if(!n)continue;
+    var bm=1;
+    for(var i=0;i<G.upg.length;i++){
+      for(var j=0;j<UPG.length;j++){
+        if(UPG[j].id===G.upg[i]&&UPG[j].t===biz.id){bm*=UPG[j].m;break;}
+      }
+    }
+    t+=biz.inc*n*bm;
+  }
+  return t*am*cm;
 }
+
+function cClk(){
+  var base=5+(G.level-1)*2;
+  var p=base;
+  for(var i=0;i<G.upg.length;i++){
+    for(var j=0;j<UPG.length;j++){
+      if(UPG[j].id===G.upg[i]&&UPG[j].t==='click'){p*=UPG[j].m;break;}
+    }
+  }
+  return Math.floor(p*(1+(G.skills.management||0)*0.06));
+}
+
+function fmt(n){
+  n=Math.floor(n);
+  if(n>=1e6)return'$'+(n/1e6).toFixed(1)+'M';
+  if(n>=1e3)return'$'+(n/1e3).toFixed(1)+'K';
+  return'$'+n;
+}
+
+function rUpg(){
+  var html='';
+  for(var i=0;i<UPG.length;i++){
+    var u=UPG[i];
+    var done=G.upg.indexOf(u.id)!==-1;
+    var can=!done&&G.coins>=u.cost;
+    var cls='uc'+(done?' done':(can?' aff':''));
+    var onclick=done?'':'buyU(\''+u.id+'\')';
+    html+='<div class="'+cls+'" onclick="'+onclick+'">';
+    html+='<div class="uc-i">'+u.icon+'</div>';
+    html+='<div class="uc-info"><div class="uc-name">'+u.name+(done?' ✦':'')+'</div><div class="uc-desc">'+u.desc+'</div></div>';
+    html+='<div class="uc-cost">'+(done?'✓':fmt(u.cost))+'</div>';
+    html+='</div>';
+  }
+  return html;
+}
+
+// Test
+G.biz['kiosk']=2;
+console.log('IPM:', cIPM()); // should be 10
+console.log('CLK:', cClk()); // should be 5
+console.log('FMT:', fmt(1500)); // should be $1.5K
+console.log('UPG HTML length:', rUpg().length); // should be > 0
+console.log('ALL OK');
+</script>
+</body>
+</html>
+EOF
+node -e "
+const fs = require('fs');
+const code = fs.readFileSync('/tmp/test_game.html','utf8');
+// Extract script
+const match = code.match(/<script>([\s\S]+?)<\/script>/);
+try {
+  new Function(match[1]);
+  console.log('SYNTAX OK');
+} catch(e) {
+  console.log('SYNTAX ERROR:', e.message);
+}
+"
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden}
 body{background:var(--bg);color:var(--text);font-family:'Crimson Text',serif;min-height:100vh}
