@@ -1,35 +1,441 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>БИЗНЕС ИМПЕРИЯ</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1225;--bg2:#221830;--bg3:#2d2040;
+  --gold:#d4a84b;--gold2:#f0c96a;--gold3:#fde8a8;
+  --purple:#9b59b6;--purple2:#b47fd4;--purple3:#d4a8f0;
+  --green:#27ae60;--red:#c0392b;
+  --text:#ede0ff;--textdim:#8a7aaa;
+  --border:rgba(180,127,212,0.25);--border2:rgba(180,127,212,0.5);
+  --bordog:rgba(212,168,75,0.35);--bordog2:rgba(212,168,75,0.6);
+  --card:rgba(155,89,182,0.07);--cardg:rgba(212,168,75,0.06);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-height:100vh}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 20% 0%,rgba(155,89,182,0.15) 0%,transparent 60%),
+    radial-gradient(ellipse at 80% 100%,rgba(212,168,75,0.1) 0%,transparent 60%);
+}
+.app{position:relative;z-index:1;max-width:480px;margin:0 auto;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* ── HEADER ── */
+.hdr{flex-shrink:0;padding:10px 14px 8px;border-bottom:1px solid var(--border);background:rgba(26,18,37,0.98);position:relative}
+.hdr::after{content:'';position:absolute;bottom:-1px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold),var(--purple2),transparent);opacity:.6}
+.hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.logo{font-family:'Cinzel',serif;font-size:16px;font-weight:900;letter-spacing:3px;background:linear-gradient(135deg,var(--purple2),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lvl-badge{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;color:var(--gold);border:1px solid var(--bordog2);padding:3px 9px;border-radius:12px;background:rgba(212,168,75,.1)}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
+.st{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px;text-align:center;position:relative}
+.st::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--purple2),transparent);opacity:.5}
+.st-v{font-family:'Cinzel',serif;font-size:12px;font-weight:700;color:var(--gold2)}
+.st-l{font-size:9px;color:var(--textdim);margin-top:1px}
+.xp-w{margin-top:6px}
+.xp-r{display:flex;justify-content:space-between;font-size:9px;color:var(--textdim);margin-bottom:3px}
+.xp-t{height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.xp-f{height:100%;background:linear-gradient(90deg,var(--purple),var(--gold));border-radius:2px;transition:width .5s ease;box-shadow:0 0 6px rgba(155,89,182,.6)}
+
+/* ── CONTENT ── */
+.content{flex:1;overflow-y:auto;overflow-x:hidden;padding:12px 12px 8px;-webkit-overflow-scrolling:touch}
+.content::-webkit-scrollbar{width:3px}
+.content::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.tab{display:none;animation:fi .2s ease}
+.tab.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ── DIVIDER ── */
+.dv{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.dv-t{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--purple2);white-space:nowrap}
+.dv-l{flex:1;height:1px;background:linear-gradient(90deg,var(--purple),transparent);opacity:.35}
+.dv-l.r{background:linear-gradient(270deg,var(--purple),transparent)}
+/* ── COLLECT BUTTON ── */
+.carea{text-align:center;margin-bottom:14px}
+.cbtn{
+  position:relative;width:130px;height:130px;border-radius:50%;
+  background:radial-gradient(circle at 38% 33%,#2e1e45,#180f28);
+  border:2px solid var(--gold);cursor:pointer;
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  box-shadow:0 0 0 1px rgba(212,168,75,.15),0 0 30px rgba(155,89,182,.2),inset 0 0 25px rgba(0,0,0,.3);
+  transition:all .1s;user-select:none;-webkit-user-select:none;
+}
+.cbtn::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(212,168,75,.18)}
+.cbtn::after{content:'';position:absolute;inset:-12px;border-radius:50%;border:1px solid rgba(155,89,182,.12)}
+.cbtn:active{transform:scale(0.92);box-shadow:0 0 50px rgba(212,168,75,.4),0 0 20px rgba(155,89,182,.3)}
+.cbtn-ico{font-size:36px;line-height:1}
+.cbtn-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);opacity:.9}
+.cbtn-pw{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold2);text-shadow:0 0 8px rgba(212,168,75,.6)}
+.cpop{position:fixed;pointer-events:none;z-index:9999;font-family:'Cinzel',serif;font-size:16px;font-weight:700;color:var(--gold2);text-shadow:0 0 10px rgba(212,168,75,.9);animation:popa .9s ease-out forwards}
+@keyframes popa{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-70px) scale(1.5)}}
+.ihint{font-size:11px;color:var(--textdim);margin-top:8px;text-align:center;font-style:italic}
+
+/* ── OFFLINE ── */
+.offb{display:none;background:linear-gradient(135deg,rgba(155,89,182,.2),rgba(212,168,75,.08));border:1px solid var(--border2);border-radius:10px;padding:9px 13px;margin-bottom:12px;text-align:center}
+.offb.show{display:block;animation:fi .3s ease}
+.offb p{font-size:11px;color:var(--textdim);font-style:italic}
+.offb .oamt{font-family:'Cinzel',serif;font-size:18px;color:var(--gold2);margin:3px 0}
+
+/* ── BIZ CARDS ── */
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px}
+.bc{background:var(--cardg);border:1px solid var(--bordog);border-radius:10px;padding:10px 9px;cursor:pointer;position:relative;overflow:hidden;transition:border-color .2s,transform .1s,box-shadow .2s}
+.bc.aff{border-color:var(--bordog2);box-shadow:0 0 12px rgba(212,168,75,.1)}
+.bc:active{transform:scale(0.95)}
+.bc-lvl{position:absolute;top:5px;left:5px;font-size:8px;font-family:'Cinzel',serif;color:var(--purple2);background:rgba(155,89,182,.15);border:1px solid var(--border);padding:1px 4px;border-radius:4px}
+.bc-n{position:absolute;top:5px;right:5px;font-family:'Cinzel',serif;font-size:8px;color:var(--gold);background:rgba(212,168,75,.1);border:1px solid var(--bordog);padding:1px 4px;border-radius:4px}
+.bc-i{font-size:22px;margin-bottom:3px;margin-top:8px}
+.bc-name{font-family:'Cinzel',serif;font-size:9px;font-weight:700;color:var(--text);margin-bottom:2px;line-height:1.2}
+.bc-inc{font-size:9px;color:var(--gold);font-style:italic}
+.bc-cost{font-family:'Cinzel',serif;font-size:10px;color:var(--gold2);margin-top:4px}
+.bc-upgbtn{display:block;width:100%;margin-top:5px;padding:3px 0;background:rgba(155,89,182,.15);border:1px solid var(--border2);border-radius:5px;font-size:9px;font-family:'Cinzel',serif;color:var(--purple2);cursor:pointer;transition:all .15s;text-align:center}
+.bc-upgbtn:active{background:rgba(155,89,182,.3)}
+.bc-upgbtn.max{color:var(--gold);border-color:var(--bordog);background:rgba(212,168,75,.08);pointer-events:none}
+
+/* ── UPGRADES ── */
+.ulist{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.uc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:9px 11px;display:flex;align-items:center;gap:10px;cursor:pointer;position:relative;overflow:hidden;transition:all .15s}
+.uc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--purple2),transparent);border-radius:3px 0 0 3px;opacity:.5}
+.uc.aff{border-color:var(--border2)}
+.uc.aff::before{opacity:1}
+.uc:active{transform:scale(0.98)}
+.uc.done{opacity:.3;pointer-events:none}
+.uc-i{font-size:20px;flex-shrink:0}
+.uc-info{flex:1;min-width:0}
+.uc-name{font-family:'Cinzel',serif;font-size:10px;font-weight:700;color:var(--text)}
+.uc-desc{font-size:9px;color:var(--textdim);margin-top:1px}
+.uc-cost{font-family:'Cinzel',serif;font-size:10px;color:var(--gold2);flex-shrink:0}
+
+/* ── SKILLS ── */
+.sklist{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.skc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .15s}
+.skc.aff{border-color:var(--border2)}
+.skc:active{transform:scale(0.98)}
+.skc.maxed{opacity:.4;pointer-events:none}
+.sk-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.sk-name{font-family:'Cinzel',serif;font-size:11px;font-weight:700;color:var(--text)}
+.sk-cost{font-family:'Cinzel',serif;font-size:10px;color:var(--gold2)}
+.sk-desc{font-size:10px;color:var(--textdim);margin-bottom:6px}
+.sk-prog{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
+.sk-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purple2));border-radius:3px;transition:width .3s}
+
+/* ── PROFILE ── */
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 14px;margin-bottom:10px;text-align:center;position:relative;overflow:hidden}
+.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold),var(--purple2),transparent);opacity:.6}
+.pcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);opacity:.4}
+.pava{font-size:48px;margin-bottom:6px}
+.pname{font-family:'Cinzel',serif;font-size:16px;font-weight:900;background:linear-gradient(135deg,var(--purple2),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px}
+.ptitle{font-size:12px;color:var(--textdim);margin-top:3px;margin-bottom:12px;font-style:italic}
+.pstats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ps{background:rgba(0,0,0,.2);border:1px solid var(--border);border-radius:8px;padding:7px;text-align:center}
+.ps-v{font-family:'Cinzel',serif;font-size:13px;color:var(--gold2)}
+.ps-l{font-size:9px;color:var(--textdim);margin-top:1px}
+.skill-summary{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ss-item{background:rgba(155,89,182,.08);border:1px solid var(--border);border-radius:8px;padding:6px;text-align:center}
+.ss-ico{font-size:16px}
+.ss-name{font-size:9px;color:var(--textdim);margin-top:1px}
+.ss-val{font-family:'Cinzel',serif;font-size:11px;color:var(--purple2)}
+
+/* ── ACHIEVEMENTS ── */
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.ac{background:rgba(212,168,75,.04);border:1px solid var(--bordog);border-radius:10px;padding:9px;text-align:center}
+.ac.earned{border-color:var(--bordog2);background:rgba(212,168,75,.08)}
+.ac-i{font-size:22px;margin-bottom:3px}
+.ac-name{font-family:'Cinzel',serif;font-size:9px;color:var(--text)}
+.ac-desc{font-size:9px;color:var(--textdim);margin-top:1px;font-style:italic}
+.ac-rew{font-family:'Cinzel',serif;font-size:9px;color:var(--gold);margin-top:3px}
+
+/* ── DAILY ── */
+.dcard{background:linear-gradient(135deg,rgba(155,89,182,.15),rgba(212,168,75,.08));border:1px solid var(--border2);border-radius:12px;padding:16px 14px;text-align:center;margin-bottom:12px;position:relative;overflow:hidden}
+.dcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold),var(--purple2),transparent);opacity:.6}
+.d-ico{font-size:34px;margin-bottom:6px}
+.d-title{font-family:'Cinzel',serif;font-size:14px;font-weight:700;background:linear-gradient(135deg,var(--purple2),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;margin-bottom:3px}
+.d-desc{font-size:11px;color:var(--textdim);margin-bottom:8px;font-style:italic}
+.d-amt{font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--gold2);margin:6px 0 10px}
+.d-timer{font-size:10px;color:var(--textdim);letter-spacing:1px;margin-top:8px}
+
+/* ── GOLD BUTTON ── */
+.gbtn{display:block;width:100%;padding:12px;background:linear-gradient(135deg,#2e1e45,#1a1025);border:1px solid var(--gold);border-radius:8px;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);cursor:pointer;transition:all .15s;text-align:center;box-shadow:0 0 15px rgba(212,168,75,.1)}
+.gbtn:active{transform:scale(0.97);box-shadow:0 0 25px rgba(212,168,75,.25)}
+.gbtn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+
+/* ── NAV ── */
+.nav{flex-shrink:0;display:flex;background:rgba(22,15,35,0.99);border-top:1px solid var(--border);position:relative}
+.nav::before{content:'';position:absolute;top:-1px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold),var(--purple2),transparent);opacity:.5}
+.nb{flex:1;padding:7px 2px 10px;background:none;border:none;cursor:pointer;color:var(--textdim);font-family:'Nunito',sans-serif;font-size:7px;letter-spacing:.5px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:2px;transition:color .2s;position:relative}
+.nb.on{color:var(--gold)}
+.nb.on::after{content:'';position:absolute;bottom:0;left:15%;right:15%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);box-shadow:0 0 6px var(--gold);border-radius:1px}
+.nb-i{font-size:18px}
+
+/* ── NOTIF ── */
+.notif{position:fixed;top:14px;left:50%;transform:translateX(-50%) translateY(-7px);font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;padding:8px 18px;border-radius:20px;z-index:10000;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;max-width:94vw}
+.notif.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.notif.ok{background:linear-gradient(135deg,#2a1e40,#1e1530);color:var(--gold2);border:1px solid var(--gold);box-shadow:0 0 20px rgba(212,168,75,.3)}
+.notif.err{background:linear-gradient(135deg,#2a0f0f,#1a0808);color:#ff8080;border:1px solid #8b1a1a;box-shadow:0 0 15px rgba(139,26,26,.4)}
+.notif.lvl{background:linear-gradient(135deg,#2e1e45,#1a1025);color:var(--purple3);border:1px solid var(--purple2);box-shadow:0 0 25px rgba(155,89,182,.5)}
+
+/* ── BIZ LEVEL MODAL ── */
+.modal-bg{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.7);align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+.modal-bg.show{display:flex;animation:fi .2s ease}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:20px 18px;width:88%;max-width:340px;position:relative}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold),var(--purple2),transparent);border-radius:14px 14px 0 0;opacity:.7}
+.modal-title{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--gold2);text-align:center;margin-bottom:14px}
+.modal-stat{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)}
+.modal-stat:last-of-type{border:none}
+
+> Илья Русланович:
+.modal-stat-l{font-size:11px;color:var(--textdim)}
+.modal-stat-v{font-family:'Cinzel',serif;font-size:12px;color:var(--text)}
+.modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.modal-btn{padding:10px;border-radius:8px;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;border:1px solid;transition:all .15s;text-align:center}
+.modal-btn.buy{background:rgba(212,168,75,.12);border-color:var(--gold);color:var(--gold)}
+.modal-btn.buy:active{background:rgba(212,168,75,.25)}
+.modal-btn.upg{background:rgba(155,89,182,.12);border-color:var(--purple2);color:var(--purple2)}
+.modal-btn.upg:active{background:rgba(155,89,182,.25)}
+.modal-btn.close-btn{grid-column:1/-1;background:rgba(255,255,255,.05);border-color:var(--border);color:var(--textdim)}
+</style>
+</head>
 <body>
+<div class="app">
+  <div class="hdr">
+    <div class="hdr-top">
+      <div class="logo">⬡ БИЗНЕС ИМПЕРИЯ</div>
+      <div class="lvl-badge" id="lvlBadge">УР. 1</div>
+    </div>
+    <div class="stats">
+      <div class="st"><div class="st-v" id="sC">$0</div><div class="st-l">💰 капитал</div></div>
+      <div class="st"><div class="st-v" id="sI">$0</div><div class="st-l">📈 в минуту</div></div>
+      <div class="st"><div class="st-v" id="sT">$0</div><div class="st-l">🏆 всего</div></div>
+    </div>
+    <div class="xp-w">
+      <div class="xp-r"><span>XP · <span id="xpV">0</span></span><span id="xpN">до ур.2: 300</span></div>
+      <div class="xp-t"><div class="xp-f" id="xpF" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <div class="content" id="cnt">
+
+    <div class="tab on" id="tabHome">
+      <div class="offb" id="offb">
+        <p>Пока вас не было, бизнесы заработали</p>
+        <div class="oamt" id="offAmt">$0</div>
+        <p style="font-size:10px;margin-top:2px">нажмите кнопку чтобы забрать</p>
+      </div>
+      <div class="carea">
+        <div class="cbtn" id="cbtn">
+          <div class="cbtn-ico">💼</div>
+          <div class="cbtn-lbl">ТАП</div>
+          <div class="cbtn-pw" id="cpow">+$5</div>
+        </div>
+        <div class="ihint" id="ihint">Откройте бизнес для пассивного дохода</div>
+      </div>
+      <div class="dv"><div class="dv-l r"></div><div class="dv-t">МОИ БИЗНЕСЫ</div><div class="dv-l"></div></div>
+      <div class="bgrid" id="homeBiz"></div>
+    </div>
+
+    <div class="tab" id="tabBiz">
+      <div class="dv"><div class="dv-l r"></div><div class="dv-t">КУПИТЬ БИЗНЕС</div><div class="dv-l"></div></div>
+      <div class="bgrid" id="bizGrid"></div>
+    </div>
+
+    <div class="tab" id="tabUpg">
+      <div class="dv"><div class="dv-l r"></div><div class="dv-t">УЛУЧШЕНИЯ</div><div class="dv-l"></div></div>
+      <div class="ulist" id="upgList"></div>
+      <div class="dv" style="margin-top:6px"><div class="dv-l r"></div><div class="dv-t">НАВЫКИ</div><div class="dv-l"></div></div>
+      <div class="sklist" id="skList"></div>
+    </div>
+
+    <div class="tab" id="tabProfile">
+      <div class="pcard">
+        <div class="pava">🤵</div>
+        <div class="pname" id="pNm">ИГРОК</div>
+        <div class="ptitle" id="pTl">Стажёр</div>
+        <div class="pstats">
+          <div class="ps"><div class="ps-v" id="pp1">$0</div><div class="ps-l">💰 капитал</div></div>
+          <div class="ps"><div class="ps-v" id="pp2">$0</div><div class="ps-l">📈 доход/мин</div></div>
+          <div class="ps"><div class="ps-v" id="pp3">$0</div><div class="ps-l">🏆 заработано</div></div>
+          <div class="ps"><div class="ps-v" id="pp4">0</div><div class="ps-l">🏢 бизнесов</div></div>
+        </div>
+        <div class="skill-summary" id="skillSummary"></div>
+      </div>
+      <div class="dv"><div class="dv-l r"></div><div class="dv-t">ДОСТИЖЕНИЯ</div><div class="dv-l"></div></div>
+      <div class="agrid" id="achGrid"></div>
+    </div>
+  <div class="tab" id="tabBonus">
+      <div class="dcard">
+        <div class="d-ico">🎁</div>
+        <div class="d-title">ЕЖЕДНЕВНЫЙ БОНУС</div>
+        <div class="d-desc">Заходи каждый день — бонус растёт со стриком!</div>
+        <div class="d-amt" id="dAmt">$0</div>
+        <button class="gbtn" id="dBtn" onclick="claimDaily()">[ ЗАБРАТЬ БОНУС ]</button>
+        <div class="d-timer" id="dTimer" style="display:none"></div>
+      </div>
+      <div class="dv"><div class="dv-l r"></div><div class="dv-t">СТРИК ВХОДОВ</div><div class="dv-l"></div></div>
+      <div id="streakEl" style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px"></div>
+    </div>
+
+  </div>
+
+  <div class="nav">
+    <button class="nb on" onclick="goTab('Home',this)"><span class="nb-i">🏠</span>ГЛАВНАЯ</button>
+    <button class="nb" onclick="goTab('Biz',this)"><span class="nb-i">🏢</span>БИЗНЕС</button>
+    <button class="nb" onclick="goTab('Upg',this)"><span class="nb-i">⚡</span>АПГРЕЙД</button>
+    <button class="nb" onclick="goTab('Profile',this)"><span class="nb-i">🤵</span>ПРОФИЛЬ</button>
+    <button class="nb" onclick="goTab('Bonus',this)"><span class="nb-i">🎁</span>БОНУС</button>
+  </div>
+</div>
+
+<!-- BIZ MODAL -->
+<div class="modal-bg" id="bizModal">
+  <div class="modal">
+    <div class="modal-title" id="mTitle">Бизнес</div>
+    <div class="modal-stat"><span class="modal-stat-l">Количество</span><span class="modal-stat-v" id="mCount">0</span></div>
+    <div class="modal-stat"><span class="modal-stat-l">Уровень прокачки</span><span class="modal-stat-v" id="mLvl">0 / 5</span></div>
+    <div class="modal-stat"><span class="modal-stat-l">Доход за ед.</span><span class="modal-stat-v" id="mInc">$0/мин</span></div>
+    <div class="modal-stat"><span class="modal-stat-l">Общий доход</span><span class="modal-stat-v" id="mTotal">$0/мин</span></div>
+    <div class="modal-stat"><span class="modal-stat-l">Цена покупки</span><span class="modal-stat-v" id="mBuyCost">$0</span></div>
+    <div class="modal-stat"><span class="modal-stat-l">Цена прокачки</span><span class="modal-stat-v" id="mUpgCost">$0</span></div>
+    <div class="modal-btns">
+      <div class="modal-btn buy" id="mBuyBtn" onclick="modalBuy()">КУПИТЬ</div>
+      <div class="modal-btn upg" id="mUpgBtn" onclick="modalUpg()">ПРОКАЧАТЬ</div>
+      <div class="modal-btn close-btn" onclick="closeModal()">ЗАКРЫТЬ</div>
+    </div>
+  </div>
+</div>
+
+<div class="notif" id="notif"></div>
+
 <script>
-// Test all critical functions
-var BIZ=[{id:'kiosk',name:'Ларёк',icon:'🏪',base:250,inc:5}];
-var UPG=[{id:'cl1',name:'Хватка',icon:'💼',cost:300,desc:'x2 тап',t:'click',m:2}];
-var SK=[{id:'charisma',name:'Харизма',desc:'+8%',max:15,base:500}];
-var G={coins:500,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),biz:{},upg:[],skills:{charisma:0,management:0,connections:0,security:0},ach:[],daily:null,streak:0};
+var BIZ=[
+  {id:'kiosk',   name:'Газетный ларёк',    icon:'📰',base:150,      inc:3},
+  {id:'cafe',    name:'Кофейня',            icon:'☕',base:400,      inc:8},
+  {id:'parking', name:'Парковка',           icon:'🅿️',base:900,      inc:18},
+  {id:'bar',     name:'Бар',               icon:'🍺',base:2000,     inc:38},
+  {id:'taxi',    name:'Служба такси',       icon:'🚕',base:4500,     inc:75},
+  {id:'salon',   name:'Салон красоты',      icon:'💅',base:8000,     inc:140},
+  {id:'store',   name:'Магазин одежды',     icon:'👗',base:16000,    inc:260},
+  {id:'rest',    name:'Ресторан',           icon:'🍽️',base:32000,    inc:480},
+  {id:'hotel',   name:'Отель',             icon:'🏨',base:65000,    inc:900},
+  {id:'fitnes',  name:'Фитнес клуб',        icon:'💪',base:130000,   inc:1700},
+  {id:'casino',  name:'Казино',            icon:'🎰',base:260000,   inc:3200},
+  {id:'market',  name:'Супермаркет',        icon:'🛒',base:500000,   inc:6000},
+  {id:'club',    name:'Ночной клуб',        icon:'🎶',base:900000,   inc:11000},
+  {id:'port',    name:'Грузовой порт',      icon:'⚓',base:1800000,  inc:20000},
+  {id:'factory', name:'Завод',             icon:'🏭',base:3500000,  inc:38000},
+  {id:'oil',     name:'Нефтебаза',         icon:'🛢️',base:7000000,  inc:70000},
+  {id:'pipeline',name:'Нефтепровод',        icon:'🔧',base:14000000, inc:130000},
+  {id:'refinery',name:'НПЗ',               icon:'⚗️',base:28000000, inc:240000},
+  {id:'bank',    name:'Банк',              icon:'🏦',base:60000000, inc:450000},
+  {id:'airline', name:'Авиакомпания',       icon:'✈️',base:120000000,inc:850000},
+  {id:'island',  name:'Частный остров',     icon:'🏝️',base:250000000,inc:1600000},
+  {id:'space',   name:'Космодром',         icon:'🚀',base:500000000,inc:3000000}
+];
+
+var UPG=[
+  {id:'cl1',name:'Деловая хватка',   icon:'💼',cost:300,     desc:'x2 к тапу',            t:'click',m:2},
+  {id:'cl2',name:'Финансовый гений', icon:'🧠',cost:8000,    desc:'x2 к тапу',            t:'click',m:2},
+  {id:'cl3',name:'Харизма лидера',   icon:'🎯',cost:80000,   desc:'x3 к тапу',            t:'click',m:3},
+  {id:'cl4',name:'Стратег',          icon:'♟️',cost:800000,  desc:'x4 к тапу',            t:'click',m:4},
+  {id:'cl5',name:'Империя',          icon:'👑',cost:8000000, desc:'x5 к тапу',            t:'click',m:5},
+  {id:'uk', name:'Ремонт ларька',    icon:'🔨',cost:500,     desc:'x2 доход ларька',       t:'kiosk',m:2},
+  {id:'uca',name:'Кофемашина',       icon:'☕',cost:2000,    desc:'x2 доход кофейни',      t:'cafe',m:2},
+  {id:'up', name:'Доп. парковки',    icon:'🚗',cost:5000,    desc:'x2 доход парковки',     t:'parking',m:2},
+  {id:'ub', name:'VIP зона бара',    icon:'🍸',cost:10000,   desc:'x2 доход бара',         t:'bar',m:2},
+  {id:'ut', name:'Авто-диспетчер',   icon:'📡',cost:22000,   desc:'x2 доход такси',        t:'taxi',m:2},
+  {id:'ur', name:'Звезда Мишлен',    icon:'⭐',cost:160000,  desc:'x2 доход ресторана',    t:'rest',m:2},
+  {id:'uh', name:'5 звёзд отель',    icon:'💎',cost:320000,  desc:'x2 доход отеля',        t:'hotel',m:2},
+  {id:'uf', name:'Премиум тренеры',  icon:'🏋️',cost:650000,  desc:'x2 доход фитнеса',      t:'fitnes',m:2},
+  {id:'ucs',name:'VIP зал казино',   icon:'🃏',cost:1300000, desc:'x2 доход казино',       t:'casino',m:2},
+  {id:'uoi',name:'Новые насосы',     icon:'⚙️',cost:7000000, desc:'x2 доход нефтебазы',    t:'oil',m:2},
+  {id:'uop',name:'Новая труба',      icon:'🔩',cost:15000000,desc:'x2 доход нефтепровода', t:'pipeline',m:2},
+  {id:'ua1',name:'Налоговые льготы', icon:'📋',cost:40000,   desc:'+20% ко всем',          t:'all',m:1.2},
+  {id:'ua2',name:'Гос контракт',     icon:'🤝',cost:400000,  desc:'+35% ко всем',          t:'all',m:1.35},
+  {id:'ua3',name:'Монополия',        icon:'🏆',cost:4000000, desc:'+50% ко всем',          t:'all',m:1.5},
+  {id:'ua4',name:'Мировой рынок',    icon:'🌍',cost:40000000,desc:'+100% ко всем',         t:'all',m:2.0}
+];
+
+var SK=[
+  {id:'charisma',   name:'Харизма',     emoji:'🗣️',desc:'+8% дохода за уровень',  max:15,base:500},
+  {id:'management', name:'Менеджмент',  emoji:'📊',desc:'+6% к тапу за уровень',  max:15,base:400},
+  {id:'connections',name:'Связи',       emoji:'🤝',desc:'-4% цена покупок',        max:15,base:600},
+  {id:'security',   name:'Безопасность',emoji:'🛡️',desc:'+10% оффлайн доход',     max:10,base:800}
+];
+
+var XPT=[0,300,700,1400,2500,4000,6000,9000,13000,18000,25000,34000,45000,60000,80000,105000,140000,185000,240000,310000,400000,520000,670000,860000,1100000];
+var TTL=['','Стажёр','Сотрудник','Специалист','Ст.специалист','Менеджер','Ст.менеджер','Рук.отдела','Директор','Ст.директор','Вице-президент','Ст.вице-президент','Исп.директор','Президент','Председатель','Основатель','Предприниматель','Инвестор','Миллиардер','Магнат','Олигарх','Пром.гигант','Мировой лидер','Легенда','Повелитель','EMPEROR'];
+
+var ACH=[
+  {id:'a1',icon:'🏪',name:'Первый бизнес',  desc:'Открой любой бизнес',   rew:500,    c:function(g){for(var k in g.biz){if(g.biz[k]>0)return true;}return false;}},
+  {id:'a2',icon:'💰',name:'Миллионер',      desc:'Заработай $1M',         rew:10000,  c:function(g){return g.total>=1000000;}},
+  {id:'a3',icon:'💎',name:'Миллиардер',     desc:'Заработай $1B',         rew:1000000,c:function(g){return g.total>=1000000000;}},
+  {id:'a4',icon:'⭐',name:'Уровень 10',     desc:'Достигни уровня 10',    rew:5000,   c:function(g){return g.level>=10;}},
+  {id:'a5',icon:'👑',name:'Уровень 20',     desc:'Достигни уровня 20',    rew:50000,  c:function(g){return g.level>=20;}},
+  {id:'a6',icon:'🛢️',name:'Нефтяник',      desc:'Открой нефтебазу',      rew:20000,  c:function(g){return (g.biz['oil']||0)>0;}},
+  {id:'a7',icon:'✈️',name:'Авиамагнат',     desc:'Открой авиакомпанию',   rew:100000, c:function(g){return (g.biz['airline']||0)>0;}},
+  {id:'a8',icon:'🚀',name:'К звёздам',      desc:'Открой космодром',      rew:500000, c:function(g){return (g.biz['space']||0)>0;}},
+  {id:'a9',icon:'⚙️',name:'Технарь',        desc:'Купи 10 апгрейдов',     rew:15000,  c:function(g){return g.upg.length>=10;}},
+  {id:'a10',icon:'🔥',name:'Верность',      desc:'7 дней подряд',         rew:7000,   c:function(g){return (g.streak||0)>=7;}}
+];
+
+var G={coins:500,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),biz:{},bizLvl:{},upg:[],skills:{charisma:0,management:0,connections:0,security:0},ach:[],daily:null,streak:0};
+var _off=0,_name='ИГРОК',_curBiz=null;
+
+function sv(){
+  G.lastSave=Date.now();
+  try{localStorage.setItem('be1',JSON.stringify(G));}catch(e){}
+}
+function ld(){
+  try{
+    var d=localStorage.getItem('be1');
+    if(d){
+      var p=JSON.parse(d);
+      for(var k in p){G[k]=p[k];}
+    }
+  }catch(e){}
+  if(!G.skills)G.skills={charisma:0,management:0,connections:0,security:0};
+  if(!G.skills.management)G.skills.management=0;
+  if(!G.skills.security)G.skills.security=0;
+  if(!G.biz)G.biz={};
+  if(!G.bizLvl)G.bizLvl={};
+  if(!G.upg)G.upg=[];
+  if(!G.ach)G.ach=[];
+  var el=(Date.now()-(G.lastSave||Date.now()))/60000;
+  var ipm=cIPM();
+  var sb=1+(G.skills.security||0)*0.1;
+  if(el>1&&ipm>0){
+    _off=Math.floor(ipm*Math.min(el,480)*sb);
+    G.coins+=_off;G.total+=_off;
+  }
+  G.lastSave=Date.now();
+}
 
 function cIPM(){
   var am=1;
   for(var i=0;i<G.upg.length;i++){
-    var uid=G.upg[i];
     for(var j=0;j<UPG.length;j++){
-      if(UPG[j].id===uid&&UPG[j].t==='all'){am*=UPG[j].m;break;}
+      if(UPG[j].id===G.upg[i]&&UPG[j].t==='all'){am*=UPG[j].m;break;}
     }
   }
   var cm=1+(G.skills.charisma||0)*0.08;
   var t=0;
   for(var b=0;b<BIZ.length;b++){
-    var biz=BIZ[b];
-    var n=G.biz[biz.id]||0;
+    var n=G.biz[BIZ[b].id]||0;
     if(!n)continue;
+    var lv=G.bizLvl[BIZ[b].id]||0;
+    var lvMult=1+lv*0.5;
     var bm=1;
     for(var i=0;i<G.upg.length;i++){
       for(var j=0;j<UPG.length;j++){
-        if(UPG[j].id===G.upg[i]&&UPG[j].t===biz.id){bm*=UPG[j].m;break;}
+        if(UPG[j].id===G.upg[i]&&UPG[j].t===BIZ[b].id){bm*=UPG[j].m;break;}
       }
     }
-    t+=biz.inc*n*bm;
+    t+=BIZ[b].inc*n*bm*lvMult;
   }
   return t*am*cm;
 }
@@ -45,440 +451,22 @@ function cClk(){
   return Math.floor(p*(1+(G.skills.management||0)*0.06));
 }
 
-function fmt(n){
-  n=Math.floor(n);
-  if(n>=1e6)return'$'+(n/1e6).toFixed(1)+'M';
-  if(n>=1e3)return'$'+(n/1e3).toFixed(1)+'K';
-  return'$'+n;
-}
-
-function rUpg(){
-  var html='';
-  for(var i=0;i<UPG.length;i++){
-    var u=UPG[i];
-    var done=G.upg.indexOf(u.id)!==-1;
-    var can=!done&&G.coins>=u.cost;
-    var cls='uc'+(done?' done':(can?' aff':''));
-    var onclick=done?'':'buyU(\''+u.id+'\')';
-    html+='<div class="'+cls+'" onclick="'+onclick+'">';
-    html+='<div class="uc-i">'+u.icon+'</div>';
-    html+='<div class="uc-info"><div class="uc-name">'+u.name+(done?' ✦':'')+'</div><div class="uc-desc">'+u.desc+'</div></div>';
-    html+='<div class="uc-cost">'+(done?'✓':fmt(u.cost))+'</div>';
-    html+='</div>';
-  }
-  return html;
-}
-
-// Test
-G.biz['kiosk']=2;
-console.log('IPM:', cIPM()); // should be 10
-console.log('CLK:', cClk()); // should be 5
-console.log('FMT:', fmt(1500)); // should be $1.5K
-console.log('UPG HTML length:', rUpg().length); // should be > 0
-console.log('ALL OK');
-</script>
-</body>
-</html>
-EOF
-node -e "
-const fs = require('fs');
-const code = fs.readFileSync('/tmp/test_game.html','utf8');
-// Extract script
-const match = code.match(/<script>([\s\S]+?)<\/script>/);
-try {
-  new Function(match[1]);
-  console.log('SYNTAX OK');
-} catch(e) {
-  console.log('SYNTAX ERROR:', e.message);
-}
-"
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden}
-body{background:var(--bg);color:var(--text);font-family:'Crimson Text',serif;min-height:100vh}
-body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.5) 100%)}
-.app{position:relative;z-index:1;max-width:480px;margin:0 auto;height:100vh;display:flex;flex-direction:column;overflow:hidden}
-
-.hdr{flex-shrink:0;padding:10px 14px 7px;border-bottom:1px solid var(--border);background:rgba(18,16,15,0.98);position:relative}
-.hdr::after{content:'';position:absolute;bottom:-1px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
-.hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.logo{font-family:'Cinzel',serif;font-size:17px;font-weight:900;letter-spacing:4px;color:var(--gold);text-shadow:0 0 20px rgba(212,168,75,.5)}
-.logo::before{content:'₿ ';font-size:13px;color:var(--gold2)}
-.logo::after{content:' ₿';font-size:13px;color:var(--gold2)}
-.lvl-badge{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--gold);border:1px solid var(--border2);padding:3px 9px;border-radius:2px;background:rgba(212,168,75,.1)}
-.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
-.st{background:rgba(212,168,75,.07);border:1px solid var(--border);border-radius:3px;padding:5px;text-align:center;position:relative}
-.st::before{content:'';position:absolute;top:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
-.st-v{font-family:'Cinzel',serif;font-size:12px;font-weight:700;color:var(--gold2)}
-.st-l{font-size:9px;color:var(--textdim);letter-spacing:.5px;font-style:italic;margin-top:1px}
-.xp-w{margin-top:6px}
-.xp-r{display:flex;justify-content:space-between;font-family:'Cinzel',serif;font-size:8px;color:var(--textdim);letter-spacing:1px;margin-bottom:2px}
-.xp-t{height:3px;background:rgba(255,255,255,.06);border-radius:1px;overflow:hidden}
-.xp-f{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:1px;transition:width .5s ease;box-shadow:0 0 6px rgba(212,168,75,.5)}
-
-.content{flex:1;overflow-y:auto;overflow-x:hidden;padding:12px 12px 8px;-webkit-overflow-scrolling:touch}
-.content::-webkit-scrollbar{width:2px}
-.content::-webkit-scrollbar-thumb{background:var(--border2);border-radius:1px}
-.tab{display:none;animation:fi .2s ease}
-.tab.on{display:block}
-@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-
-.dv{display:flex;align-items:center;gap:9px;margin-bottom:10px}
-.dv-t{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold);white-space:nowrap}
-.dv-l{flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.35}
-.dv-l.r{background:linear-gradient(270deg,var(--gold),transparent)}
-
-.carea{text-align:center;margin-bottom:15px}
-.cbtn{
-  position:relative;width:130px;height:130px;border-radius:50%;
-  background:radial-gradient(circle at 38% 33%,#2a1e10,#150e08);
-border:2px solid var(--gold);cursor:pointer;
-  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-  box-shadow:0 0 0 1px rgba(212,168,75,.12),0 0 30px rgba(212,168,75,.15),inset 0 0 25px rgba(0,0,0,.4);
-  transition:all .1s;user-select:none;-webkit-user-select:none;
-}
-.cbtn::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(212,168,75,.15)}
-.cbtn::after{content:'';position:absolute;inset:-12px;border-radius:50%;border:1px solid rgba(212,168,75,.07)}
-.cbtn:active{transform:scale(0.92);box-shadow:0 0 50px rgba(212,168,75,.35),inset 0 0 25px rgba(0,0,0,.4)}
-.cbtn-ico{font-size:36px;line-height:1;color:var(--gold2);font-family:'Cinzel',serif;font-weight:900}
-.cbtn-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--gold);opacity:.9}
-.cbtn-pw{font-family:'Cinzel',serif;font-size:12px;font-weight:700;color:var(--gold2);text-shadow:0 0 8px rgba(212,168,75,.6)}
-.cpop{position:fixed;pointer-events:none;z-index:9999;font-family:'Cinzel',serif;font-size:16px;font-weight:700;color:var(--gold2);text-shadow:0 0 10px rgba(212,168,75,.9);animation:popa .9s ease-out forwards}
-@keyframes popa{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-70px) scale(1.5)}}
-.ihint{font-size:12px;font-style:italic;color:var(--textdim);margin-top:8px;text-align:center}
-
-.offb{display:none;background:linear-gradient(135deg,rgba(139,26,26,.3),rgba(212,168,75,.1));border:1px solid var(--border2);border-radius:4px;padding:9px 13px;margin-bottom:12px;text-align:center}
-.offb.show{display:block;animation:fi .3s ease}
-.offb p{font-style:italic;font-size:12px;color:var(--textdim)}
-.offb .oamt{font-family:'Cinzel',serif;font-size:18px;color:var(--gold2);margin:3px 0}
-
-.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px}
-.bc{background:rgba(212,168,75,.06);border:1px solid var(--border);border-radius:4px;padding:10px 9px;cursor:pointer;position:relative;overflow:hidden;transition:border-color .2s,transform .1s}
-.bc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .2s}
-.bc.aff{border-color:rgba(212,168,75,.5);box-shadow:0 0 12px rgba(212,168,75,.08)}
-.bc.aff::before{opacity:.6}
-.bc:active{transform:scale(0.95)}
-.bc-n{position:absolute;top:5px;right:5px;font-family:'Cinzel',serif;font-size:8px;color:var(--gold);background:rgba(212,168,75,.1);border:1px solid var(--border);padding:1px 4px;border-radius:2px}
-.bc-i{font-size:22px;margin-bottom:3px}
-.bc-name{font-family:'Cinzel',serif;font-size:10px;font-weight:600;color:var(--text);margin-bottom:1px}
-.bc-inc{font-size:9px;color:var(--gold);font-style:italic}
-.bc-cost{font-family:'Cinzel',serif;font-size:10px;color:var(--gold2);margin-top:4px}
-
-.ulist{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-.uc{background:rgba(212,168,75,.05);border:1px solid var(--border);border-radius:4px;padding:9px 11px;display:flex;align-items:center;gap:10px;cursor:pointer;position:relative;overflow:hidden;transition:all .15s}
-.uc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--gold),transparent);opacity:.4}
-.uc.aff{border-color:rgba(212,168,75,.5)}
-.uc.aff::before{opacity:1}
-.uc:active{transform:scale(0.98)}
-.uc.done{opacity:.35;pointer-events:none}
-.uc-i{font-size:20px;flex-shrink:0}
-.uc-info{flex:1}
-.uc-name{font-family:'Cinzel',serif;font-size:10px;font-weight:600;color:var(--text)}
-.uc-desc{font-size:10px;color:var(--textdim);font-style:italic;margin-top:1px}
-.uc-cost{font-family:'Cinzel',serif;font-size:10px;color:var(--gold2);flex-shrink:0}
-
-.sklist{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-.skc{background:rgba(212,168,75,.05);border:1px solid var(--border);border-radius:4px;padding:9px 11px;cursor:pointer;transition:all .15s;position:relative}
-.skc.aff{border-color:rgba(212,168,75,.5)}
-.skc:active{transform:scale(0.98)}
-.skc.maxed{opacity:.4;pointer-events:none}
-.sk-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
-.sk-name{font-family:'Cinzel',serif;font-size:11px;font-weight:600;color:var(--text)}
-.sk-cost{font-family:'Cinzel',serif;font-size:10px;color:var(--gold2)}
-.sk-desc{font-size:10px;color:var(--textdim);font-style:italic;margin-bottom:5px}
-.sk-stars{display:flex;gap:3px;flex-wrap:wrap}
-.sk-star{width:12px;height:12px;background:rgba(212,168,75,.07);border:1px solid rgba(212,168,75,.2);border-radius:2px;transition:all .2s}
-.sk-star.f{background:linear-gradient(135deg,var(--gold),var(--gold2));border-color:var(--gold2);box-shadow:0 0 4px rgba(212,168,75,.4)}
-
-.pcard{background:rgba(212,168,75,.06);border:1px solid var(--border);border-radius:4px;padding:14px 13px;margin-bottom:10px;text-align:center;position:relative;overflow:hidden}
-.pcard::before,.pcard::after{content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
-.pcard::before{top:0}
-.pcard::after{bottom:0}
-.pava{font-size:40px;margin-bottom:5px}
-.pname{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--gold2);letter-spacing:2px}
-.ptitle{font-style:italic;font-size:12px;color:var(--textdim);margin-top:2px;margin-bottom:8px}
-.pstats{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-.ps{background:rgba(0,0,0,.25);border:1px solid var(--border);border-radius:3px;padding:6px;text-align:center}
-.ps-v{font-family:'Cinzel',serif;font-size:12px;color:var(--gold2)}
-.ps-l{font-size:9px;color:var(--textdim);font-style:italic;margin-top:1px}
-
-.agrid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.ac{background:rgba(212,168,75,.05);border:1px solid var(--border);border-radius:4px;padding:8px;text-align:center;position:relative}
-.ac.earned{border-color:rgba(212,168,75,.5);background:rgba(212,168,75,.08)}
-.ac.earned::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.ac-i{font-size:20px;margin-bottom:2px}
-.ac-name{font-family:'Cinzel',serif;font-size:9px;color:var(--text)}
-.ac-desc{font-size:9px;color:var(--textdim);font-style:italic;margin-top:1px}
-.ac-rew{font-family:'Cinzel',serif;font-size:9px;color:var(--gold);margin-top:2px}
-
-.dcard{background:linear-gradient(135deg,rgba(139,26,26,.2),rgba(212,168,75,.08));border:1px solid var(--border2);border-radius:4px;padding:15px 13px;text-align:center;margin-bottom:10px;position:relative;overflow:hidden}
-.dcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.d-ico{font-size:32px;margin-bottom:6px}
-.d-title{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:2px;margin-bottom:3px}
-.d-desc{font-size:11px;color:var(--textdim);font-style:italic;margin-bottom:8px}
-.d-amt{font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--gold2);margin:5px 0 9px}
-.d-timer{font-family:'Cinzel',serif;font-size:10px;color:var(--textdim);letter-spacing:1px;margin-top:7px}
-
-.gbtn{display:block;width:100%;padding:11px;background:linear-gradient(135deg,#221a08,#332508);border:1px solid var(--gold);border-radius:3px;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);cursor:pointer;transition:all .15s;text-align:center}
-.gbtn:active{transform:scale(0.97);box-shadow:0 0 20px rgba(212,168,75,.25)}
-.gbtn:disabled{opacity:.35;cursor:not-allowed;transform:none}
-
-.nav{flex-shrink:0;display:flex;background:rgba(14,11,9,.99);border-top:1px solid var(--border);position:relative}
-.nav::before{content:'';position:absolute;top:-1px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.4}
-.nb{flex:1;padding:7px 2px 9px;background:none;border:none;cursor:pointer;color:var(--textdim);font-family:'Cinzel',serif;font-size:7px;letter-spacing:.8px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:2px;transition:color .2s;position:relative}
-.nb.on{color:var(--gold)}
-.nb.on::after{content:'';position:absolute;bottom:0;left:18%;right:18%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);box-shadow:0 0 5px var(--gold)}
-.nb-i{font-size:16px}
-
-.notif{position:fixed;top:14px;left:50%;transform:translateX(-50%) translateY(-7px);font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;padding:7px 16px;border-radius:3px;z-index:10000;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;max-width:94vw}
-.notif.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.notif.ok{background:linear-gradient(135deg,#1e1a08,#2e2510);color:var(--gold2);border:1px solid var(--gold);box-shadow:0 0 18px rgba(212,168,75,.3)}
-.notif.err{background:linear-gradient(135deg,#1a0808,#2a0a0a);color:#e07070;border:1px solid #8b1a1a}
-.notif.lvl{background:linear-gradient(135deg,#1a1408,#2e2010);color:var(--gold3);border:1px solid var(--gold2);box-shadow:0 0 28px rgba(212,168,75,.5)}
-</style>
-</head>
-<body>
-<div class="app">
-  <div class="hdr">
-    <div class="hdr-top">
-      <div class="logo">COSA NOSTRA</div>
-      <div class="lvl-badge" id="lvlBadge">УР. 1</div>
-    </div>
-    <div class="stats">
-      <div class="st"><div class="st-v" id="sC">$0</div><div class="st-l">капитал</div></div>
-      <div class="st"><div class="st-v" id="sI">$0</div><div class="st-l">в минуту</div></div>
-      <div class="st"><div class="st-v" id="sT">$0</div><div class="st-l">всего</div></div>
-    </div>
-    <div class="xp-w">
-      <div class="xp-r"><span>ОПЫТ · <span id="xpV">0</span></span><span id="xpN">ДО СЛ.УР: 300</span></div>
-      <div class="xp-t"><div class="xp-f" id="xpF" style="width:0%"></div></div>
-    </div>
-  </div>
-
-  <div class="content" id="cnt">
-    <div class="tab on" id="tabHome">
-      <div class="offb" id="offb">
-        <p>Пока вас не было, семья заработала</p>
-        <div class="oamt" id="offAmt">$0</div>
-        <p style="font-size:10px;margin-top:2px;color:var(--textdim)">нажмите кнопку чтобы забрать</p>
-      </div>
-      <div class="carea">
-        <div class="cbtn" id="cbtn">
-          <div class="cbtn-ico">₿</div>
-          <div class="cbtn-lbl">СОБРАТЬ</div>
-          <div class="cbtn-pw" id="cpow">+$5</div>
-        </div>
-        <div class="ihint" id="ihint">Откройте первый бизнес для пассивного дохода</div>
-      </div>
-      <div class="dv"><div class="dv-l r"></div><div class="dv-t">МОИ ЗАВЕДЕНИЯ</div><div class="dv-l"></div></div>
-      <div class="bgrid" id="homeBiz"></div>
-    </div>
-
-    <div class="tab" id="tabBiz">
-      <div class="dv"><div class="dv-l r"></div><div class="dv-t">КУПИТЬ ЗАВЕДЕНИЕ</div><div class="dv-l"></div></div>
-      <div class="bgrid" id="bizGrid"></div>
-    </div>
-
-    <div class="tab" id="tabUpg">
-      <div class="dv"><div class="dv-l r"></div><div class="dv-t">УЛУЧШЕНИЯ</div><div class="dv-l"></div></div>
-      <div class="ulist" id="upgList"></div>
-      <div class="dv" style="margin-top:4px"><div class="dv-l r"></div><div class="dv-t">НАВЫКИ</div><div class="dv-l"></div></div>
-      <div class="sklist" id="skList"></div>
-    </div>
-
-    <div class="tab" id="tabProfile">
-      <div class="pcard">
-        <div class="pava">🕴</div>
-
-<div class="pname" id="pNm">ИГРОК</div>
-        <div class="ptitle" id="pTl">Стажёр</div>
-        <div class="pstats">
-          <div class="ps"><div class="ps-v" id="pp1">$0</div><div class="ps-l">капитал</div></div>
-          <div class="ps"><div class="ps-v" id="pp2">$0</div><div class="ps-l">доход/мин</div></div>
-          <div class="ps"><div class="ps-v" id="pp3">$0</div><div class="ps-l">всего заработано</div></div>
-          <div class="ps"><div class="ps-v" id="pp4">0</div><div class="ps-l">бизнесов</div></div>
-        </div>
-      </div>
-      <div class="dv"><div class="dv-l r"></div><div class="dv-t">ДОСТИЖЕНИЯ</div><div class="dv-l"></div></div>
-      <div class="agrid" id="achGrid"></div>
-    </div>
-
-    <div class="tab" id="tabBonus">
-      <div class="dcard">
-        <div class="d-ico">🎁</div>
-        <div class="d-title">ЕЖЕДНЕВНЫЙ БОНУС</div>
-        <div class="d-desc">Заходи каждый день — бонус растёт</div>
-        <div class="d-amt" id="dAmt">$0</div>
-        <button class="gbtn" id="dBtn" onclick="claimDaily()">[ ЗАБРАТЬ БОНУС ]</button>
-        <div class="d-timer" id="dTimer" style="display:none"></div>
-      </div>
-      <div class="dv"><div class="dv-l r"></div><div class="dv-t">СТРИК ВХОДОВ</div><div class="dv-l"></div></div>
-      <div id="streak" style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px"></div>
-    </div>
-  </div>
-
-  <div class="nav">
-    <button class="nb on" onclick="goTab('Home',this)"><span class="nb-i">₿</span>ГЛАВНАЯ</button>
-    <button class="nb" onclick="goTab('Biz',this)"><span class="nb-i">🏛</span>БИЗНЕС</button>
-    <button class="nb" onclick="goTab('Upg',this)"><span class="nb-i">⚜️</span>АПГРЕЙД</button>
-    <button class="nb" onclick="goTab('Profile',this)"><span class="nb-i">🕴</span>ПРОФИЛЬ</button>
-    <button class="nb" onclick="goTab('Bonus',this)"><span class="nb-i">🎁</span>БОНУС</button>
-  </div>
-</div>
-<div class="notif" id="notif"></div>
-
-<script>
-var BIZ=[
-  {id:'news',    name:'Газетный ларёк',   icon:'📰',base:100,     inc:2},
-  {id:'kiosk',   name:'Ларёк продуктов',  icon:'🏪',base:250,     inc:5},
-  {id:'cafe',    name:'Уличное кафе',     icon:'☕',base:600,     inc:12},
-  {id:'parking', name:'Парковка',         icon:'🅿️',base:1200,    inc:22},
-  {id:'bar',     name:'Бар',              icon:'🍺',base:2500,    inc:45},
-  {id:'taxi',    name:'Такси',            icon:'🚕',base:5000,    inc:85},
-  {id:'salon',   name:'Салон красоты',    icon:'💇',base:9000,    inc:150},
-  {id:'store',   name:'Магазин одежды',   icon:'👔',base:18000,   inc:280},
-  {id:'rest',    name:'Ресторан',         icon:'🍽️',base:35000,   inc:500},
-  {id:'hotel',   name:'Отель',            icon:'🏨',base:70000,   inc:950},
-  {id:'casino',  name:'Казино',           icon:'🎰',base:140000,  inc:1800},
-  {id:'club',    name:'Ночной клуб',      icon:'🎶',base:250000,  inc:3200},
-  {id:'market',  name:'Супермаркет',      icon:'🛒',base:450000,  inc:5500},
-  {id:'gym',     name:'Фитнес-центр',     icon:'💪',base:750000,  inc:9000},
-  {id:'port',    name:'Порт',             icon:'⚓',base:1200000, inc:14000},
-  {id:'factory', name:'Завод',            icon:'🏭',base:2000000, inc:22000},
-  {id:'oil',     name:'Нефтебаза',        icon:'🛢️',base:3500000, inc:38000},
-  {id:'pipeline',name:'Нефтепровод',      icon:'🔧',base:6000000, inc:65000},
-  {id:'refinery',name:'НПЗ',              icon:'⚗️',base:10000000,inc:110000},
-  {id:'bank',    name:'Банк',             icon:'🏦',base:18000000,inc:190000},
-  {id:'airline', name:'Авиакомпания',     icon:'✈️',base:30000000,inc:320000},
-  {id:'island',  name:'Частный остров',   icon:'🏝️',base:55000000,inc:560000},
-  {id:'space',   name:'Космодром',        icon:'🚀',base:100000000,inc:1000000}
-];
-
-var UPG=[
-  {id:'un', name:'Реклама ларька',    icon:'📣',cost:500,     desc:'×2 доход ларька',        t:'kiosk',   m:2},
-
-{id:'uc', name:'Кофемашина',        icon:'☕',cost:3000,    desc:'×2 доход кафе',          t:'cafe',    m:2},
-  {id:'up', name:'Доп. парковки',     icon:'🚗',cost:6000,    desc:'×2 доход парковки',      t:'parking', m:2},
-  {id:'ub', name:'VIP-стойка',        icon:'🍸',cost:12000,   desc:'×2 доход бара',          t:'bar',     m:2},
-  {id:'ut', name:'Авто-диспетчер',    icon:'📡',cost:25000,   desc:'×2 доход такси',         t:'taxi',    m:2},
-  {id:'ur', name:'Звезда Мишлен',     icon:'⭐',cost:180000,  desc:'×2 доход ресторана',     t:'rest',    m:2},
-  {id:'uh', name:'5 звёзд',           icon:'💎',cost:350000,  desc:'×2 доход отеля',         t:'hotel',   m:2},
-  {id:'uca',name:'VIP-зал',           icon:'🃏',cost:700000,  desc:'×2 доход казино',        t:'casino',  m:2},
-  {id:'uoi',name:'Новые насосы',      icon:'⚙️',cost:5000000, desc:'×2 доход нефтебазы',     t:'oil',     m:2},
-  {id:'uop',name:'Новая труба',       icon:'🔩',cost:12000000,desc:'×2 доход нефтепровода',  t:'pipeline',m:2},
-  {id:'ua1',name:'Налоговые льготы',  icon:'📋',cost:50000,   desc:'+25% ко всем доходам',   t:'all',     m:1.25},
-  {id:'ua2',name:'Гос. контракт',     icon:'🤝',cost:500000,  desc:'+40% ко всем доходам',   t:'all',     m:1.4},
-  {id:'ua3',name:'Монополия',         icon:'👑',cost:5000000, desc:'+60% ко всем доходам',   t:'all',     m:1.6},
-  {id:'ua4',name:'Мировой рынок',     icon:'🌍',cost:50000000,desc:'+100% ко всем доходам',  t:'all',     m:2},
-  {id:'cl1',name:'Деловая хватка',    icon:'💼',cost:300,     desc:'×2 к тапу',              t:'click',   m:2},
-  {id:'cl2',name:'Финансовый гений',  icon:'🧠',cost:8000,    desc:'×2 к тапу',              t:'click',   m:2},
-  {id:'cl3',name:'Харизма лидера',    icon:'🎯',cost:80000,   desc:'×3 к тапу',              t:'click',   m:3},
-  {id:'cl4',name:'Связи наверху',     icon:'🔫',cost:800000,  desc:'×4 к тапу',              t:'click',   m:4},
-  {id:'cl5',name:'Империя',           icon:'🏰',cost:8000000, desc:'×5 к тапу',              t:'click',   m:5}
-];
-
-var SK=[
-  {id:'charisma',   name:'Харизма',     desc:'+8% дохода за уровень', max:15,base:500},
-  {id:'management', name:'Менеджмент',  desc:'+6% к тапу за уровень', max:15,base:400},
-  {id:'connections',name:'Связи',       desc:'-4% цена покупок',      max:15,base:600},
-  {id:'security',   name:'Безопасность',desc:'+10% оффлайн доход',    max:10,base:800}
-];
-
-var XPT=[0,300,700,1400,2500,4000,6000,9000,13000,18000,25000,34000,45000,60000,80000,105000,140000,185000,240000,310000,400000,520000,670000,860000,1100000];
-var TTL=['','Стажёр','Сотрудник','Специалист','Ст. специалист','Менеджер','Ст. менеджер','Рук. отдела','Директор','Ст. директор','Вице-президент','Ст. вице-президент','Исп. директор','Президент','Председатель','Основатель','Предприниматель','Инвестор','Миллиардер','Магнат','Олигарх','Пром. гигант','Мировой лидер','Легенда','Повелитель','EMPEROR'];
-
-var ACH=[
-  {id:'a1',icon:'🏪',name:'Первый бизнес', desc:'Открой любой бизнес',     rew:500,    c:function(g){return Object.values(g.biz).some(function(v){return v>0})}},
-  {id:'a2',icon:'💰',name:'Миллионер',      desc:'Заработай 1 000 000$',   rew:10000,  c:function(g){return g.total>=1000000}},
-  {id:'a3',icon:'💎',name:'Миллиардер',     desc:'Заработай 1 000 000 000$',rew:1000000,c:function(g){return g.total>=1000000000}},
-  {id:'a4',icon:'⭐',name:'Уровень 10',     desc:'Достигни уровня 10',     rew:5000,   c:function(g){return g.level>=10}},
-  {id:'a5',icon:'👑',name:'Уровень 20',     desc:'Достигни уровня 20',     rew:50000,  c:function(g){return g.level>=20}},
-  {id:'a6',icon:'🛢️',name:'Нефтяной магнат',desc:'Открой нефтебазу',      rew:20000,  c:function(g){return (g.biz['oil']||0)>0}},
-  {id:'a7',icon:'✈️',name:'Авиамагнат',     desc:'Открой авиакомпанию',   rew:100000, c:function(g){return (g.biz['airline']||0)>0}},
-  {id:'a8',icon:'🚀',name:'К звёздам',      desc:'Открой космодром',       rew:500000, c:function(g){return (g.biz['space']||0)>0}},
-  {id:'a9',icon:'⚙️',name:'Технарь',        desc:'Купи 10 апгрейдов',      rew:15000,  c:function(g){return g.upg.length>=10}},
-  {id:'a10',icon:'🔥',name:'Верность',      desc:'7 дней подряд',          rew:7000,   c:function(g){return (g.streak||0)>=7}}
-];
-
-// ═══ СОСТОЯНИЕ ═══
-var G={coins:500,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),biz:{},upg:[],skills:{charisma:0,management:0,connections:0,security:0},ach:[],daily:null,streak:0};
-var _off=0,_name='ИГРОК';
-
-function sv(){
-  G.lastSave=Date.now();
-  try{localStorage.setItem('cn3',JSON.stringify(G))}catch(e){}
-}
-function ld(){
-  try{
-    var d=localStorage.getItem('cn3');
-    if(d){
-      var parsed=JSON.parse(d);
-      Object.keys(parsed).forEach(function(k){G[k]=parsed[k]});
-    }
-  }catch(e){}
-  if(!G.skills)G.skills={charisma:0,management:0,connections:0,security:0};
-  if(!G.skills.management)G.skills.management=0;
-  if(!G.skills.security)G.skills.security=0;
-  if(!G.biz)G.biz={};
-  if(!G.upg)G.upg=[];
-  if(!G.ach)G.ach=[];
-  var el=(Date.now()-(G.lastSave||Date.now()))/60000;
-  var ipm=cIPM();
-  var secB=1+(G.skills.security||0)*0.1;
-  if(el>1&&ipm>0){
-    _off=Math.floor(ipm*Math.min(el,480)*secB);
-    G.coins+=_off;
-    G.total+=_off;
-  }
-  G.lastSave=Date.now();
-}
-
-function cIPM(){
-  var am=1;
-  for(var i=0;i<G.upg.length;i++){
-    var uid=G.upg[i];
-    for(var j=0;j<UPG.length;j++){
-      if(UPG[j].id===uid&&UPG[j].t==='all'){am*=UPG[j].m;break}
-    }
-  }
-  var cm=1+(G.skills.charisma||0)*0.08;
-  var t=0;
-  for(var b=0;b<BIZ.length;b++){
-    var biz=BIZ[b];
-    var n=G.biz[biz.id]||0;
-    if(!n)continue;
-    var bm=1;
-    for(var i=0;i<G.upg.length;i++){
-      var uid=G.upg[i];
-      for(var j=0;j<UPG.length;j++){
-        if(UPG[j].id===uid&&UPG[j].t===biz.id){bm*=UPG[j].m;break}
-      }
-    }
-    t+=biz.inc*n*bm;
-  }
-  return t*am*cm;
-}
-
-function cClk(){
-  var base=5+(G.level-1)*2;
-  var p=base;
-  for(var i=0;i<G.upg.length;i++){
-    var uid=G.upg[i];
-    for(var j=0;j<UPG.length;j++){
-      if(UPG[j].id===uid&&UPG[j].t==='click'){p*=UPG[j].m;break}
-    }
-  }
-  var mb=1+(G.skills.management||0)*0.06;
-  return Math.floor(p*mb);
-}
-
 function cCost(biz){
   var n=G.biz[biz.id]||0;
   var disc=Math.min((G.skills.connections||0)*0.04,0.4);
   return Math.floor(biz.base*Math.pow(1.15,n)*(1-disc));
 }
+
+function cBizUpgCost(biz){
+  var lv=G.bizLvl[biz.id]||0;
+  if(lv>=5)return null;
+  return Math.floor(biz.base*2*Math.pow(3,lv));
+}
+
 function cSkCost(sk){
   return Math.floor(sk.base*Math.pow(2,G.skills[sk.id]||0));
 }
+
 function fmt(n){
   n=Math.floor(n);
   if(n>=1e12)return'$'+(n/1e12).toFixed(1)+'T';
@@ -491,11 +479,8 @@ function fmt(n){
 function aXP(v){
   G.xp+=v;
   var lv=false;
-  while(G.level<XPT.length&&G.xp>=(XPT[G.level]||Infinity)){G.level++;lv=true}
-  if(lv){
-    var t=TTL[Math.min(G.level,TTL.length-1)];
-    ntf('УРОВЕНЬ '+G.level+' — '+t,'lvl');
-  }
+  while(G.level<XPT.length&&G.xp>=(XPT[G.level]||Infinity)){G.level++;lv=true;}
+  if(lv){ntf('▲ УРОВЕНЬ '+G.level+' — '+TTL[Math.min(G.level,TTL.length-1)],'lvl');}
 }
 
 function chAch(){
@@ -503,51 +488,61 @@ function chAch(){
     var a=ACH[i];
     if(G.ach.indexOf(a.id)===-1&&a.c(G)){
       G.ach.push(a.id);
-      G.coins+=a.rew;
-      G.total+=a.rew;
-      (function(name,rew){
-        setTimeout(function(){ntf('АЧИВКА: '+name+' +'+fmt(rew),'ok')},600);
-      })(a.name,a.rew);
+      G.coins+=a.rew;G.total+=a.rew;
+      (function(nm,rw){setTimeout(function(){ntf('🏆 '+nm+' +'+fmt(rw),'ok');},700);})(a.name,a.rew);
     }
   }
 }
-
 function buyB(id){
   var biz=null;
-  for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){biz=BIZ[i];break}}
+  for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){biz=BIZ[i];break;}}
   if(!biz)return;
   var c=cCost(biz);
-  if(G.coins<c){ntf('НЕДОСТАТОЧНО СРЕДСТВ','err');return}
+  if(G.coins<c){ntf('Недостаточно средств','err');return;}
   G.coins-=c;
   G.biz[id]=(G.biz[id]||0)+1;
-  aXP(20);chAch();G.ipm=cIPM();
-  ntf(biz.name.toUpperCase()+' ОТКРЫТ','ok');
+  aXP(20);chAch();
+  ntf(biz.name+' открыт!','ok');
+  sv();rdr();
+}
+
+function upgBiz(id){
+  var biz=null;
+  for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){biz=BIZ[i];break;}}
+  if(!biz)return;
+  var lv=G.bizLvl[id]||0;
+  if(lv>=5){ntf('Максимальный уровень!','err');return;}
+  var c=cBizUpgCost(biz);
+  if(G.coins<c){ntf('Недостаточно средств','err');return;}
+  G.coins-=c;
+  G.bizLvl[id]=(G.bizLvl[id]||0)+1;
+  aXP(30);chAch();
+  ntf(biz.name+' прокачан до ур.'+(G.bizLvl[id])+'!','ok');
   sv();rdr();
 }
 
 function buyU(id){
   var upg=null;
-  for(var i=0;i<UPG.length;i++){if(UPG[i].id===id){upg=UPG[i];break}}
+  for(var i=0;i<UPG.length;i++){if(UPG[i].id===id){upg=UPG[i];break;}}
   if(!upg||G.upg.indexOf(id)!==-1)return;
-  if(G.coins<upg.cost){ntf('НЕДОСТАТОЧНО СРЕДСТВ','err');return}
-  G.coins-=upg.cost;
-  G.upg.push(id);
-  aXP(30);chAch();G.ipm=cIPM();
-  ntf(upg.name.toUpperCase()+' АКТИВИРОВАН','ok');
+  if(G.coins<upg.cost){ntf('Недостаточно средств','err');return;}
+  G.coins-=upg.cost;G.upg.push(id);
+  aXP(30);chAch();
+  ntf(upg.name+' активирован!','ok');
   sv();rdr();
 }
+
 function buySk(id){
   var sk=null;
-  for(var i=0;i<SK.length;i++){if(SK[i].id===id){sk=SK[i];break}}
+  for(var i=0;i<SK.length;i++){if(SK[i].id===id){sk=SK[i];break;}}
   if(!sk)return;
   var lv=G.skills[id]||0;
   if(lv>=sk.max)return;
   var c=cSkCost(sk);
-  if(G.coins<c){ntf('НЕДОСТАТОЧНО СРЕДСТВ','err');return}
-  G.coins-=c;
-  G.skills[id]=lv+1;
-  aXP(25);G.ipm=cIPM();
-  ntf(sk.name+' — УРОВЕНЬ '+(lv+1),'ok');
+  if(G.coins<c){ntf('Недостаточно средств','err');return;}
+  G.coins-=c;G.skills[id]=lv+1;
+  aXP(25);
+  ntf(sk.name+' — уровень '+(lv+1),'ok');
   sv();rdr();
 }
 
@@ -555,46 +550,78 @@ function claimDaily(){
   var now=Date.now();
   if(G.daily){
     var d=now-G.daily;
-    if(d<86400000){updDT();return}
+    if(d<86400000){updDT();return;}
     G.streak=d<172800000?(G.streak||0)+1:1;
-  }else{G.streak=1}
+  }else{G.streak=1;}
   var bon=1000+G.level*500+(G.streak||0)*200;
   G.coins+=bon;G.total+=bon;G.daily=now;
   aXP(30);chAch();
-  ntf('БОНУС — +'+fmt(bon),'ok');
+  ntf('Бонус получен — +'+fmt(bon),'ok');
   sv();rdr();
 }
 
 function updDT(){
   var btn=document.getElementById('dBtn');
   var tmr=document.getElementById('dTimer');
-  if(!G.daily){btn.disabled=false;btn.textContent='[ ЗАБРАТЬ БОНУС ]';tmr.style.display='none';return}
+  if(!G.daily){btn.disabled=false;btn.textContent='[ ЗАБРАТЬ БОНУС ]';tmr.style.display='none';return;}
   var d=Date.now()-G.daily;
-  if(d>=86400000){btn.disabled=false;btn.textContent='[ ЗАБРАТЬ БОНУС ]';tmr.style.display='none'}
+  if(d>=86400000){btn.disabled=false;btn.textContent='[ ЗАБРАТЬ БОНУС ]';tmr.style.display='none';}
   else{
-    var r=86400000-d,h=Math.floor(r/3600000),m=Math.floor((r%3600000)/60000);
+    var r=86400000-d;
+    var h=Math.floor(r/3600000),m=Math.floor((r%3600000)/60000);
     btn.disabled=true;btn.textContent='[ УЖЕ ПОЛУЧЕН ]';
     tmr.style.display='block';tmr.textContent='Следующий через: '+h+'ч '+m+'мин';
   }
 }
 
-// ═══ КЛИК ═══
-document.getElementById('cbtn').addEventListener('click',function(e){
-  var earn=cClk();
-  G.coins+=earn;G.total+=earn;
-  if(_off>0){_off=0;document.getElementById('offb').classList.remove('show')}
-  aXP(3);chAch();
-  var pop=document.createElement('div');
-  pop.className='cpop';
-  pop.textContent='+'+fmt(earn);
-  var r=this.getBoundingClientRect();
-  pop.style.left=(r.left+r.width/2-22)+'px';
-  pop.style.top=(r.top-10)+'px';
-  document.body.appendChild(pop);
-  setTimeout(function(){if(pop.parentNode)pop.parentNode.removeChild(pop)},950);
-  sv();rdr();
-});
+// ── MODAL ──
+function openModal(id){
+  var biz=null;
+  for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){biz=BIZ[i];break;}}
+  if(!biz)return;
+  _curBiz=biz;
+  var n=G.biz[id]||0;
+  var lv=G.bizLvl[id]||0;
+  var lvMult=1+lv*0.5;
+  var inc=biz.inc*lvMult;
+  var upgC=cBizUpgCost(biz);
+  document.getElementById('mTitle').textContent=biz.icon+' '+biz.name;
+  document.getElementById('mCount').textContent=n+' шт.';
+  document.getElementById('mLvl').textContent=lv+' / 5';
+  document.getElementById('mInc').textContent=fmt(inc)+'/мин';
+  document.getElementById('mTotal').textContent=fmt(inc*n)+'/мин';
+  document.getElementById('mBuyCost').textContent=fmt(cCost(biz));
+  document.getElementById('mUpgCost').textContent=upgC?fmt(upgC):'МАКСИМУМ';
+  var buyBtn=document.getElementById('mBuyBtn');
+  var upgBtn=document.getElementById('mUpgBtn');
+  buyBtn.style.opacity=G.coins>=cCost(biz)?'1':'0.4';
+  upgBtn.style.opacity=(upgC&&G.coins>=upgC)?'1':'0.4';
+  if(!upgC){upgBtn.textContent='МАК УРОВЕНЬ';upgBtn.style.pointerEvents='none';}
+  else{upgBtn.textContent='ПРОКАЧАТЬ';upgBtn.style.pointerEvents='';}
+  document.getElementById('bizModal').classList.add('show');
+}
 
+function modalBuy(){
+  if(!_curBiz)return;
+  buyB(_curBiz.id);
+  openModal(_curBiz.id);
+}
+
+function modalUpg(){
+  if(!_curBiz)return;
+  upgBiz(_curBiz.id);
+  openModal(_curBiz.id);
+}
+
+function closeModal(){
+  document.getElementById('bizModal').classList.remove('show');
+  _curBiz=null;
+}
+
+document.getElementById('bizModal').addEventListener('click',function(e){
+  if(e.target===this)closeModal();
+});
+// ── RENDER ──
 function rdr(){
   var ipm=cIPM();G.ipm=ipm;
   var clk=cClk();
@@ -607,46 +634,53 @@ function rdr(){
   var pct=nx>pv?Math.min(100,((G.xp-pv)/(nx-pv))*100):100;
   document.getElementById('xpF').style.width=pct+'%';
   document.getElementById('xpV').textContent=G.xp;
-  document.getElementById('xpN').textContent=nx>G.xp?'ДО СЛ.УР: '+(nx-G.xp):'МАКСИМУМ';
+  var nextLvl=G.level+1;
+  document.getElementById('xpN').textContent=nx>G.xp?'до ур.'+nextLvl+': '+(nx-G.xp):'МАКСИМУМ';
   document.getElementById('cpow').textContent='+'+fmt(clk);
-  document.getElementById('ihint').textContent=ipm>0?'Доход: '+fmt(ipm)+'/мин · Тап = +'+fmt(clk):'Откройте первый бизнес для пассивного дохода';
-  if(_off>0){document.getElementById('offAmt').textContent=fmt(_off);document.getElementById('offb').classList.add('show')}
+  document.getElementById('ihint').textContent=ipm>0?'Доход: '+fmt(ipm)+'/мин · Тап: +'+fmt(clk):'Откройте бизнес для пассивного дохода';
+  if(_off>0){document.getElementById('offAmt').textContent=fmt(_off);document.getElementById('offb').classList.add('show');}
   rHB();rBiz();rUpg();rSk();rProf();rAch();rBonus();
 }
 
 function rHB(){
   var el=document.getElementById('homeBiz');
-  var html='';
-  var hasOwned=false;
+  var html='',has=false;
   for(var i=0;i<BIZ.length;i++){
-    var b=BIZ[i];
-    var n=G.biz[b.id]||0;
-    if(n>0){
-      hasOwned=true;
-      html+='<div class="bc"><div class="bc-n">×'+n+'</div><div class="bc-i">'+b.icon+'</div><div class="bc-name">'+b.name+'</div><div class="bc-inc">'+fmt(b.inc*n)+'/мин</div></div>';
-    }
+    var b=BIZ[i],n=G.biz[b.id]||0;
+    if(!n)continue;
+    has=true;
+    var lv=G.bizLvl[b.id]||0;
+    var inc=b.inc*(1+lv*0.5)*n;
+    html+='<div class="bc" onclick="openModal(\''+b.id+'\')">';
+    html+='<div class="bc-lvl">Ур.'+lv+'</div>';
+    html+='<div class="bc-n">×'+n+'</div>';
+    html+='<div class="bc-i">'+b.icon+'</div>';
+    html+='<div class="bc-name">'+b.name+'</div>';
+    html+='<div class="bc-inc">'+fmt(inc)+'/мин</div>';
+    html+='</div>';
   }
-  el.innerHTML=hasOwned?html:'<div style="grid-column:1/-1;text-align:center;padding:14px;font-style:italic;color:var(--textdim);font-size:12px">Нет открытых заведений.<br>Перейдите в раздел Бизнес.</div>';
+  el.innerHTML=has?html:'<div style="grid-column:1/-1;text-align:center;padding:16px;color:var(--textdim);font-size:12px;font-style:italic">Нет открытых бизнесов.<br>Перейдите в раздел Бизнес.</div>';
 }
 
 function rBiz(){
   var el=document.getElementById('bizGrid');
   var html='';
   for(var i=0;i<BIZ.length;i++){
-    var b=BIZ[i];
-    var n=G.biz[b.id]||0;
-    var c=cCost(b);
-    var can=G.coins>=c;
-    html+='<div class="bc'+(can?' aff':'')+'" onclick="buyB(\''+b.id+'\')">';
+    var b=BIZ[i],n=G.biz[b.id]⠟⠺⠞⠵⠵⠺⠞⠟⠵⠟⠞⠺⠟⠟⠵⠟⠟⠵⠺0;
+    var c=cCost(b),can=G.coins>=c;
+    var inc=b.inc*(1+lv*0.5);
+    html+='<div class="bc'+(can?' aff':'')+'" onclick="openModal(\''+b.id+'\')">';
+    html+='<div class="bc-lvl">Ур.'+lv+'</div>';
     html+='<div class="bc-n">×'+n+'</div>';
     html+='<div class="bc-i">'+b.icon+'</div>';
     html+='<div class="bc-name">'+b.name+'</div>';
-    html+='<div class="bc-inc">'+fmt(b.inc)+'/мин·ед.</div>';
+    html+='<div class="bc-inc">'+fmt(inc)+'/мин·ед.</div>';
     html+='<div class="bc-cost">'+fmt(c)+'</div>';
     html+='</div>';
   }
   el.innerHTML=html;
 }
+
 function rUpg(){
   var el=document.getElementById('upgList');
   var html='';
@@ -654,9 +688,11 @@ function rUpg(){
     var u=UPG[i];
     var done=G.upg.indexOf(u.id)!==-1;
     var can=!done&&G.coins>=u.cost;
-    html+='<div class="uc'+(done?' done':can?' aff':'')+'" onclick="'+(done?'':'buyU(\''+u.id+'\')'"+'>"';
+    var cls='uc'+(done?' done':(can?' aff':''));
+    var oc=done?'':'buyU(\''+u.id+'\')';
+    html+='<div class="'+cls+'" onclick="'+oc+'">';
     html+='<div class="uc-i">'+u.icon+'</div>';
-    html+='<div class="uc-info"><div class="uc-name">'+u.name+(done?' ✦':'')+'</div><div class="uc-desc">'+u.desc+'</div></div>';
+    html+='<div class="uc-info"><div class="uc-name">'+u.name+(done?' ✓':'')+'</div><div class="uc-desc">'+u.desc+'</div></div>';
     html+='<div class="uc-cost">'+(done?'✓':fmt(u.cost))+'</div>';
     html+='</div>';
   }
@@ -668,39 +704,44 @@ function rSk(){
   var html='';
   for(var i=0;i<SK.length;i++){
     var sk=SK[i];
-    var lv=G.skills[sk.id]||0;
-    var c=cSkCost(sk);
-    var can=lv<sk.max&&G.coins>=c;
-    var mx=lv>=sk.max;
-    var stars='';
-    for(var s=0;s<sk.max;s++)stars+='<div class="sk-star'+(s<lv?' f':'')+'"></div>';
-    html+='<div class="skc'+(can?' aff':mx?' maxed':'')+'" onclick="'+(mx?'':'buySk(\''+sk.id+'\')')+'>"';
-    html+='<div class="sk-top"><div class="sk-name">'+sk.name+'</div><div class="sk-cost">'+(mx?'★ МАКС':fmt(c))+'</div></div>';
+    var lv=G.skills[sk.id]||0,c=cSkCost(sk),can=lv<sk.max&&G.coins>=c,mx=lv>=sk.max;
+    var pct=Math.round(lv/sk.max*100);
+    var oc=mx?'':'buySk(\''+sk.id+'\')';
+    html+='<div class="skc'+(can?' aff':(mx?' maxed':''))+'" onclick="'+oc+'">';
+    html+='<div class="sk-top"><div class="sk-name">'+sk.emoji+' '+sk.name+' ['+lv+'/'+sk.max+']</div><div class="sk-cost">'+(mx?'★ МАКС':fmt(c))+'</div></div>';
     html+='<div class="sk-desc">'+sk.desc+'</div>';
-    html+='<div class="sk-stars">'+stars+'</div>';
+    html+='<div class="sk-prog"><div class="sk-fill" style="width:'+pct+'%"></div></div>';
     html+='</div>';
   }
   el.innerHTML=html;
 }
-
 function rProf(){
   document.getElementById('pNm').textContent=_name.toUpperCase();
   document.getElementById('pTl').textContent=TTL[Math.min(G.level,TTL.length-1)];
   document.getElementById('pp1').textContent=fmt(G.coins);
   document.getElementById('pp2').textContent=fmt(cIPM());
   document.getElementById('pp3').textContent=fmt(G.total);
-  var cnt=0;
-  for(var i=0;i<BIZ.length;i++){if((G.biz[BIZ[i].id]||0)>0)cnt++}
+  var cnt=0;for(var k in G.biz){if(G.biz[k]>0)cnt++;}
   document.getElementById('pp4').textContent=cnt;
+  var ss='';
+  for(var i=0;i<SK.length;i++){
+    var sk=SK[i],lv=G.skills[sk.id]||0;
+    ss+='<div class="ss-item"><div class="ss-ico">'+sk.emoji+'</div><div class="ss-name">'+sk.name+'</div><div class="ss-val">'+lv+'/'+sk.max+'</div></div>';
+  }
+  document.getElementById('skillSummary').innerHTML=ss;
 }
 
 function rAch(){
   var el=document.getElementById('achGrid');
   var html='';
   for(var i=0;i<ACH.length;i++){
-    var a=ACH[i];
-    var e=G.ach.indexOf(a.id)!==-1;
-    html+='<div class="ac'+(e?' earned':'')+'"><div class="ac-i">'+a.icon+'</div><div class="ac-name">'+a.name+'</div><div class="ac-desc">'+a.desc+'</div><div class="ac-rew">'+(e?'✦ ПОЛУЧЕНО':'+'+fmt(a.rew))+'</div></div>';
+    var a=ACH[i],e=G.ach.indexOf(a.id)!==-1;
+    html+='<div class="ac'+(e?' earned':'')+'">';
+    html+='<div class="ac-i">'+a.icon+'</div>';
+    html+='<div class="ac-name">'+a.name+'</div>';
+    html+='<div class="ac-desc">'+a.desc+'</div>';
+    html+='<div class="ac-rew">'+(e?'✓ ПОЛУЧЕНО':'+'+fmt(a.rew))+'</div>';
+    html+='</div>';
   }
   el.innerHTML=html;
 }
@@ -712,14 +753,35 @@ function rBonus(){
   var html='';
   for(var i=0;i<7;i++){
     var f=(G.streak||0)>i;
-    html+='<div style="flex:1;min-width:34px;height:46px;background:'+(f?'rgba(212,168,75,.13)':'rgba(0,0,0,.25)')+';border:1px solid '+(f?'rgba(212,168,75,.5)':'rgba(212,168,75,.15)')+';border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">';
-    html+='<div style="font-size:12px">'+(f?'₿':'·')+'</div>';
-    html+='<div style="font-family:Cinzel,serif;font-size:7px;color:'+(f?'var(--gold)':'var(--textdim)')+'">ДЕНЬ '+(i+1)+'</div>';
+    html+='<div style="flex:1;min-width:36px;height:50px;';
+    html+='background:'+(f?'rgba(155,89,182,.2)':'rgba(0,0,0,.2)')+';';
+    html+='border:1px solid '+(f?'rgba(180,127,212,.6)':'rgba(180,127,212,.15)')+';';
+    html+='border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">';
+    html+='<div style="font-size:14px">'+(f?'⭐':'·')+'</div>';
+    html+='<div style="font-size:8px;color:'+(f?'var(--purple2)':'var(--textdim)')+'">ДЕНЬ '+(i+1)+'</div>';
     html+='</div>';
   }
-  document.getElementById('streak').innerHTML=html;
+  document.getElementById('streakEl').innerHTML=html;
 }
 
+// ── CLICK ──
+document.getElementById('cbtn').addEventListener('click',function(e){
+  var earn=cClk();
+  G.coins+=earn;G.total+=earn;
+  if(_off>0){_off=0;document.getElementById('offb').classList.remove('show');}
+  aXP(3);chAch();
+  var pop=document.createElement('div');
+  pop.className='cpop';
+  pop.textContent='+'+fmt(earn);
+  var r=this.getBoundingClientRect();
+  pop.style.left=(r.left+r.width/2-24)+'px';
+  pop.style.top=(r.top-10)+'px';
+  document.body.appendChild(pop);
+  setTimeout(function(){if(pop.parentNode)pop.parentNode.removeChild(pop);},950);
+  sv();rdr();
+});
+
+// ── TABS ──
 function goTab(n,btn){
   var tabs=document.querySelectorAll('.tab');
   for(var i=0;i<tabs.length;i++)tabs[i].classList.remove('on');
@@ -731,6 +793,7 @@ function goTab(n,btn){
   rdr();
 }
 
+// ── NOTIF ──
 var _nt;
 function ntf(msg,tp){
   tp=tp||'ok';
@@ -738,22 +801,19 @@ function ntf(msg,tp){
   el.textContent=msg;
   el.className='notif '+tp+' show';
   clearTimeout(_nt);
-  _nt=setTimeout(function(){el.classList.remove('show')},2800);
+  _nt=setTimeout(function(){el.classList.remove('show');},2800);
 }
 
-// ═══ ИГРОВОЙ ЦИКЛ ═══
+// ── GAME LOOP ──
 setInterval(function(){
   var ipm=cIPM();
-  if(ipm>0){
-    var inc=ipm/600;
-    G.coins+=inc;
-    G.total+=inc;
-  }
+  if(ipm>0){var inc=ipm/600;G.coins+=inc;G.total+=inc;}
   document.getElementById('sC').textContent=fmt(G.coins);
   document.getElementById('sT').textContent=fmt(G.total);
   sv();
 },100);
-// ═══ СТАРТ ═══
+
+// ── START ──
 ld();
 if(window.Telegram&&window.Telegram.WebApp){
   window.Telegram.WebApp.ready();
@@ -769,3 +829,4 @@ if(_off>0){
 </script>
 </body>
 </html>
+
