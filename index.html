@@ -8,196 +8,188 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#1a1225;--bg2:#221830;--bg3:#2d2040;
+  --bg:#1a1225;--bg2:#221830;
   --gold:#d4a84b;--gold2:#f0c96a;--gold3:#fde8a8;
-  --purple:#9b59b6;--purple2:#b47fd4;--purple3:#d4a8f0;
-  --green:#27ae60;--red:#c0392b;
-  --text:#ede0ff;--textdim:#8a7aaa;
-  --border:rgba(180,127,212,0.25);--border2:rgba(180,127,212,0.5);
-  --bordog:rgba(212,168,75,0.35);--bordog2:rgba(212,168,75,0.6);
+  --pur:#9b59b6;--pur2:#b47fd4;--pur3:#d4a8f0;
+  --text:#ede0ff;--dim:#8a7aaa;
+  --bor:rgba(180,127,212,0.25);--bor2:rgba(180,127,212,0.5);
+  --borg:rgba(212,168,75,0.35);--borg2:rgba(212,168,75,0.6);
   --card:rgba(155,89,182,0.07);--cardg:rgba(212,168,75,0.06);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden}
 body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-height:100vh}
-body::before{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse at 20% 0%,rgba(155,89,182,0.15) 0%,transparent 60%),
-    radial-gradient(ellipse at 80% 100%,rgba(212,168,75,0.1) 0%,transparent 60%);
-}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 20% 0%,rgba(155,89,182,0.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(212,168,75,0.1) 0%,transparent 60%)}
 .app{position:relative;z-index:1;max-width:480px;margin:0 auto;height:100vh;display:flex;flex-direction:column;overflow:hidden}
 
-/* ── HEADER ── */
-.hdr{flex-shrink:0;padding:10px 14px 8px;border-bottom:1px solid var(--border);background:rgba(26,18,37,0.98);position:relative}
-.hdr::after{content:'';position:absolute;bottom:-1px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold),var(--purple2),transparent);opacity:.6}
+/* HEADER */
+.hdr{flex-shrink:0;padding:10px 14px 8px;border-bottom:1px solid var(--bor);background:rgba(26,18,37,0.98);position:relative}
+.hdr::after{content:'';position:absolute;bottom:-1px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pur2),transparent);opacity:.6}
 .hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.logo{font-family:'Cinzel',serif;font-size:16px;font-weight:900;letter-spacing:3px;background:linear-gradient(135deg,var(--purple2),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lvl-badge{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;color:var(--gold);border:1px solid var(--bordog2);padding:3px 9px;border-radius:12px;background:rgba(212,168,75,.1)}
-.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
-.st{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px;text-align:center;position:relative}
-.st::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--purple2),transparent);opacity:.5}
-.st-v{font-family:'Cinzel',serif;font-size:12px;font-weight:700;color:var(--gold2)}
-.st-l{font-size:9px;color:var(--textdim);margin-top:1px}
-.xp-w{margin-top:6px}
-.xp-r{display:flex;justify-content:space-between;font-size:9px;color:var(--textdim);margin-bottom:3px}
+.logo{font-family:'Cinzel',serif;font-size:16px;font-weight:900;letter-spacing:3px;background:linear-gradient(135deg,var(--pur2),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lvl-badge{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;color:var(--gold);border:1px solid var(--borg2);padding:3px 10px;border-radius:12px;background:rgba(212,168,75,.1)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.st{background:var(--card);border:1px solid var(--bor);border-radius:8px;padding:6px;text-align:center;position:relative}
+.st::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--pur2),transparent);opacity:.5}
+.st-v{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--gold2)}
+.st-l{font-size:9px;color:var(--dim);margin-top:1px}
+.xp-w{margin-top:7px}
+.xp-r{display:flex;justify-content:space-between;font-size:9px;color:var(--dim);margin-bottom:3px}
 .xp-t{height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
-.xp-f{height:100%;background:linear-gradient(90deg,var(--purple),var(--gold));border-radius:2px;transition:width .5s ease;box-shadow:0 0 6px rgba(155,89,182,.6)}
+.xp-f{height:100%;background:linear-gradient(90deg,var(--pur),var(--gold));border-radius:2px;transition:width .5s ease;box-shadow:0 0 6px rgba(155,89,182,.6)}
 
-/* ── CONTENT ── */
-.content{flex:1;overflow-y:auto;overflow-x:hidden;padding:12px 12px 8px;-webkit-overflow-scrolling:touch}
+/* CONTENT */
+.content{flex:1;overflow-y:auto;overflow-x:hidden;padding:0 12px 8px;-webkit-overflow-scrolling:touch}
 .content::-webkit-scrollbar{width:3px}
-.content::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.content::-webkit-scrollbar-thumb{background:var(--bor2);border-radius:2px}
 .tab{display:none;animation:fi .2s ease}
 .tab.on{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
-/* ── DIVIDER ── */
-.dv{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.dv-t{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--purple2);white-space:nowrap}
-.dv-l{flex:1;height:1px;background:linear-gradient(90deg,var(--purple),transparent);opacity:.35}
-.dv-l.r{background:linear-gradient(270deg,var(--purple),transparent)}
+/* DIVIDER */
+.dv{display:flex;align-items:center;gap:8px;margin-bottom:10px;margin-top:12px}
+.dv-t{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--pur2);white-space:nowrap}
+.dv-l{flex:1;height:1px;background:linear-gradient(90deg,var(--pur),transparent);opacity:.35}
+.dv-l.r{background:linear-gradient(270deg,var(--pur),transparent)}
 
-/* ── COLLECT BUTTON ── */
-.carea{text-align:center;margin-bottom:14px}
+/* COLLECT BUTTON — большая */
+.carea{display:flex;flex-direction:column;align-items:center;padding:16px 20px 12px}
 .cbtn{
-  position:relative;width:130px;height:130px;border-radius:50%;
-  background:radial-gradient(circle at 38% 33%,#2e1e45,#180f28);
-  border:2px solid var(--gold);cursor:pointer;
-  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
-  box-shadow:0 0 0 1px rgba(212,168,75,.15),0 0 30px rgba(155,89,182,.2),inset 0 0 25px rgba(0,0,0,.3);
+  position:relative;
+  width:100%;max-width:320px;height:200px;
+  border-radius:24px;
+  background:radial-gradient(circle at 40% 35%,#2e1e45,#180f28);
+  border:2px solid var(--gold);
+  cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 0 0 1px rgba(212,168,75,.15),0 0 40px rgba(155,89,182,.25),inset 0 0 30px rgba(0,0,0,.3);
   transition:all .1s;user-select:none;-webkit-user-select:none;
 }
-.cbtn::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(212,168,75,.18)}
-.cbtn::after{content:'';position:absolute;inset:-12px;border-radius:50%;border:1px solid rgba(155,89,182,.12)}
-.cbtn:active{transform:scale(0.92);box-shadow:0 0 50px rgba(212,168,75,.4),0 0 20px rgba(155,89,182,.3)}
-.cbtn-ico{font-size:36px;line-height:1}
-.cbtn-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);opacity:.9}
-.cbtn-pw{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold2);text-shadow:0 0 8px rgba(212,168,75,.6)}
-.cpop{position:fixed;pointer-events:none;z-index:9999;font-family:'Cinzel',serif;font-size:16px;font-weight:700;color:var(--gold2);text-shadow:0 0 10px rgba(212,168,75,.9);animation:popa .9s ease-out forwards}
-@keyframes popa{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-70px) scale(1.5)}}
-.ihint{font-size:11px;color:var(--textdim);margin-top:8px;text-align:center;font-style:italic}
+.cbtn::before{content:'';position:absolute;inset:-6px;border-radius:28px;border:1px solid rgba(212,168,75,.18)}
+.cbtn::after{content:'';position:absolute;inset:-12px;border-radius:32px;border:1px solid rgba(155,89,182,.1)}
+.cbtn:active{transform:scale(0.96);box-shadow:0 0 60px rgba(212,168,75,.45),0 0 25px rgba(155,89,182,.35)}
+.cbtn-ico{font-size:64px;line-height:1}
+.cbtn-lbl{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);opacity:.9}
+.cbtn-pw{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--gold2);text-shadow:0 0 10px rgba(212,168,75,.7)}
+.cpop{position:fixed;pointer-events:none;z-index:9999;font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--gold2);text-shadow:0 0 10px rgba(212,168,75,.9);animation:popa .9s ease-out forwards}
+@keyframes popa{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-80px) scale(1.6)}}
+.ihint{font-size:11px;color:var(--dim);margin-top:8px;text-align:center;font-style:italic}
 
-/* ── OFFLINE ── */
-.offb{display:none;background:linear-gradient(135deg,rgba(155,89,182,.2),rgba(212,168,75,.08));border:1px solid var(--border2);border-radius:10px;padding:9px 13px;margin-bottom:12px;text-align:center}
+/* OFFLINE */
+.offb{display:none;background:linear-gradient(135deg,rgba(155,89,182,.2),rgba(212,168,75,.08));border:1px solid var(--bor2);border-radius:10px;padding:9px 13px;margin:12px 0;text-align:center}
 .offb.show{display:block;animation:fi .3s ease}
-.offb p{font-size:11px;color:var(--textdim);font-style:italic}
+.offb p{font-size:11px;color:var(--dim);font-style:italic}
 .offb .oamt{font-family:'Cinzel',serif;font-size:18px;color:var(--gold2);margin:3px 0}
 
-/* ── BIZ CARDS ── */
+/* BIZ CARDS */
 .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px}
-.bc{background:var(--cardg);border:1px solid var(--bordog);border-radius:10px;padding:10px 9px;cursor:pointer;position:relative;overflow:hidden;transition:border-color .2s,transform .1s,box-shadow .2s}
-.bc.aff{border-color:var(--bordog2);box-shadow:0 0 12px rgba(212,168,75,.1)}
+.bc{background:var(--cardg);border:1px solid var(--borg);border-radius:10px;padding:10px 9px;cursor:pointer;position:relative;overflow:hidden;transition:border-color .2s,transform .1s,box-shadow .2s}
+.bc.aff{border-color:var(--borg2);box-shadow:0 0 12px rgba(212,168,75,.1)}
 .bc:active{transform:scale(0.95)}
-.bc-lvl{position:absolute;top:5px;left:5px;font-size:8px;font-family:'Cinzel',serif;color:var(--purple2);background:rgba(155,89,182,.15);border:1px solid var(--border);padding:1px 4px;border-radius:4px}
-.bc-n{position:absolute;top:5px;right:5px;font-family:'Cinzel',serif;font-size:8px;color:var(--gold);background:rgba(212,168,75,.1);border:1px solid var(--bordog);padding:1px 4px;border-radius:4px}
+.bc-lvl{position:absolute;top:5px;left:5px;font-size:8px;font-family:'Cinzel',serif;color:var(--pur2);background:rgba(155,89,182,.15);border:1px solid var(--bor);padding:1px 4px;border-radius:4px}
+.bc-n{position:absolute;top:5px;right:5px;font-family:'Cinzel',serif;font-size:8px;color:var(--gold);background:rgba(212,168,75,.1);border:1px solid var(--borg);padding:1px 4px;border-radius:4px}
 .bc-i{font-size:22px;margin-bottom:3px;margin-top:8px}
 .bc-name{font-family:'Cinzel',serif;font-size:9px;font-weight:700;color:var(--text);margin-bottom:2px;line-height:1.2}
 .bc-inc{font-size:9px;color:var(--gold);font-style:italic}
 .bc-cost{font-family:'Cinzel',serif;font-size:10px;color:var(--gold2);margin-top:4px}
-.bc-upgbtn{display:block;width:100%;margin-top:5px;padding:3px 0;background:rgba(155,89,182,.15);border:1px solid var(--border2);border-radius:5px;font-size:9px;font-family:'Cinzel',serif;color:var(--purple2);cursor:pointer;transition:all .15s;text-align:center}
-.bc-upgbtn:active{background:rgba(155,89,182,.3)}
-.bc-upgbtn.max{color:var(--gold);border-color:var(--bordog);background:rgba(212,168,75,.08);pointer-events:none}
 
-/* ── UPGRADES ── */
+/* UPGRADES */
 .ulist{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-.uc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:9px 11px;display:flex;align-items:center;gap:10px;cursor:pointer;position:relative;overflow:hidden;transition:all .15s}
-.uc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--purple2),transparent);border-radius:3px 0 0 3px;opacity:.5}
-.uc.aff{border-color:var(--border2)}
+.uc{background:var(--card);border:1px solid var(--bor);border-radius:10px;padding:9px 11px;display:flex;align-items:center;gap:10px;cursor:pointer;position:relative;overflow:hidden;transition:all .15s}
+.uc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--pur2),transparent);border-radius:3px 0 0 3px;opacity:.5}
+.uc.aff{border-color:var(--bor2)}
 .uc.aff::before{opacity:1}
 .uc:active{transform:scale(0.98)}
 .uc.done{opacity:.3;pointer-events:none}
 .uc-i{font-size:20px;flex-shrink:0}
 .uc-info{flex:1;min-width:0}
 .uc-name{font-family:'Cinzel',serif;font-size:10px;font-weight:700;color:var(--text)}
-.uc-desc{font-size:9px;color:var(--textdim);margin-top:1px}
+.uc-desc{font-size:9px;color:var(--dim);margin-top:1px}
 .uc-cost{font-family:'Cinzel',serif;font-size:10px;color:var(--gold2);flex-shrink:0}
 
-/* ── SKILLS ── */
+/* SKILLS */
 .sklist{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-.skc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .15s}
-.skc.aff{border-color:var(--border2)}
+.skc{background:var(--card);border:1px solid var(--bor);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .15s}
+.skc.aff{border-color:var(--bor2)}
 .skc:active{transform:scale(0.98)}
 .skc.maxed{opacity:.4;pointer-events:none}
 .sk-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
 .sk-name{font-family:'Cinzel',serif;font-size:11px;font-weight:700;color:var(--text)}
 .sk-cost{font-family:'Cinzel',serif;font-size:10px;color:var(--gold2)}
-.sk-desc{font-size:10px;color:var(--textdim);margin-bottom:6px}
-.sk-prog{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
-.sk-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purple2));border-radius:3px;transition:width .3s}
+.sk-desc{font-size:10px;color:var(--dim);margin-bottom:6px}
+.sk-prog{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;border:1px solid var(--bor)}
+.sk-fill{height:100%;background:linear-gradient(90deg,var(--pur),var(--pur2));border-radius:3px;transition:width .3s}
 
-/* ── PROFILE ── */
-.pcard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 14px;margin-bottom:10px;text-align:center;position:relative;overflow:hidden}
-.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold),var(--purple2),transparent);opacity:.6}
-.pcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);opacity:.4}
+/* PROFILE */
+.pcard{background:var(--card);border:1px solid var(--bor);border-radius:12px;padding:16px 14px;margin-bottom:10px;text-align:center;position:relative;overflow:hidden}
+.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pur2),transparent);opacity:.6}
+.pcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pur),transparent);opacity:.4}
 .pava{font-size:48px;margin-bottom:6px}
-.pname{font-family:'Cinzel',serif;font-size:16px;font-weight:900;background:linear-gradient(135deg,var(--purple2),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px}
-.ptitle{font-size:12px;color:var(--textdim);margin-top:3px;margin-bottom:12px;font-style:italic}
+.pname{font-family:'Cinzel',serif;font-size:16px;font-weight:900;background:linear-gradient(135deg,var(--pur2),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px}
+.ptitle{font-size:12px;color:var(--dim);margin-top:3px;margin-bottom:12px;font-style:italic}
 .pstats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.ps{background:rgba(0,0,0,.2);border:1px solid var(--border);border-radius:8px;padding:7px;text-align:center}
+.ps{background:rgba(0,0,0,.2);border:1px solid var(--bor);border-radius:8px;padding:7px;text-align:center}
 .ps-v{font-family:'Cinzel',serif;font-size:13px;color:var(--gold2)}
-.ps-l{font-size:9px;color:var(--textdim);margin-top:1px}
-.skill-summary{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.ss-item{background:rgba(155,89,182,.08);border:1px solid var(--border);border-radius:8px;padding:6px;text-align:center}
+.ps-l{font-size:9px;color:var(--dim);margin-top:1px}
+.sk-sum{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ss{background:rgba(155,89,182,.08);border:1px solid var(--bor);border-radius:8px;padding:6px;text-align:center}
 .ss-ico{font-size:16px}
-.ss-name{font-size:9px;color:var(--textdim);margin-top:1px}
-.ss-val{font-family:'Cinzel',serif;font-size:11px;color:var(--purple2)}
+.ss-n{font-size:9px;color:var(--dim);margin-top:1px}
+.ss-v{font-family:'Cinzel',serif;font-size:11px;color:var(--pur2)}
 
-/* ── ACHIEVEMENTS ── */
+/* ACHIEVEMENTS */
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
-.ac{background:rgba(212,168,75,.04);border:1px solid var(--bordog);border-radius:10px;padding:9px;text-align:center}
-.ac.earned{border-color:var(--bordog2);background:rgba(212,168,75,.08)}
+.ac{background:rgba(212,168,75,.04);border:1px solid var(--borg);border-radius:10px;padding:9px;text-align:center}
+.ac.earned{border-color:var(--borg2);background:rgba(212,168,75,.08)}
 .ac-i{font-size:22px;margin-bottom:3px}
 .ac-name{font-family:'Cinzel',serif;font-size:9px;color:var(--text)}
-.ac-desc{font-size:9px;color:var(--textdim);margin-top:1px;font-style:italic}
+.ac-desc{font-size:9px;color:var(--dim);margin-top:1px;font-style:italic}
 .ac-rew{font-family:'Cinzel',serif;font-size:9px;color:var(--gold);margin-top:3px}
 
-/* ── DAILY ── */
-.dcard{background:linear-gradient(135deg,rgba(155,89,182,.15),rgba(212,168,75,.08));border:1px solid var(--border2);border-radius:12px;padding:16px 14px;text-align:center;margin-bottom:12px;position:relative;overflow:hidden}
-.dcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold),var(--purple2),transparent);opacity:.6}
+/* DAILY */
+.dcard{background:linear-gradient(135deg,rgba(155,89,182,.15),rgba(212,168,75,.08));border:1px solid var(--bor2);border-radius:12px;padding:16px 14px;text-align:center;margin-bottom:12px;position:relative;overflow:hidden}
+.dcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pur2),transparent);opacity:.6}
 .d-ico{font-size:34px;margin-bottom:6px}
-.d-title{font-family:'Cinzel',serif;font-size:14px;font-weight:700;background:linear-gradient(135deg,var(--purple2),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;margin-bottom:3px}
-.d-desc{font-size:11px;color:var(--textdim);margin-bottom:8px;font-style:italic}
+.d-title{font-family:'Cinzel',serif;font-size:14px;font-weight:700;background:linear-gradient(135deg,var(--pur2),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;margin-bottom:3px}
+.d-desc{font-size:11px;color:var(--dim);margin-bottom:8px;font-style:italic}
 .d-amt{font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--gold2);margin:6px 0 10px}
-.d-timer{font-size:10px;color:var(--textdim);letter-spacing:1px;margin-top:8px}
-
-/* ── GOLD BUTTON ── */
+.d-timer{font-size:10px;color:var(--dim);letter-spacing:1px;margin-top:8px}
 .gbtn{display:block;width:100%;padding:12px;background:linear-gradient(135deg,#2e1e45,#1a1025);border:1px solid var(--gold);border-radius:8px;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);cursor:pointer;transition:all .15s;text-align:center;box-shadow:0 0 15px rgba(212,168,75,.1)}
 .gbtn:active{transform:scale(0.97);box-shadow:0 0 25px rgba(212,168,75,.25)}
 .gbtn:disabled{opacity:.35;cursor:not-allowed;transform:none}
 
-/* ── NAV ── */
-.nav{flex-shrink:0;display:flex;background:rgba(22,15,35,0.99);border-top:1px solid var(--border);position:relative}
-.nav::before{content:'';position:absolute;top:-1px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold),var(--purple2),transparent);opacity:.5}
-.nb{flex:1;padding:7px 2px 10px;background:none;border:none;cursor:pointer;color:var(--textdim);font-family:'Nunito',sans-serif;font-size:7px;letter-spacing:.5px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:2px;transition:color .2s;position:relative}
+/* NAV */
+.nav{flex-shrink:0;display:flex;background:rgba(22,15,35,0.99);border-top:1px solid var(--bor);position:relative}
+.nav::before{content:'';position:absolute;top:-1px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pur2),transparent);opacity:.5}
+.nb{flex:1;padding:7px 2px 10px;background:none;border:none;cursor:pointer;color:var(--dim);font-family:'Nunito',sans-serif;font-size:7px;letter-spacing:.5px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:2px;transition:color .2s;position:relative}
 .nb.on{color:var(--gold)}
 .nb.on::after{content:'';position:absolute;bottom:0;left:15%;right:15%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);box-shadow:0 0 6px var(--gold);border-radius:1px}
 .nb-i{font-size:18px}
 
-/* ── NOTIF ── */
+/* NOTIF */
 .notif{position:fixed;top:14px;left:50%;transform:translateX(-50%) translateY(-7px);font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;padding:8px 18px;border-radius:20px;z-index:10000;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;max-width:94vw}
 .notif.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .notif.ok{background:linear-gradient(135deg,#2a1e40,#1e1530);color:var(--gold2);border:1px solid var(--gold);box-shadow:0 0 20px rgba(212,168,75,.3)}
-.notif.err{background:linear-gradient(135deg,#2a0f0f,#1a0808);color:#ff8080;border:1px solid #8b1a1a;box-shadow:0 0 15px rgba(139,26,26,.4)}
-.notif.lvl{background:linear-gradient(135deg,#2e1e45,#1a1025);color:var(--purple3);border:1px solid var(--purple2);box-shadow:0 0 25px rgba(155,89,182,.5)}
+.notif.err{background:linear-gradient(135deg,#2a0f0f,#1a0808);color:#ff8080;border:1px solid #8b1a1a}
+.notif.lvl{background:linear-gradient(135deg,#2e1e45,#1a1025);color:var(--pur3);border:1px solid var(--pur2);box-shadow:0 0 25px rgba(155,89,182,.5)}
 
-/* ── BIZ LEVEL MODAL ── */
-.modal-bg{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.7);align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.75);align-items:center;justify-content:center;backdrop-filter:blur(3px)}
 .modal-bg.show{display:flex;animation:fi .2s ease}
-.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:20px 18px;width:88%;max-width:340px;position:relative}
-.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold),var(--purple2),transparent);border-radius:14px 14px 0 0;opacity:.7}
-.modal-title{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--gold2);text-align:center;margin-bottom:14px}
-.modal-stat{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)}
-.modal-stat:last-of-type{border:none}
-.modal-stat-l{font-size:11px;color:var(--textdim)}
-.modal-stat-v{font-family:'Cinzel',serif;font-size:12px;color:var(--text)}
-.modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
-.modal-btn{padding:10px;border-radius:8px;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;border:1px solid;transition:all .15s;text-align:center}
-.modal-btn.buy{background:rgba(212,168,75,.12);border-color:var(--gold);color:var(--gold)}
-.modal-btn.buy:active{background:rgba(212,168,75,.25)}
-.modal-btn.upg{background:rgba(155,89,182,.12);border-color:var(--purple2);color:var(--purple2)}
-.modal-btn.upg:active{background:rgba(155,89,182,.25)}
-.modal-btn.close-btn{grid-column:1/-1;background:rgba(255,255,255,.05);border-color:var(--border);color:var(--textdim)}
+.modal{background:var(--bg2);border:1px solid var(--bor2);border-radius:14px;padding:20px 18px;width:88%;max-width:340px;position:relative}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pur2),transparent);border-radius:14px 14px 0 0;opacity:.7}
+.m-title{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--gold2);text-align:center;margin-bottom:14px}
+.m-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--bor)}
+.m-row:last-of-type{border:none}
+.m-l{font-size:11px;color:var(--dim)}
+.m-v{font-family:'Cinzel',serif;font-size:11px;color:var(--text)}
+.m-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.m-btn{padding:10px;border-radius:8px;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;border:1px solid;transition:all .15s;text-align:center}
+.m-btn.buy{background:rgba(212,168,75,.12);border-color:var(--gold);color:var(--gold)}
+.m-btn.buy:active{background:rgba(212,168,75,.25)}
+.m-btn.upg{background:rgba(155,89,182,.12);border-color:var(--pur2);color:var(--pur2)}
+.m-btn.upg:active{background:rgba(155,89,182,.25)}
+.m-btn.cls{grid-column:1/-1;background:rgba(255,255,255,.05);border-color:var(--bor);color:var(--dim)}
 </style>
 </head>
 <body>
@@ -210,7 +202,6 @@ body::before{
     <div class="stats">
       <div class="st"><div class="st-v" id="sC">$0</div><div class="st-l">💰 капитал</div></div>
       <div class="st"><div class="st-v" id="sI">$0</div><div class="st-l">📈 в минуту</div></div>
-      <div class="st"><div class="st-v" id="sT">$0</div><div class="st-l">🏆 всего</div></div>
     </div>
     <div class="xp-w">
       <div class="xp-r"><span>XP · <span id="xpV">0</span></span><span id="xpN">до ур.2: 300</span></div>
@@ -228,14 +219,12 @@ body::before{
       </div>
       <div class="carea">
         <div class="cbtn" id="cbtn">
-          <div class="cbtn-ico">💼</div>
-          <div class="cbtn-lbl">ТАП</div>
+          <div class="cbtn-ico">₿</div>
+          <div class="cbtn-lbl">НАЖМИ ДЛЯ ЗАРАБОТКА</div>
           <div class="cbtn-pw" id="cpow">+$5</div>
         </div>
         <div class="ihint" id="ihint">Откройте бизнес для пассивного дохода</div>
       </div>
-      <div class="dv"><div class="dv-l r"></div><div class="dv-t">МОИ БИЗНЕСЫ</div><div class="dv-l"></div></div>
-      <div class="bgrid" id="homeBiz"></div>
     </div>
 
     <div class="tab" id="tabBiz">
@@ -261,14 +250,14 @@ body::before{
           <div class="ps"><div class="ps-v" id="pp3">$0</div><div class="ps-l">🏆 заработано</div></div>
           <div class="ps"><div class="ps-v" id="pp4">0</div><div class="ps-l">🏢 бизнесов</div></div>
         </div>
-        <div class="skill-summary" id="skillSummary"></div>
+        <div class="sk-sum" id="skSum"></div>
       </div>
       <div class="dv"><div class="dv-l r"></div><div class="dv-t">ДОСТИЖЕНИЯ</div><div class="dv-l"></div></div>
       <div class="agrid" id="achGrid"></div>
     </div>
 
     <div class="tab" id="tabBonus">
-      <div class="dcard">
+      <div class="dcard" style="margin-top:12px">
         <div class="d-ico">🎁</div>
         <div class="d-title">ЕЖЕДНЕВНЫЙ БОНУС</div>
         <div class="d-desc">Заходи каждый день — бонус растёт со стриком!</div>
@@ -283,28 +272,26 @@ body::before{
   </div>
 
   <div class="nav">
-    <button class="nb on" onclick="goTab('Home',this)"><span class="nb-i">🏠</span>ГЛАВНАЯ</button>
+    <button class="nb on" onclick="goTab('Home',this)"><span class="nb-i">₿</span>ГЛАВНАЯ</button>
     <button class="nb" onclick="goTab('Biz',this)"><span class="nb-i">🏢</span>БИЗНЕС</button>
     <button class="nb" onclick="goTab('Upg',this)"><span class="nb-i">⚡</span>АПГРЕЙД</button>
     <button class="nb" onclick="goTab('Profile',this)"><span class="nb-i">🤵</span>ПРОФИЛЬ</button>
     <button class="nb" onclick="goTab('Bonus',this)"><span class="nb-i">🎁</span>БОНУС</button>
   </div>
 </div>
-
-<!-- BIZ MODAL -->
 <div class="modal-bg" id="bizModal">
   <div class="modal">
-    <div class="modal-title" id="mTitle">Бизнес</div>
-    <div class="modal-stat"><span class="modal-stat-l">Количество</span><span class="modal-stat-v" id="mCount">0</span></div>
-    <div class="modal-stat"><span class="modal-stat-l">Уровень прокачки</span><span class="modal-stat-v" id="mLvl">0 / 5</span></div>
-    <div class="modal-stat"><span class="modal-stat-l">Доход за ед.</span><span class="modal-stat-v" id="mInc">$0/мин</span></div>
-    <div class="modal-stat"><span class="modal-stat-l">Общий доход</span><span class="modal-stat-v" id="mTotal">$0/мин</span></div>
-    <div class="modal-stat"><span class="modal-stat-l">Цена покупки</span><span class="modal-stat-v" id="mBuyCost">$0</span></div>
-    <div class="modal-stat"><span class="modal-stat-l">Цена прокачки</span><span class="modal-stat-v" id="mUpgCost">$0</span></div>
-    <div class="modal-btns">
-      <div class="modal-btn buy" id="mBuyBtn" onclick="modalBuy()">КУПИТЬ</div>
-      <div class="modal-btn upg" id="mUpgBtn" onclick="modalUpg()">ПРОКАЧАТЬ</div>
-      <div class="modal-btn close-btn" onclick="closeModal()">ЗАКРЫТЬ</div>
+    <div class="m-title" id="mTitle">Бизнес</div>
+    <div class="m-row"><span class="m-l">Количество</span><span class="m-v" id="mCount">0</span></div>
+    <div class="m-row"><span class="m-l">Уровень прокачки</span><span class="m-v" id="mLvl">0/5</span></div>
+    <div class="m-row"><span class="m-l">Доход за единицу</span><span class="m-v" id="mInc">$0/мин</span></div>
+    <div class="m-row"><span class="m-l">Общий доход</span><span class="m-v" id="mTot">$0/мин</span></div>
+    <div class="m-row"><span class="m-l">Цена покупки</span><span class="m-v" id="mBC">$0</span></div>
+    <div class="m-row"><span class="m-l">Цена прокачки</span><span class="m-v" id="mUC">$0</span></div>
+    <div class="m-btns">
+      <div class="m-btn buy" id="mBuyBtn" onclick="modalBuy()">КУПИТЬ</div>
+      <div class="m-btn upg" id="mUpgBtn" onclick="modalUpg()">ПРОКАЧАТЬ</div>
+      <div class="m-btn cls" onclick="closeModal()">ЗАКРЫТЬ</div>
     </div>
   </div>
 </div>
@@ -313,74 +300,74 @@ body::before{
 
 <script>
 var BIZ=[
-  {id:'kiosk',   name:'Газетный ларёк',    icon:'📰',base:150,      inc:3},
-  {id:'cafe',    name:'Кофейня',            icon:'☕',base:400,      inc:8},
-  {id:'parking', name:'Парковка',           icon:'🅿️',base:900,      inc:18},
-  {id:'bar',     name:'Бар',               icon:'🍺',base:2000,     inc:38},
-  {id:'taxi',    name:'Служба такси',       icon:'🚕',base:4500,     inc:75},
-  {id:'salon',   name:'Салон красоты',      icon:'💅',base:8000,     inc:140},
-  {id:'store',   name:'Магазин одежды',     icon:'👗',base:16000,    inc:260},
-  {id:'rest',    name:'Ресторан',           icon:'🍽️',base:32000,    inc:480},
-  {id:'hotel',   name:'Отель',             icon:'🏨',base:65000,    inc:900},
-  {id:'fitnes',  name:'Фитнес клуб',        icon:'💪',base:130000,   inc:1700},
-  {id:'casino',  name:'Казино',            icon:'🎰',base:260000,   inc:3200},
-  {id:'market',  name:'Супермаркет',        icon:'🛒',base:500000,   inc:6000},
-  {id:'club',    name:'Ночной клуб',        icon:'🎶',base:900000,   inc:11000},
-  {id:'port',    name:'Грузовой порт',      icon:'⚓',base:1800000,  inc:20000},
-  {id:'factory', name:'Завод',             icon:'🏭',base:3500000,  inc:38000},
-  {id:'oil',     name:'Нефтебаза',         icon:'🛢️',base:7000000,  inc:70000},
-  {id:'pipeline',name:'Нефтепровод',        icon:'🔧',base:14000000, inc:130000},
-  {id:'refinery',name:'НПЗ',               icon:'⚗️',base:28000000, inc:240000},
-  {id:'bank',    name:'Банк',              icon:'🏦',base:60000000, inc:450000},
-  {id:'airline', name:'Авиакомпания',       icon:'✈️',base:120000000,inc:850000},
-  {id:'island',  name:'Частный остров',     icon:'🏝️',base:250000000,inc:1600000},
-  {id:'space',   name:'Космодром',         icon:'🚀',base:500000000,inc:3000000}
+  {id:'kiosk',   name:'Газетный ларёк',  icon:'📰',base:150,     inc:3},
+  {id:'cafe',    name:'Кофейня',          icon:'☕',base:400,     inc:8},
+  {id:'parking', name:'Парковка',         icon:'🅿️',base:900,     inc:18},
+  {id:'bar',     name:'Бар',             icon:'🍺',base:2000,    inc:38},
+  {id:'taxi',    name:'Служба такси',     icon:'🚕',base:4500,    inc:75},
+  {id:'salon',   name:'Салон красоты',    icon:'💅',base:8000,    inc:140},
+  {id:'store',   name:'Магазин одежды',   icon:'👗',base:16000,   inc:260},
+  {id:'rest',    name:'Ресторан',         icon:'🍽️',base:32000,   inc:480},
+  {id:'hotel',   name:'Отель',           icon:'🏨',base:65000,   inc:900},
+  {id:'fitnes',  name:'Фитнес клуб',      icon:'💪',base:130000,  inc:1700},
+  {id:'casino',  name:'Казино',          icon:'🎰',base:260000,  inc:3200},
+  {id:'market',  name:'Супермаркет',      icon:'🛒',base:500000,  inc:6000},
+  {id:'club',    name:'Ночной клуб',      icon:'🎶',base:900000,  inc:11000},
+  {id:'port',    name:'Грузовой порт',    icon:'⚓',base:1800000, inc:20000},
+  {id:'factory', name:'Завод',           icon:'🏭',base:3500000, inc:38000},
+  {id:'oil',     name:'Нефтебаза',       icon:'🛢️',base:7000000, inc:70000},
+  {id:'pipeline',name:'Нефтепровод',      icon:'🔧',base:14000000,inc:130000},
+  {id:'refinery',name:'НПЗ',             icon:'⚗️',base:28000000,inc:240000},
+  {id:'bank',    name:'Банк',            icon:'🏦',base:60000000,inc:450000},
+  {id:'airline', name:'Авиакомпания',     icon:'✈️',base:120000000,inc:850000},
+  {id:'island',  name:'Частный остров',   icon:'🏝️',base:250000000,inc:1600000},
+  {id:'space',   name:'Космодром',       icon:'🚀',base:500000000,inc:3000000}
 ];
 
 var UPG=[
-  {id:'cl1',name:'Деловая хватка',   icon:'💼',cost:300,     desc:'x2 к тапу',            t:'click',m:2},
-  {id:'cl2',name:'Финансовый гений', icon:'🧠',cost:8000,    desc:'x2 к тапу',            t:'click',m:2},
-  {id:'cl3',name:'Харизма лидера',   icon:'🎯',cost:80000,   desc:'x3 к тапу',            t:'click',m:3},
-  {id:'cl4',name:'Стратег',          icon:'♟️',cost:800000,  desc:'x4 к тапу',            t:'click',m:4},
-  {id:'cl5',name:'Империя',          icon:'👑',cost:8000000, desc:'x5 к тапу',            t:'click',m:5},
-  {id:'uk', name:'Ремонт ларька',    icon:'🔨',cost:500,     desc:'x2 доход ларька',       t:'kiosk',m:2},
-  {id:'uca',name:'Кофемашина',       icon:'☕',cost:2000,    desc:'x2 доход кофейни',      t:'cafe',m:2},
-  {id:'up', name:'Доп. парковки',    icon:'🚗',cost:5000,    desc:'x2 доход парковки',     t:'parking',m:2},
-  {id:'ub', name:'VIP зона бара',    icon:'🍸',cost:10000,   desc:'x2 доход бара',         t:'bar',m:2},
-  {id:'ut', name:'Авто-диспетчер',   icon:'📡',cost:22000,   desc:'x2 доход такси',        t:'taxi',m:2},
-  {id:'ur', name:'Звезда Мишлен',    icon:'⭐',cost:160000,  desc:'x2 доход ресторана',    t:'rest',m:2},
-  {id:'uh', name:'5 звёзд отель',    icon:'💎',cost:320000,  desc:'x2 доход отеля',        t:'hotel',m:2},
-  {id:'uf', name:'Премиум тренеры',  icon:'🏋️',cost:650000,  desc:'x2 доход фитнеса',      t:'fitnes',m:2},
-  {id:'ucs',name:'VIP зал казино',   icon:'🃏',cost:1300000, desc:'x2 доход казино',       t:'casino',m:2},
-  {id:'uoi',name:'Новые насосы',     icon:'⚙️',cost:7000000, desc:'x2 доход нефтебазы',    t:'oil',m:2},
-  {id:'uop',name:'Новая труба',      icon:'🔩',cost:15000000,desc:'x2 доход нефтепровода', t:'pipeline',m:2},
-  {id:'ua1',name:'Налоговые льготы', icon:'📋',cost:40000,   desc:'+20% ко всем',          t:'all',m:1.2},
-  {id:'ua2',name:'Гос контракт',     icon:'🤝',cost:400000,  desc:'+35% ко всем',          t:'all',m:1.35},
-  {id:'ua3',name:'Монополия',        icon:'🏆',cost:4000000, desc:'+50% ко всем',          t:'all',m:1.5},
-  {id:'ua4',name:'Мировой рынок',    icon:'🌍',cost:40000000,desc:'+100% ко всем',         t:'all',m:2.0}
+  {id:'cl1',name:'Деловая хватка',   icon:'💼',cost:300,     desc:'x2 к тапу',           t:'click',m:2},
+  {id:'cl2',name:'Финансовый гений', icon:'🧠',cost:8000,    desc:'x2 к тапу',           t:'click',m:2},
+  {id:'cl3',name:'Харизма лидера',   icon:'🎯',cost:80000,   desc:'x3 к тапу',           t:'click',m:3},
+  {id:'cl4',name:'Стратег',          icon:'♟️',cost:800000,  desc:'x4 к тапу',           t:'click',m:4},
+  {id:'cl5',name:'Империя',          icon:'👑',cost:8000000, desc:'x5 к тапу',           t:'click',m:5},
+  {id:'uk', name:'Ремонт ларька',    icon:'🔨',cost:500,     desc:'x2 доход ларька',      t:'kiosk',m:2},
+  {id:'uca',name:'Кофемашина',       icon:'☕',cost:2000,    desc:'x2 доход кофейни',     t:'cafe',m:2},
+  {id:'up', name:'Доп. парковки',    icon:'🚗',cost:5000,    desc:'x2 доход парковки',    t:'parking',m:2},
+  {id:'ub', name:'VIP зона бара',    icon:'🍸',cost:10000,   desc:'x2 доход бара',        t:'bar',m:2},
+  {id:'ut', name:'Авто-диспетчер',   icon:'📡',cost:22000,   desc:'x2 доход такси',       t:'taxi',m:2},
+  {id:'ur', name:'Звезда Мишлен',    icon:'⭐',cost:160000,  desc:'x2 доход ресторана',   t:'rest',m:2},
+  {id:'uh', name:'5 звёзд отель',    icon:'💎',cost:320000,  desc:'x2 доход отеля',       t:'hotel',m:2},
+  {id:'uf', name:'Премиум тренеры',  icon:'🏋️',cost:650000,  desc:'x2 доход фитнеса',    t:'fitnes',m:2},
+  {id:'ucs',name:'VIP зал казино',   icon:'🃏',cost:1300000, desc:'x2 доход казино',      t:'casino',m:2},
+  {id:'uoi',name:'Новые насосы',     icon:'⚙️',cost:7000000, desc:'x2 доход нефтебазы',   t:'oil',m:2},
+  {id:'uop',name:'Новая труба',      icon:'🔩',cost:15000000,desc:'x2 доход нефтепровода',t:'pipeline',m:2},
+  {id:'ua1',name:'Налоговые льготы', icon:'📋',cost:40000,   desc:'+20% ко всем',         t:'all',m:1.2},
+  {id:'ua2',name:'Гос контракт',     icon:'🤝',cost:400000,  desc:'+35% ко всем',         t:'all',m:1.35},
+  {id:'ua3',name:'Монополия',        icon:'🏆',cost:4000000, desc:'+50% ко всем',         t:'all',m:1.5},
+  {id:'ua4',name:'Мировой рынок',    icon:'🌍',cost:40000000,desc:'+100% ко всем',        t:'all',m:2.0}
 ];
 
 var SK=[
-  {id:'charisma',   name:'Харизма',     emoji:'🗣️',desc:'+8% дохода за уровень',  max:15,base:500},
-  {id:'management', name:'Менеджмент',  emoji:'📊',desc:'+6% к тапу за уровень',  max:15,base:400},
-  {id:'connections',name:'Связи',       emoji:'🤝',desc:'-4% цена покупок',        max:15,base:600},
-  {id:'security',   name:'Безопасность',emoji:'🛡️',desc:'+10% оффлайн доход',     max:10,base:800}
+  {id:'charisma',   name:'Харизма',     emoji:'🗣️',desc:'+8% дохода за уровень', max:15,base:500},
+  {id:'management', name:'Менеджмент',  emoji:'📊',desc:'+6% к тапу за уровень', max:15,base:400},
+  {id:'connections',name:'Связи',       emoji:'🤝',desc:'-4% цена покупок',       max:15,base:600},
+  {id:'security',   name:'Безопасность',emoji:'🛡️',desc:'+10% оффлайн доход',    max:10,base:800}
 ];
 
 var XPT=[0,300,700,1400,2500,4000,6000,9000,13000,18000,25000,34000,45000,60000,80000,105000,140000,185000,240000,310000,400000,520000,670000,860000,1100000];
 var TTL=['','Стажёр','Сотрудник','Специалист','Ст.специалист','Менеджер','Ст.менеджер','Рук.отдела','Директор','Ст.директор','Вице-президент','Ст.вице-президент','Исп.директор','Президент','Председатель','Основатель','Предприниматель','Инвестор','Миллиардер','Магнат','Олигарх','Пром.гигант','Мировой лидер','Легенда','Повелитель','EMPEROR'];
 
 var ACH=[
-  {id:'a1',icon:'🏪',name:'Первый бизнес',  desc:'Открой любой бизнес',   rew:500,    c:function(g){for(var k in g.biz){if(g.biz[k]>0)return true;}return false;}},
-  {id:'a2',icon:'💰',name:'Миллионер',      desc:'Заработай $1M',         rew:10000,  c:function(g){return g.total>=1000000;}},
-  {id:'a3',icon:'💎',name:'Миллиардер',     desc:'Заработай $1B',         rew:1000000,c:function(g){return g.total>=1000000000;}},
-  {id:'a4',icon:'⭐',name:'Уровень 10',     desc:'Достигни уровня 10',    rew:5000,   c:function(g){return g.level>=10;}},
-  {id:'a5',icon:'👑',name:'Уровень 20',     desc:'Достигни уровня 20',    rew:50000,  c:function(g){return g.level>=20;}},
-  {id:'a6',icon:'🛢️',name:'Нефтяник',      desc:'Открой нефтебазу',      rew:20000,  c:function(g){return (g.biz['oil']||0)>0;}},
-  {id:'a7',icon:'✈️',name:'Авиамагнат',     desc:'Открой авиакомпанию',   rew:100000, c:function(g){return (g.biz['airline']||0)>0;}},
-  {id:'a8',icon:'🚀',name:'К звёздам',      desc:'Открой космодром',      rew:500000, c:function(g){return (g.biz['space']||0)>0;}},
-  {id:'a9',icon:'⚙️',name:'Технарь',        desc:'Купи 10 апгрейдов',     rew:15000,  c:function(g){return g.upg.length>=10;}},
-  {id:'a10',icon:'🔥',name:'Верность',      desc:'7 дней подряд',         rew:7000,   c:function(g){return (g.streak||0)>=7;}}
+  {id:'a1',icon:'🏪',name:'Первый бизнес', desc:'Открой любой бизнес',    rew:500,    c:function(g){for(var k in g.biz){if(g.biz[k]>0)return true;}return false;}},
+  {id:'a2',icon:'💰',name:'Миллионер',     desc:'Заработай $1M',          rew:10000,  c:function(g){return g.total>=1000000;}},
+  {id:'a3',icon:'💎',name:'Миллиардер',    desc:'Заработай $1B',          rew:1000000,c:function(g){return g.total>=1000000000;}},
+  {id:'a4',icon:'⭐',name:'Уровень 10',    desc:'Достигни уровня 10',     rew:5000,   c:function(g){return g.level>=10;}},
+  {id:'a5',icon:'👑',name:'Уровень 20',    desc:'Достигни уровня 20',     rew:50000,  c:function(g){return g.level>=20;}},
+  {id:'a6',icon:'🛢️',name:'Нефтяник',     desc:'Открой нефтебазу',       rew:20000,  c:function(g){return (g.biz['oil']||0)>0;}},
+  {id:'a7',icon:'✈️',name:'Авиамагнат',    desc:'Открой авиакомпанию',    rew:100000, c:function(g){return (g.biz['airline']||0)>0;}},
+  {id:'a8',icon:'🚀',name:'К звёздам',     desc:'Открой космодром',       rew:500000, c:function(g){return (g.biz['space']||0)>0;}},
+  {id:'a9',icon:'⚙️',name:'Технарь',       desc:'Купи 10 апгрейдов',      rew:15000,  c:function(g){return g.upg.length>=10;}},
+  {id:'a10',icon:'🔥',name:'Верность',     desc:'7 дней подряд',          rew:7000,   c:function(g){return (g.streak||0)>=7;}}
 ];
 
 var G={coins:500,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),biz:{},bizLvl:{},upg:[],skills:{charisma:0,management:0,connections:0,security:0},ach:[],daily:null,streak:0};
@@ -388,15 +375,13 @@ var _off=0,_name='ИГРОК',_curBiz=null;
 
 function sv(){
   G.lastSave=Date.now();
-  try{localStorage.setItem('be1',JSON.stringify(G));}catch(e){}
+  try{localStorage.setItem('be2',JSON.stringify(G));}catch(e){}
 }
+
 function ld(){
   try{
-    var d=localStorage.getItem('be1');
-    if(d){
-      var p=JSON.parse(d);
-      for(var k in p){G[k]=p[k];}
-    }
+    var d=localStorage.getItem('be2');
+    if(d){var p=JSON.parse(d);for(var k in p){G[k]=p[k];}}
   }catch(e){}
   if(!G.skills)G.skills={charisma:0,management:0,connections:0,security:0};
   if(!G.skills.management)G.skills.management=0;
@@ -410,7 +395,8 @@ function ld(){
   var sb=1+(G.skills.security||0)*0.1;
   if(el>1&&ipm>0){
     _off=Math.floor(ipm*Math.min(el,480)*sb);
-    G.coins+=_off;G.total+=_off;
+    G.coins+=_off;
+    G.total+=_off;
   }
   G.lastSave=Date.now();
 }
@@ -428,14 +414,13 @@ function cIPM(){
     var n=G.biz[BIZ[b].id]||0;
     if(!n)continue;
     var lv=G.bizLvl[BIZ[b].id]||0;
-    var lvMult=1+lv*0.5;
     var bm=1;
     for(var i=0;i<G.upg.length;i++){
       for(var j=0;j<UPG.length;j++){
         if(UPG[j].id===G.upg[i]&&UPG[j].t===BIZ[b].id){bm*=UPG[j].m;break;}
       }
     }
-    t+=BIZ[b].inc*n*bm*lvMult;
+    t+=BIZ[b].inc*n*bm*(1+lv*0.5);
   }
   return t*am*cm;
 }
@@ -457,13 +442,13 @@ function cCost(biz){
   return Math.floor(biz.base*Math.pow(1.15,n)*(1-disc));
 }
 
-function cBizUpgCost(biz){
+function cUC(biz){
   var lv=G.bizLvl[biz.id]||0;
   if(lv>=5)return null;
   return Math.floor(biz.base*2*Math.pow(3,lv));
 }
 
-function cSkCost(sk){
+function cSkC(sk){
   return Math.floor(sk.base*Math.pow(2,G.skills[sk.id]||0));
 }
 
@@ -480,7 +465,7 @@ function aXP(v){
   G.xp+=v;
   var lv=false;
   while(G.level<XPT.length&&G.xp>=(XPT[G.level]||Infinity)){G.level++;lv=true;}
-  if(lv){ntf('▲ УРОВЕНЬ '+G.level+' — '+TTL[Math.min(G.level,TTL.length-1)],'lvl');}
+  if(lv){ntf('▲ УР.'+G.level+' — '+TTL[Math.min(G.level,TTL.length-1)],'lvl');}
 }
 
 function chAch(){
@@ -488,11 +473,13 @@ function chAch(){
     var a=ACH[i];
     if(G.ach.indexOf(a.id)===-1&&a.c(G)){
       G.ach.push(a.id);
-      G.coins+=a.rew;G.total+=a.rew;
+      G.coins+=a.rew;
+      G.total+=a.rew;
       (function(nm,rw){setTimeout(function(){ntf('🏆 '+nm+' +'+fmt(rw),'ok');},700);})(a.name,a.rew);
     }
   }
 }
+
 function buyB(id){
   var biz=null;
   for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){biz=BIZ[i];break;}}
@@ -512,12 +499,12 @@ function upgBiz(id){
   if(!biz)return;
   var lv=G.bizLvl[id]||0;
   if(lv>=5){ntf('Максимальный уровень!','err');return;}
-  var c=cBizUpgCost(biz);
-  if(G.coins<c){ntf('Недостаточно средств','err');return;}
+  var c=cUC(biz);
+  if(!c||G.coins<c){ntf('Недостаточно средств','err');return;}
   G.coins-=c;
   G.bizLvl[id]=(G.bizLvl[id]||0)+1;
   aXP(30);chAch();
-  ntf(biz.name+' прокачан до ур.'+(G.bizLvl[id])+'!','ok');
+  ntf(biz.name+' прокачан до ур.'+(G.bizLvl[id]),'ok');
   sv();rdr();
 }
 
@@ -526,7 +513,8 @@ function buyU(id){
   for(var i=0;i<UPG.length;i++){if(UPG[i].id===id){upg=UPG[i];break;}}
   if(!upg||G.upg.indexOf(id)!==-1)return;
   if(G.coins<upg.cost){ntf('Недостаточно средств','err');return;}
-  G.coins-=upg.cost;G.upg.push(id);
+  G.coins-=upg.cost;
+  G.upg.push(id);
   aXP(30);chAch();
   ntf(upg.name+' активирован!','ok');
   sv();rdr();
@@ -538,14 +526,14 @@ function buySk(id){
   if(!sk)return;
   var lv=G.skills[id]||0;
   if(lv>=sk.max)return;
-  var c=cSkCost(sk);
+  var c=cSkC(sk);
   if(G.coins<c){ntf('Недостаточно средств','err');return;}
-  G.coins-=c;G.skills[id]=lv+1;
+  G.coins-=c;
+  G.skills[id]=lv+1;
   aXP(25);
   ntf(sk.name+' — уровень '+(lv+1),'ok');
   sv();rdr();
 }
-
 function claimDaily(){
   var now=Date.now();
   if(G.daily){
@@ -556,7 +544,7 @@ function claimDaily(){
   var bon=1000+G.level*500+(G.streak||0)*200;
   G.coins+=bon;G.total+=bon;G.daily=now;
   aXP(30);chAch();
-  ntf('Бонус получен — +'+fmt(bon),'ok');
+  ntf('Бонус — +'+fmt(bon),'ok');
   sv();rdr();
 }
 
@@ -570,11 +558,11 @@ function updDT(){
     var r=86400000-d;
     var h=Math.floor(r/3600000),m=Math.floor((r%3600000)/60000);
     btn.disabled=true;btn.textContent='[ УЖЕ ПОЛУЧЕН ]';
-    tmr.style.display='block';tmr.textContent='Следующий через: '+h+'ч '+m+'мин';
+    tmr.style.display='block';
+    tmr.textContent='Следующий через: '+h+'ч '+m+'мин';
   }
 }
 
-// ── MODAL ──
 function openModal(id){
   var biz=null;
   for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){biz=BIZ[i];break;}}
@@ -582,92 +570,55 @@ function openModal(id){
   _curBiz=biz;
   var n=G.biz[id]||0;
   var lv=G.bizLvl[id]||0;
-  var lvMult=1+lv*0.5;
-  var inc=biz.inc*lvMult;
-  var upgC=cBizUpgCost(biz);
+  var inc=biz.inc*(1+lv*0.5);
+  var uc=cUC(biz);
+  var bc=cCost(biz);
   document.getElementById('mTitle').textContent=biz.icon+' '+biz.name;
   document.getElementById('mCount').textContent=n+' шт.';
-  document.getElementById('mLvl').textContent=lv+' / 5';
+  document.getElementById('mLvl').textContent=lv+'/5';
   document.getElementById('mInc').textContent=fmt(inc)+'/мин';
-  document.getElementById('mTotal').textContent=fmt(inc*n)+'/мин';
-  document.getElementById('mBuyCost').textContent=fmt(cCost(biz));
-  document.getElementById('mUpgCost').textContent=upgC?fmt(upgC):'МАКСИМУМ';
-  var buyBtn=document.getElementById('mBuyBtn');
-  var upgBtn=document.getElementById('mUpgBtn');
-  buyBtn.style.opacity=G.coins>=cCost(biz)?'1':'0.4';
-  upgBtn.style.opacity=(upgC&&G.coins>=upgC)?'1':'0.4';
-  if(!upgC){upgBtn.textContent='МАК УРОВЕНЬ';upgBtn.style.pointerEvents='none';}
-  else{upgBtn.textContent='ПРОКАЧАТЬ';upgBtn.style.pointerEvents='';}
+  document.getElementById('mTot').textContent=fmt(inc*n)+'/мин';
+  document.getElementById('mBC').textContent=fmt(bc);
+  document.getElementById('mUC').textContent=uc?fmt(uc):'МАКСИМУМ';
+  var bb=document.getElementById('mBuyBtn');
+  var ub=document.getElementById('mUpgBtn');
+  bb.style.opacity=G.coins>=bc?'1':'0.4';
+  if(!uc){ub.textContent='МАК УР.';ub.style.pointerEvents='none';ub.style.opacity='0.3';}
+  else{ub.textContent='ПРОКАЧАТЬ';ub.style.pointerEvents='';ub.style.opacity=G.coins>=uc?'1':'0.4';}
   document.getElementById('bizModal').classList.add('show');
 }
 
-function modalBuy(){
-  if(!_curBiz)return;
-  buyB(_curBiz.id);
-  openModal(_curBiz.id);
-}
+function modalBuy(){if(!_curBiz)return;buyB(_curBiz.id);openModal(_curBiz.id);}
+function modalUpg(){if(!_curBiz)return;upgBiz(_curBiz.id);openModal(_curBiz.id);}
+function closeModal(){document.getElementById('bizModal').classList.remove('show');_curBiz=null;}
+document.getElementById('bizModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 
-function modalUpg(){
-  if(!_curBiz)return;
-  upgBiz(_curBiz.id);
-  openModal(_curBiz.id);
-}
-
-function closeModal(){
-  document.getElementById('bizModal').classList.remove('show');
-  _curBiz=null;
-}
-
-document.getElementById('bizModal').addEventListener('click',function(e){
-  if(e.target===this)closeModal();
-});
-// ── RENDER ──
 function rdr(){
   var ipm=cIPM();G.ipm=ipm;
   var clk=cClk();
   document.getElementById('sC').textContent=fmt(G.coins);
   document.getElementById('sI').textContent=fmt(ipm);
-  document.getElementById('sT').textContent=fmt(G.total);
   document.getElementById('lvlBadge').textContent='УР. '+G.level;
   var pv=XPT[G.level-1]||0;
   var nx=XPT[G.level]||(G.xp+1);
-  var pct=nx>pv?Math.min(100,((G.xp-pv)/(nx-pv))*100):100;
-  document.getElementById('xpF').style.width=pct+'%';
+  document.getElementById('xpF').style.width=Math.min(100,nx>pv?((G.xp-pv)/(nx-pv))*100:100)+'%';
   document.getElementById('xpV').textContent=G.xp;
-  var nextLvl=G.level+1;
-  document.getElementById('xpN').textContent=nx>G.xp?'до ур.'+nextLvl+': '+(nx-G.xp):'МАКСИМУМ';
+  document.getElementById('xpN').textContent=nx>G.xp?'до ур.'+(G.level+1)+': '+(nx-G.xp):'МАКСИМУМ';
   document.getElementById('cpow').textContent='+'+fmt(clk);
-  document.getElementById('ihint').textContent=ipm>0?'Доход: '+fmt(ipm)+'/мин · Тап: +'+fmt(clk):'Откройте бизнес для пассивного дохода';
+  document.getElementById('ihint').textContent=ipm>0?'Пассивный доход: '+fmt(ipm)+'/мин · Тап: +'+fmt(clk):'Перейдите в раздел Бизнес и откройте первое заведение';
   if(_off>0){document.getElementById('offAmt').textContent=fmt(_off);document.getElementById('offb').classList.add('show');}
-  rHB();rBiz();rUpg();rSk();rProf();rAch();rBonus();
-}
-
-function rHB(){
-  var el=document.getElementById('homeBiz');
-  var html='',has=false;
-  for(var i=0;i<BIZ.length;i++){
-    var b=BIZ[i],n=G.biz[b.id]||0;
-    if(!n)continue;
-    has=true;
-    var lv=G.bizLvl[b.id]||0;
-    var inc=b.inc*(1+lv*0.5)*n;
-    html+='<div class="bc" onclick="openModal(\''+b.id+'\')">';
-    html+='<div class="bc-lvl">Ур.'+lv+'</div>';
-    html+='<div class="bc-n">×'+n+'</div>';
-    html+='<div class="bc-i">'+b.icon+'</div>';
-    html+='<div class="bc-name">'+b.name+'</div>';
-    html+='<div class="bc-inc">'+fmt(inc)+'/мин</div>';
-    html+='</div>';
-  }
-  el.innerHTML=has?html:'<div style="grid-column:1/-1;text-align:center;padding:16px;color:var(--textdim);font-size:12px;font-style:italic">Нет открытых бизнесов.<br>Перейдите в раздел Бизнес.</div>';
+  rBiz();rUpg();rSk();rProf();rAch();rBonus();
 }
 
 function rBiz(){
   var el=document.getElementById('bizGrid');
   var html='';
   for(var i=0;i<BIZ.length;i++){
-    var b=BIZ[i],n=G.biz[b.id]⠵⠞⠵⠞⠺⠞⠞⠵⠺⠵⠟⠟⠞⠞⠞⠺⠺⠵⠞0;
-    var c=cCost(b),can=G.coins>=c;
+    var b=BIZ[i];
+    var n=G.biz[b.id]||0;
+    var lv=G.bizLvl[b.id]||0;
+    var c=cCost(b);
+    var can=G.coins>=c;
     var inc=b.inc*(1+lv*0.5);
     html+='<div class="bc'+(can?' aff':'')+'" onclick="openModal(\''+b.id+'\')">';
     html+='<div class="bc-lvl">Ур.'+lv+'</div>';
@@ -680,7 +631,6 @@ function rBiz(){
   }
   el.innerHTML=html;
 }
-
 function rUpg(){
   var el=document.getElementById('upgList');
   var html='';
@@ -688,9 +638,8 @@ function rUpg(){
     var u=UPG[i];
     var done=G.upg.indexOf(u.id)!==-1;
     var can=!done&&G.coins>=u.cost;
-    var cls='uc'+(done?' done':(can?' aff':''));
     var oc=done?'':'buyU(\''+u.id+'\')';
-    html+='<div class="'+cls+'" onclick="'+oc+'">';
+    html+='<div class="uc'+(done?' done':(can?' aff':''))+'" onclick="'+oc+'">';
     html+='<div class="uc-i">'+u.icon+'</div>';
     html+='<div class="uc-info"><div class="uc-name">'+u.name+(done?' ✓':'')+'</div><div class="uc-desc">'+u.desc+'</div></div>';
     html+='<div class="uc-cost">'+(done?'✓':fmt(u.cost))+'</div>';
@@ -704,17 +653,22 @@ function rSk(){
   var html='';
   for(var i=0;i<SK.length;i++){
     var sk=SK[i];
-    var lv=G.skills[sk.id]||0,c=cSkCost(sk),can=lv<sk.max&&G.coins>=c,mx=lv>=sk.max;
+    var lv=G.skills[sk.id]||0;
+    var c=cSkC(sk);
+    var can=lv<sk.max&&G.coins>=c;
+    var mx=lv>=sk.max;
     var pct=Math.round(lv/sk.max*100);
     var oc=mx?'':'buySk(\''+sk.id+'\')';
     html+='<div class="skc'+(can?' aff':(mx?' maxed':''))+'" onclick="'+oc+'">';
-    html+='<div class="sk-top"><div class="sk-name">'+sk.emoji+' '+sk.name+' ['+lv+'/'+sk.max+']</div><div class="sk-cost">'+(mx?'★ МАКС':fmt(c))+'</div></div>';
+    html+='<div class="sk-top"><div class="sk-name">'+sk.emoji+' '+sk.name+' ['+lv+'/'+sk.max+']</div>';
+    html+='<div class="sk-cost">'+(mx?'★ МАКС':fmt(c))+'</div></div>';
     html+='<div class="sk-desc">'+sk.desc+'</div>';
     html+='<div class="sk-prog"><div class="sk-fill" style="width:'+pct+'%"></div></div>';
     html+='</div>';
   }
   el.innerHTML=html;
 }
+
 function rProf(){
   document.getElementById('pNm').textContent=_name.toUpperCase();
   document.getElementById('pTl').textContent=TTL[Math.min(G.level,TTL.length-1)];
@@ -725,17 +679,17 @@ function rProf(){
   document.getElementById('pp4').textContent=cnt;
   var ss='';
   for(var i=0;i<SK.length;i++){
-    var sk=SK[i],lv=G.skills[sk.id]||0;
-    ss+='<div class="ss-item"><div class="ss-ico">'+sk.emoji+'</div><div class="ss-name">'+sk.name+'</div><div class="ss-val">'+lv+'/'+sk.max+'</div></div>';
+    var sk=SK[i];var lv=G.skills[sk.id]||0;
+    ss+='<div class="ss"><div class="ss-ico">'+sk.emoji+'</div><div class="ss-n">'+sk.name+'</div><div class="ss-v">'+lv+'/'+sk.max+'</div></div>';
   }
-  document.getElementById('skillSummary').innerHTML=ss;
+  document.getElementById('skSum').innerHTML=ss;
 }
 
 function rAch(){
   var el=document.getElementById('achGrid');
   var html='';
   for(var i=0;i<ACH.length;i++){
-    var a=ACH[i],e=G.ach.indexOf(a.id)!==-1;
+    var a=ACH[i];var e=G.ach.indexOf(a.id)!==-1;
     html+='<div class="ac'+(e?' earned':'')+'">';
     html+='<div class="ac-i">'+a.icon+'</div>';
     html+='<div class="ac-name">'+a.name+'</div>';
@@ -753,19 +707,35 @@ function rBonus(){
   var html='';
   for(var i=0;i<7;i++){
     var f=(G.streak||0)>i;
-    html+='<div style="flex:1;min-width:36px;height:50px;';
-    html+='background:'+(f?'rgba(155,89,182,.2)':'rgba(0,0,0,.2)')+';';
-    html+='border:1px solid '+(f?'rgba(180,127,212,.6)':'rgba(180,127,212,.15)')+';';
-    html+='border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">';
+    html+='<div style="flex:1;min-width:36px;height:50px;background:'+(f?'rgba(155,89,182,.2)':'rgba(0,0,0,.2)')+';border:1px solid '+(f?'rgba(180,127,212,.6)':'rgba(180,127,212,.15)')+';border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">';
     html+='<div style="font-size:14px">'+(f?'⭐':'·')+'</div>';
-    html+='<div style="font-size:8px;color:'+(f?'var(--purple2)':'var(--textdim)')+'">ДЕНЬ '+(i+1)+'</div>';
+    html+='<div style="font-size:8px;color:'+(f?'var(--pur2)':'var(--dim)')+'">ДЕНЬ '+(i+1)+'</div>';
     html+='</div>';
   }
   document.getElementById('streakEl').innerHTML=html;
 }
 
-// ── CLICK ──
-document.getElementById('cbtn').addEventListener('click',function(e){
+function goTab(n,btn){
+  var ts=document.querySelectorAll('.tab');
+  for(var i=0;i<ts.length;i++)ts[i].classList.remove('on');
+  var bs=document.querySelectorAll('.nb');
+  for(var i=0;i<bs.length;i++)bs[i].classList.remove('on');
+  document.getElementById('tab'+n).classList.add('on');
+  btn.classList.add('on');
+  document.getElementById('cnt').scrollTop=0;
+  rdr();
+}
+
+var _nt;
+function ntf(msg,tp){
+  tp=tp||'ok';
+  var el=document.getElementById('notif');
+  el.textContent=msg;
+  el.className='notif '+tp+' show';
+  clearTimeout(_nt);
+  _nt=setTimeout(function(){el.classList.remove('show');},2800);
+}
+  document.getElementById('cbtn').addEventListener('click',function(e){
   var earn=cClk();
   G.coins+=earn;G.total+=earn;
   if(_off>0){_off=0;document.getElementById('offb').classList.remove('show');}
@@ -781,39 +751,14 @@ document.getElementById('cbtn').addEventListener('click',function(e){
   sv();rdr();
 });
 
-// ── TABS ──
-function goTab(n,btn){
-  var tabs=document.querySelectorAll('.tab');
-  for(var i=0;i<tabs.length;i++)tabs[i].classList.remove('on');
-  var btns=document.querySelectorAll('.nb');
-  for(var i=0;i<btns.length;i++)btns[i].classList.remove('on');
-  document.getElementById('tab'+n).classList.add('on');
-  btn.classList.add('on');
-  document.getElementById('cnt').scrollTop=0;
-  rdr();
-}
-
-// ── NOTIF ──
-var _nt;
-function ntf(msg,tp){
-  tp=tp||'ok';
-  var el=document.getElementById('notif');
-  el.textContent=msg;
-  el.className='notif '+tp+' show';
-  clearTimeout(_nt);
-  _nt=setTimeout(function(){el.classList.remove('show');},2800);
-}
-
-// ── GAME LOOP ──
 setInterval(function(){
   var ipm=cIPM();
   if(ipm>0){var inc=ipm/600;G.coins+=inc;G.total+=inc;}
   document.getElementById('sC').textContent=fmt(G.coins);
-  document.getElementById('sT').textContent=fmt(G.total);
+  document.getElementById('sI').textContent=fmt(G.ipm>0?G.ipm:cIPM());
   sv();
 },100);
 
-// ── START ──
 ld();
 if(window.Telegram&&window.Telegram.WebApp){
   window.Telegram.WebApp.ready();
