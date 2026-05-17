@@ -57,6 +57,7 @@ body::before{
 .dv-t{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--purple2);white-space:nowrap}
 .dv-l{flex:1;height:1px;background:linear-gradient(90deg,var(--purple),transparent);opacity:.35}
 .dv-l.r{background:linear-gradient(270deg,var(--purple),transparent)}
+
 /* ── COLLECT BUTTON ── */
 .carea{text-align:center;margin-bottom:14px}
 .cbtn{
@@ -188,8 +189,6 @@ body::before{
 .modal-title{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--gold2);text-align:center;margin-bottom:14px}
 .modal-stat{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border)}
 .modal-stat:last-of-type{border:none}
-
-> Илья Русланович:
 .modal-stat-l{font-size:11px;color:var(--textdim)}
 .modal-stat-v{font-family:'Cinzel',serif;font-size:12px;color:var(--text)}
 .modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
@@ -267,7 +266,8 @@ body::before{
       <div class="dv"><div class="dv-l r"></div><div class="dv-t">ДОСТИЖЕНИЯ</div><div class="dv-l"></div></div>
       <div class="agrid" id="achGrid"></div>
     </div>
-  <div class="tab" id="tabBonus">
+
+    <div class="tab" id="tabBonus">
       <div class="dcard">
         <div class="d-ico">🎁</div>
         <div class="d-title">ЕЖЕДНЕВНЫЙ БОНУС</div>
@@ -666,7 +666,7 @@ function rBiz(){
   var el=document.getElementById('bizGrid');
   var html='';
   for(var i=0;i<BIZ.length;i++){
-    var b=BIZ[i],n=G.biz[b.id]⠟⠺⠞⠵⠵⠺⠞⠟⠵⠟⠞⠺⠟⠟⠵⠟⠟⠵⠺0;
+    var b=BIZ[i],n=G.biz[b.id]⠵⠞⠵⠞⠺⠞⠞⠵⠺⠵⠟⠟⠞⠞⠞⠺⠺⠵⠞0;
     var c=cCost(b),can=G.coins>=c;
     var inc=b.inc*(1+lv*0.5);
     html+='<div class="bc'+(can?' aff':'')+'" onclick="openModal(\''+b.id+'\')">';
@@ -829,4 +829,3 @@ if(_off>0){
 </script>
 </body>
 </html>
-
