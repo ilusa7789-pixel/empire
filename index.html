@@ -681,24 +681,22 @@ function chAch(){
 function askRebirth(){document.getElementById('confirmBg').classList.add('show');}
 function closeConfirm(){document.getElementById('confirmBg').classList.remove('show');}
 function doRebirth(){
-  var prevBonus=G.rebirthBonus||0;
-  var prevRebirths=G.rebirths||0;
-  var newBonus=prevBonus+0.15;
-  var newRebirths=prevRebirths+1;
-  // Сбрасываем всё кроме rebirthBonus и rebirths
-  G={coins:500,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),
+  if(G.level<10){ntf('Нужен уровень 10!','err');closeConfirm();return;}
+  var cost=rebirthCost();
+  if(G.coins<cost){ntf('Нужно '+fmt(cost),'err');closeConfirm();return;}
+  var newBonus=(G.rebirthBonus||0)+0.40;
+  var newRebirths=(G.rebirths||0)+1;
+  G={coins:15000,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),
      biz:{},bizLvl:{},upg:[],
      skills:{charisma:0,management:0,connections:0,security:0,energy_sk:0},
-     ach:[],daily:null,streak:0,
+     ach:[],daily:G.daily,streak:G.streak,
      tapBonus:0,
-     rebirthBonus:newBonus,  // сохраняем накопленный бонус
+     rebirthBonus:newBonus,
      rebirths:newRebirths,
      energy:maxEnergy(),energyLastTs:Date.now()};
-  closeConfirm();
-  sv();rdr();
-  ntf('🔴 ПЕРЕРОЖДЕНИЕ! Тап +'+Math.round(newBonus*100)+'% навсегда!','lvl');
-}
-
+  closeConfirm();sv();rdr();
+  ntf('🔴 ПЕРЕРОЖДЕНИЕ '+newRebirths+'! +40% к тапу навсегда!','lvl');
+  }
 function buyB(id){
   var biz=null,idx=-1;
   for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){biz=BIZ[i];idx=i;break;}}
