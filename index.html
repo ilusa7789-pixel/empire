@@ -357,8 +357,8 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
     <div class="wm-price" id="wmPrice">Цена: $50K</div>
     <div class="wheel-wrap">
       <svg class="wheel-arrow" width="24" height="28" viewBox="0 0 24 28">
-        <defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-        <polygon points="12,0 24,28 0,28" fill="#f0c96a" filter="url(#glow)" stroke="#fff" stroke-width="1" stroke-opacity="0.5"/>
+  <defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <polygon points="12,28 0,0 24,0" fill="#f0c96a" filter="url(#glow)" stroke="#fff" stroke-width="1" stroke-opacity="0.5"/>
       </svg>
       <canvas id="wheelCanvas" width="280" height="280"></canvas>
     </div>
