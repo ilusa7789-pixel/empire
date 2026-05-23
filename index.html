@@ -532,13 +532,12 @@ var _lastTapTs=0; // время последнего тапа
 function bizMinLevel(idx){return(Math.floor(idx/4)+1)*3;}
 
 // ════ ЭНЕРГИЯ ════
-function maxEnergy(){
-  var lv=G.level,sk=(G.skills.energy_sk||0);
+  function maxEnergy(){
+  var lv=G.level, sk=(G.skills.energy_sk||0);
   var base=lv<=9?lv*100:900+(lv-9)*500;
   return Math.floor(base*(1+sk*0.05));
 }
-function regenPerSec(){return maxEnergy()/420;} // 7 минут
-
+function regenPerSec(){return maxEnergy()/300;} // 5 минут
 function updateEnergy(){
   var now=Date.now();
   // Регенерируем только если не тапали последние 2 секунды
