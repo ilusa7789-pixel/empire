@@ -27,15 +27,15 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   radial-gradient(ellipse at 20% 85%,rgba(249,115,22,0.1) 0%,transparent 45%);
   animation:bgF 12s ease-in-out infinite alternate}
 @keyframes bgF{
-  0%{background:radial-gradient(ellipse at 15% 10%,rgba(124,58,237,0.28) 0%,transparent 50%),radial-gradient(ellipse at 85% 80%,rgba(212,168,75,0.18) 0%,transparent 50%),radial-gradient(ellipse at 80% 15%,rgba(239,68,68,0.12) 0%,transparent 45%),radial-gradient(ellipse at 20% 85%,rgba(249,115,22,0.1) 0%,transparent 45%)}
-  50%{background:radial-gradient(ellipse at 25% 20%,rgba(124,58,237,0.22) 0%,transparent 55%),radial-gradient(ellipse at 75% 70%,rgba(212,168,75,0.22) 0%,transparent 55%),radial-gradient(ellipse at 85% 25%,rgba(239,68,68,0.15) 0%,transparent 50%),radial-gradient(ellipse at 10% 75%,rgba(249,115,22,0.13) 0%,transparent 50%)}
-  100%{background:radial-gradient(ellipse at 10% 30%,rgba(124,58,237,0.3) 0%,transparent 50%),radial-gradient(ellipse at 90% 60%,rgba(212,168,75,0.15) 0%,transparent 50%),radial-gradient(ellipse at 70% 10%,rgba(239,68,68,0.1) 0%,transparent 45%),radial-gradient(ellipse at 30% 90%,rgba(249,115,22,0.12) 0%,transparent 45%)}
+  0%{background:radial-gradient(ellipse at 15% 10%,rgba(124,58,237,.28) 0%,transparent 50%),radial-gradient(ellipse at 85% 80%,rgba(212,168,75,.18) 0%,transparent 50%),radial-gradient(ellipse at 80% 15%,rgba(239,68,68,.12) 0%,transparent 45%),radial-gradient(ellipse at 20% 85%,rgba(249,115,22,.1) 0%,transparent 45%)}
+  50%{background:radial-gradient(ellipse at 25% 20%,rgba(124,58,237,.22) 0%,transparent 55%),radial-gradient(ellipse at 75% 70%,rgba(212,168,75,.22) 0%,transparent 55%),radial-gradient(ellipse at 85% 25%,rgba(239,68,68,.15) 0%,transparent 50%),radial-gradient(ellipse at 10% 75%,rgba(249,115,22,.13) 0%,transparent 50%)}
+  100%{background:radial-gradient(ellipse at 10% 30%,rgba(124,58,237,.3) 0%,transparent 50%),radial-gradient(ellipse at 90% 60%,rgba(212,168,75,.15) 0%,transparent 50%),radial-gradient(ellipse at 70% 10%,rgba(239,68,68,.1) 0%,transparent 45%),radial-gradient(ellipse at 30% 90%,rgba(249,115,22,.12) 0%,transparent 45%)}
 }
 body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(rgba(168,85,247,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(168,85,247,0.04) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(168,85,247,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(168,85,247,.04) 1px,transparent 1px);
   background-size:32px 32px;transform:perspective(400px) rotateX(5deg);transform-origin:top center}
 .app{position:relative;z-index:1;max-width:480px;margin:0 auto;height:100vh;display:flex;flex-direction:column;overflow:hidden}
-.hdr{flex-shrink:0;padding:10px 14px 8px;border-bottom:1px solid var(--bor);background:rgba(18,9,30,0.97);position:relative;box-shadow:0 4px 20px rgba(124,58,237,0.15)}
+.hdr{flex-shrink:0;padding:10px 14px 8px;border-bottom:1px solid var(--bor);background:rgba(18,9,30,.97);position:relative;box-shadow:0 4px 20px rgba(124,58,237,.15)}
 .hdr::after{content:'';position:absolute;bottom:-1px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pur2),transparent);opacity:.7}
 .hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
 .logo{font-family:'Cinzel',serif;font-size:15px;font-weight:900;letter-spacing:3px;background:linear-gradient(135deg,var(--pur2),var(--gold2),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -75,7 +75,7 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 .energy-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--cyan);opacity:.9}
 .energy-val{font-family:'Cinzel',serif;font-size:9px;color:var(--cyan)}
 .energy-bar{height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;border:1px solid rgba(0,188,212,.3)}
-.energy-fill{height:100%;border-radius:4px;transition:width .15s ease;box-shadow:0 0 8px rgba(0,188,212,.6)}
+.energy-fill{height:100%;border-radius:4px;transition:width .15s ease}
 .energy-timer{font-size:9px;color:var(--cyan);text-align:center;margin-top:3px;font-style:italic;min-height:13px;opacity:.7}
 .ihint{font-size:11px;color:var(--dim);margin-top:3px;text-align:center;font-style:italic}
 .rebirth-btn-wrap{margin-top:8px;text-align:center}
@@ -92,10 +92,10 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 .case-name{font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:1px}
 .case-word{font-family:'Cinzel',serif;font-size:10px;font-weight:900;letter-spacing:3px;margin-top:1px}
 .case-price{font-family:'Cinzel',serif;font-size:14px;font-weight:700}
-@keyframes shimmer-txt{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.immortal-nm{background:linear-gradient(90deg,#00bcd4,#e040fb,#f0c96a,#00bcd4);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer-txt 2s linear infinite}
-@keyframes immortal-bdr{0%{border-color:#00bcd4;box-shadow:0 0 14px rgba(0,188,212,.4)}33%{border-color:#e040fb;box-shadow:0 0 14px rgba(224,64,251,.4)}66%{border-color:#f0c96a;box-shadow:0 0 14px rgba(240,201,106,.4)}100%{border-color:#00bcd4;box-shadow:0 0 14px rgba(0,188,212,.4)}}
-.case-immortal{animation:immortal-bdr 3s infinite}
+@keyframes st{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.imm-nm{background:linear-gradient(90deg,#00bcd4,#e040fb,#f0c96a,#00bcd4);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:st 2s linear infinite}
+@keyframes ib{0%{border-color:#00bcd4;box-shadow:0 0 14px rgba(0,188,212,.4)}33%{border-color:#e040fb;box-shadow:0 0 14px rgba(224,64,251,.4)}66%{border-color:#f0c96a;box-shadow:0 0 14px rgba(240,201,106,.4)}100%{border-color:#00bcd4;box-shadow:0 0 14px rgba(0,188,212,.4)}}
+.case-imm{animation:ib 3s infinite}
 .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
 .bc{background:var(--cardg);border:1px solid var(--borg);border-radius:12px;padding:10px 9px;cursor:pointer;position:relative;overflow:hidden;transition:all .2s;transform:perspective(200px) rotateX(1deg)}
 .bc::before{content:'';position:absolute;top:0;left:0;right:0;height:40%;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);pointer-events:none}
@@ -108,7 +108,8 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 .bc-lock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);border-radius:12px;flex-direction:column;gap:3px;font-family:'Cinzel',serif;font-size:9px;color:#aaa}
 .bc-lvl{position:absolute;top:5px;left:5px;font-size:8px;font-family:'Cinzel',serif;color:var(--pur3);background:rgba(124,58,237,.2);border:1px solid var(--bor);padding:1px 4px;border-radius:4px}
 .bc-n{position:absolute;top:5px;right:5px;font-family:'Cinzel',serif;font-size:8px;color:var(--gold);background:rgba(212,168,75,.12);border:1px solid var(--borg);padding:1px 4px;border-radius:4px}
-.bc-i{font-size:22px;margin-bottom:3px;margin-top:8px}.bc-name{font-family:'Cinzel',serif;font-size:9px;font-weight:700;color:var(--text);margin-bottom:2px;line-height:1.2}
+.bc-i{font-size:22px;margin-bottom:3px;margin-top:8px}
+.bc-name{font-family:'Cinzel',serif;font-size:9px;font-weight:700;color:var(--text);margin-bottom:2px;line-height:1.2}
 .bc-inc{font-size:9px;color:var(--gold);font-style:italic}.bc-cost{font-family:'Cinzel',serif;font-size:10px;color:var(--gold2);margin-top:4px}
 .ulist{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
 .uc{background:var(--card);border:1px solid var(--bor);border-radius:12px;padding:9px 11px;display:flex;align-items:center;gap:10px;cursor:pointer;position:relative;overflow:hidden;transition:all .15s}
@@ -152,12 +153,12 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 .d-timer{font-size:10px;color:var(--dim);letter-spacing:1px;margin-top:8px}
 .gbtn{display:block;width:100%;padding:12px;background:linear-gradient(135deg,#2e1e45,#1a1025);border:1px solid var(--gold);border-radius:10px;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);cursor:pointer;transition:all .15s;text-align:center}
 .gbtn:active{transform:scale(0.97)}.gbtn:disabled{opacity:.35;cursor:not-allowed;transform:none}
-.nav{flex-shrink:0;display:flex;background:rgba(14,8,24,0.99);border-top:1px solid var(--bor);position:relative;box-shadow:0 -4px 20px rgba(0,0,0,.4)}
+.nav{flex-shrink:0;display:flex;background:rgba(14,8,24,.99);border-top:1px solid var(--bor);position:relative;box-shadow:0 -4px 20px rgba(0,0,0,.4)}
 .nav::before{content:'';position:absolute;top:-1px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pink),var(--pur2),transparent);opacity:.6}
 .nb{flex:1;padding:7px 2px 10px;background:none;border:none;cursor:pointer;color:var(--dim);font-family:'Nunito',sans-serif;font-size:7px;letter-spacing:.5px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:2px;transition:color .2s;position:relative}
 .nb.on{color:var(--gold)}.nb.on::after{content:'';position:absolute;bottom:0;left:15%;right:15%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);box-shadow:0 0 8px var(--gold);border-radius:1px}
 .nb-i{font-size:18px}
-.bonus-dot{display:none;position:absolute;top:6px;right:6px;width:9px;height:9px;border-radius:50%;background:#f44336;box-shadow:0 0 6px #f44336;animation:dp 1.5s infinite}
+.bdot{display:none;position:absolute;top:6px;right:6px;width:9px;height:9px;border-radius:50%;background:#f44336;box-shadow:0 0 6px #f44336;animation:dp 1.5s infinite}
 @keyframes dp{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
 .notif{position:fixed;top:14px;left:50%;transform:translateX(-50%) translateY(-7px);font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;padding:8px 18px;border-radius:20px;z-index:10000;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;max-width:94vw}
 .notif.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -171,20 +172,20 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 .wm-price{font-family:'Cinzel',serif;font-size:10px;text-align:center;color:var(--gold2);margin-bottom:14px;opacity:.8}
 .wheel-wrap{position:relative;display:flex;justify-content:center;align-items:center;margin-bottom:12px}
 #wheelCanvas{border-radius:50%;display:block;filter:drop-shadow(0 0 20px rgba(168,85,247,.5))}
-.wheel-arrow{position:absolute;top:-4px;left:50%;transform:translateX(-50%);z-index:10;filter:drop-shadow(0 0 8px rgba(240,201,106,1))}
+.w-arrow{position:absolute;top:-4px;left:50%;transform:translateX(-50%);z-index:10;filter:drop-shadow(0 0 8px rgba(240,201,106,1))}
 .result-box{display:none;border-radius:14px;padding:12px;text-align:center;margin-bottom:10px;border:2px solid}
-.result-box .rlabel{font-family:'Cinzel',serif;font-size:18px;font-weight:900;margin-bottom:3px;letter-spacing:1px}
-.result-box .rsub{font-size:10px;color:var(--dim);font-style:italic}
+.result-box .rl{font-family:'Cinzel',serif;font-size:18px;font-weight:900;margin-bottom:3px;letter-spacing:1px}
+.result-box .rs{font-size:10px;color:var(--dim);font-style:italic}
 .wm-btns{display:flex;flex-direction:column;gap:8px}
 .spin-btn{display:block;width:100%;padding:13px;background:linear-gradient(135deg,#2e1e45,#1a1025);border:2px solid;border-radius:14px;font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;text-align:center;transition:all .15s}
 .spin-btn:active{transform:scale(0.97)}.spin-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
-.collect-btn{display:none;width:100%;padding:13px;border-radius:14px;font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;border:2px solid var(--gold2);color:#000;background:linear-gradient(135deg,var(--gold),var(--gold2));box-shadow:0 0 30px rgba(212,168,75,.5);text-align:center;transition:all .15s}
-.collect-btn:active{transform:scale(0.97)}
+.coll-btn{display:none;width:100%;padding:13px;border-radius:14px;font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;border:2px solid var(--gold2);color:#000;background:linear-gradient(135deg,var(--gold),var(--gold2));box-shadow:0 0 30px rgba(212,168,75,.5);text-align:center;transition:all .15s}
+.coll-btn:active{transform:scale(0.97)}
 .close-wm{width:100%;padding:9px;border-radius:12px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid var(--bor);color:var(--dim)}
-.biz-modal-bg{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.8);align-items:center;justify-content:center;backdrop-filter:blur(4px)}
-.biz-modal-bg.show{display:flex;animation:fi .2s ease}
-.biz-modal{background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid var(--bor2);border-radius:16px;padding:20px 18px;width:88%;max-width:340px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.6)}
-.biz-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pur2),transparent);border-radius:16px 16px 0 0;opacity:.8}
+.biz-mb{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.8);align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.biz-mb.show{display:flex;animation:fi .2s ease}
+.biz-md{background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid var(--bor2);border-radius:16px;padding:20px 18px;width:88%;max-width:340px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.biz-md::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pur2),transparent);border-radius:16px 16px 0 0;opacity:.8}
 .m-title{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--gold2);text-align:center;margin-bottom:14px}
 .m-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--bor)}
 .m-row:last-of-type{border:none}.m-l{font-size:11px;color:var(--dim)}.m-v{font-family:'Cinzel',serif;font-size:11px;color:var(--text)}
@@ -193,15 +194,15 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 .m-btn.buy{background:rgba(212,168,75,.12);border-color:var(--gold);color:var(--gold)}.m-btn.buy:active{background:rgba(212,168,75,.25)}
 .m-btn.upg{background:rgba(124,58,237,.12);border-color:var(--pur2);color:var(--pur2)}.m-btn.upg:active{background:rgba(124,58,237,.25)}
 .m-btn.cls{grid-column:1/-1;background:rgba(255,255,255,.04);border-color:var(--bor);color:var(--dim)}
-.confirm-bg{display:none;position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.88);align-items:center;justify-content:center;backdrop-filter:blur(5px)}
-.confirm-bg.show{display:flex;animation:fi .2s ease}
-.confirm-box{background:linear-gradient(135deg,#1a0808,#2a0a0a);border:2px solid #f44336;border-radius:18px;padding:24px 22px;width:85%;max-width:320px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 30px rgba(244,67,54,.2)}
-.confirm-box h3{font-family:'Cinzel',serif;font-size:16px;color:#ff8a80;margin-bottom:10px;letter-spacing:1px}
-.confirm-box p{font-size:12px;color:var(--dim);margin-bottom:18px;line-height:1.6}
-.confirm-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.confirm-yes{padding:11px;border-radius:10px;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;background:linear-gradient(135deg,#c62828,#e53935);border:1px solid #f44336;color:#fff;transition:all .15s}
-.confirm-yes:active{transform:scale(0.97)}
-.confirm-no{padding:11px;border-radius:10px;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;background:rgba(255,255,255,.05);border:1px solid var(--bor);color:var(--dim);transition:all .15s}
+.cfm-bg{display:none;position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.88);align-items:center;justify-content:center;backdrop-filter:blur(5px)}
+.cfm-bg.show{display:flex;animation:fi .2s ease}
+.cfm-box{background:linear-gradient(135deg,#1a0808,#2a0a0a);border:2px solid #f44336;border-radius:18px;padding:24px 22px;width:85%;max-width:320px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 30px rgba(244,67,54,.2)}
+.cfm-box h3{font-family:'Cinzel',serif;font-size:16px;color:#ff8a80;margin-bottom:10px;letter-spacing:1px}
+.cfm-box p{font-size:12px;color:var(--dim);margin-bottom:18px;line-height:1.6}
+.cfm-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cfm-yes{padding:11px;border-radius:10px;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;background:linear-gradient(135deg,#c62828,#e53935);border:1px solid #f44336;color:#fff;transition:all .15s}
+.cfm-yes:active{transform:scale(0.97)}
+.cfm-no{padding:11px;border-radius:10px;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;background:rgba(255,255,255,.05);border:1px solid var(--bor);color:var(--dim)}
 </style>
 </head>
 <body>
@@ -223,14 +224,14 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
       <div class="carea">
         <div class="cbtn" id="cbtn"><div class="cbtn-shine"></div><div class="cbtn-ico">₿</div><div class="cbtn-lbl">НАЖМИ</div><div class="cbtn-pw" id="cpow">+$5</div></div>
         <div class="energy-wrap">
-          <div class="energy-top"><span class="energy-label">⚡ ЭНЕРГИЯ</span><span class="energy-val" id="energyVal">100/100</span></div>
-          <div class="energy-bar"><div class="energy-fill" id="energyFill" style="width:100%"></div></div>
-          <div class="energy-timer" id="energyTimer"></div>
+          <div class="energy-top"><span class="energy-label">⚡ ЭНЕРГИЯ</span><span class="energy-val" id="eVal">100/100</span></div>
+          <div class="energy-bar"><div class="energy-fill" id="eFill" style="width:100%"></div></div>
+          <div class="energy-timer" id="eTmr"></div>
         </div>
         <div class="ihint" id="ihint">Перейди в Бизнес для пассивного дохода</div>
         <div class="rebirth-btn-wrap">
-          <div class="rebirth-btn" onclick="askRebirth()">🔴 ПЕРЕРОЖДЕНИЕ</div>
-          <div class="rebirth-sub" id="rebirthSub">+40% К ТАПУ · УР.10 · $5M</div>
+          <div class="rebirth-btn" onclick="askRb()">🔴 ПЕРЕРОЖДЕНИЕ</div>
+          <div class="rebirth-sub" id="rbSub">+40% К ТАПУ · УР.10 · $5M</div>
         </div>
       </div>
       <div class="dv"><div class="dv-l r"></div><div class="dv-t">КЕЙСЫ</div><div class="dv-l"></div></div>
@@ -258,7 +259,7 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
         <div class="d-ico">🎁</div><div class="d-title">ЕЖЕДНЕВНЫЙ БОНУС</div>
         <div class="d-desc">Заходи каждый день — бонус растёт!</div>
         <div class="d-amt" id="dAmt">$0</div>
-        <button class="gbtn" id="dBtn" onclick="claimDaily()">[ ЗАБРАТЬ БОНУС ]</button>
+        <button class="gbtn" id="dBtn" onclick="claimD()">[ ЗАБРАТЬ БОНУС ]</button>
         <div class="d-timer" id="dTimer" style="display:none"></div>
       </div>
       <div class="dv"><div class="dv-l r"></div><div class="dv-t">СТРИК ВХОДОВ</div><div class="dv-l"></div></div>
@@ -270,291 +271,247 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
     <button class="nb" onclick="goTab('Biz',this)"><span class="nb-i">🏢</span>БИЗНЕС</button>
     <button class="nb" onclick="goTab('Upg',this)"><span class="nb-i">⚡</span>АПГРЕЙД</button>
     <button class="nb" onclick="goTab('Profile',this)"><span class="nb-i">🤵</span>ПРОФИЛЬ</button>
-    <button class="nb" onclick="goTab('Bonus',this)" style="position:relative"><span class="nb-i">🎁</span>БОНУС<span class="bonus-dot" id="bonusDot"></span></button>
+    <button class="nb" onclick="goTab('Bonus',this)" style="position:relative"><span class="nb-i">🎁</span>БОНУС<span class="bdot" id="bdot"></span></button>
   </div>
 </div>
 
-<!-- КОЛЕСО -->
-<div class="modal-bg" id="wheelModal">
-  <div class="wheel-modal" id="wheelBox">
-    <div class="wm-title" id="wmTitle">Common Case</div>
-    <div class="wm-price" id="wmPrice">Цена: $50K</div>
+<div class="modal-bg" id="wModal">
+  <div class="wheel-modal" id="wBox">
+    <div class="wm-title" id="wTitle">Common Case</div>
+    <div class="wm-price" id="wPrice">Цена: $50K</div>
     <div class="wheel-wrap">
-      <svg class="wheel-arrow" width="26" height="30" viewBox="0 0 26 30"><defs><filter id="ag"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><polygon points="13,30 0,0 26,0" fill="#f0c96a" filter="url(#ag)" stroke="#fff8" stroke-width="1"/></svg>
-      <canvas id="wheelCanvas" width="280" height="280"></canvas>
+      <svg class="w-arrow" width="26" height="30" viewBox="0 0 26 30"><defs><filter id="ag"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><polygon points="13,30 0,0 26,0" fill="#f0c96a" filter="url(#ag)" stroke="#fff8" stroke-width="1"/></svg>
+      <canvas id="wCanvas" width="280" height="280"></canvas>
     </div>
-    <div class="result-box" id="resultBox"><div class="rlabel" id="resultLabel">Приз</div><div class="rsub">Нажми ПОЛУЧИТЬ чтобы забрать!</div></div>
+    <div class="result-box" id="rBox"><div class="rl" id="rLbl">Приз</div><div class="rs">Нажми ПОЛУЧИТЬ чтобы забрать!</div></div>
     <div class="wm-btns">
       <button class="spin-btn" id="spinBtn" onclick="doSpin()">[ ВРАЩАТЬ ]</button>
-      <button class="collect-btn" id="collectBtn" onclick="collectPrize()">[ ПОЛУЧИТЬ ПРИЗ ]</button>
-      <button class="close-wm" onclick="closeWheel()">ЗАКРЫТЬ</button>
+      <button class="coll-btn" id="collBtn" onclick="collectPrize()">[ ПОЛУЧИТЬ ПРИЗ ]</button>
+      <button class="close-wm" onclick="closeW()">ЗАКРЫТЬ</button>
     </div>
   </div>
 </div>
 
-<!-- БИЗ МОДАЛ -->
-<div class="biz-modal-bg" id="bizModal">
-  <div class="biz-modal">
+<div class="biz-mb" id="bModal">
+  <div class="biz-md">
     <div class="m-title" id="mTitle">Бизнес</div>
-    <div class="m-row"><span class="m-l">Количество</span><span class="m-v" id="mCount">0</span></div>
+    <div class="m-row"><span class="m-l">Количество</span><span class="m-v" id="mCnt">0</span></div>
     <div class="m-row"><span class="m-l">Уровень прокачки</span><span class="m-v" id="mLvl">0/5</span></div>
     <div class="m-row"><span class="m-l">Доход за единицу</span><span class="m-v" id="mInc">$0/мин</span></div>
     <div class="m-row"><span class="m-l">Общий доход</span><span class="m-v" id="mTot">$0/мин</span></div>
     <div class="m-row"><span class="m-l">Цена покупки</span><span class="m-v" id="mBC">$0</span></div>
     <div class="m-row"><span class="m-l">Цена прокачки</span><span class="m-v" id="mUC">$0</span></div>
     <div class="m-btns">
-      <div class="m-btn buy" id="mBuyBtn" onclick="modalBuy()">КУПИТЬ</div>
-      <div class="m-btn upg" id="mUpgBtn" onclick="modalUpg()">ПРОКАЧАТЬ</div>
-      <div class="m-btn cls" onclick="closeBizModal()">ЗАКРЫТЬ</div>
+      <div class="m-btn buy" id="mBB" onclick="mBuy()">КУПИТЬ</div>
+      <div class="m-btn upg" id="mUB" onclick="mUpg()">ПРОКАЧАТЬ</div>
+      <div class="m-btn cls" onclick="closeBM()">ЗАКРЫТЬ</div>
     </div>
   </div>
 </div>
 
-<!-- ПОДТВЕРЖДЕНИЕ -->
-<div class="confirm-bg" id="confirmBg">
-  <div class="confirm-box">
+<div class="cfm-bg" id="cfmBg">
+  <div class="cfm-box">
     <h3>🔴 ПЕРЕРОЖДЕНИЕ</h3>
-    <p id="confirmText">Загрузка...</p>
-    <div class="confirm-btns">
-      <button class="confirm-yes" onclick="doRebirth()">ДА, СБРОСИТЬ</button>
-      <button class="confirm-no" onclick="closeConfirm()">ОТМЕНА</button>
+    <p id="cfmTxt">...</p>
+    <div class="cfm-btns">
+      <button class="cfm-yes" onclick="doRb()">ДА, СБРОСИТЬ</button>
+      <button class="cfm-no" onclick="closeCfm()">ОТМЕНА</button>
     </div>
   </div>
 </div>
 <div class="notif" id="notif"></div>
 
 <script>
-var SERVER="http://192.168.1.12:8080"; // вставь IP если используешь сервер: "http://192.168.X.X:8080"
-var _syncTick=0;
+var SERVER=""; // вставь "http://192.168.X.X:8080" для работы с сервером
+var _stk=0;
 
-// ══ ПАЛИТРЫ КОЛЕСА — каждый кейс свои цвета ══
+// ══ ПАЛИТРЫ КОЛЕСА ══
 var WP={
-  common:[
-    ['#37474f','#546e7a','#cfd8dc'],['#455a64','#607d8b','#eceff1'],
-    ['#263238','#37474f','#b0bec5'],['#546e7a','#78909c','#ffffff'],
-    ['#1c313a','#455a64','#cfd8dc'],['#102027','#37474f','#90a4ae'],
-    ['#4a6572','#6c8a96','#ffffff'],['#29434e','#546e7a','#b2dfdb']
-  ],
-  uncommon:[
-    ['#1b5e20','#2e7d32','#a5d6a7'],['#388e3c','#43a047','#c8e6c9'],
-    ['#0a3d1f','#1b5e20','#69f0ae'],['#194d33','#2e7d32','#b9f6ca'],
-    ['#1a237e','#283593','#9fa8da'],['#0d47a1','#1565c0','#90caf9'],
-    ['#00695c','#00897b','#80cbc4'],['#004d40','#00695c','#a7ffeb']
-  ],
-  rare:[
-    ['#0d47a1','#1565c0','#90caf9'],['#1565c0','#1976d2','#bbdefb'],
-    ['#006064','#00838f','#80deea'],['#01579b','#0277bd','#81d4fa'],
-    ['#283593','#3949ab','#9fa8da'],['#1a237e','#283593','#7986cb'],
-    ['#004d40','#00695c','#80cbc4'],['#0277bd','#0288d1','#b3e5fc']
-  ],
-  epic:[
-    ['#4a148c','#6a1b9a','#ea80fc'],['#7b1fa2','#8e24aa','#ce93d8'],
-    ['#880e4f','#ad1457','#f48fb1'],['#311b92','#4527a0','#b39ddb'],
-    ['#1a0533','#4a148c','#e040fb'],['#6a1b9a','#8e24aa','#f3e5f5'],
-    ['#4a0072','#6a1b9a','#ce93d8'],['#38006b','#7b1fa2','#ea80fc']
-  ],
-  legendary:[
-    ['#e65100','#ef6c00','#ffcc80'],['#f57c00','#fb8c00','#ffe082'],
-    ['#bf360c','#d84315','#ffab91'],['#f9a825','#f57f17','#fff9c4'],
-    ['#ff6f00','#ff8f00','#ffecb3'],['#e65100','#f57c00','#ffe57f'],
-    ['#bf360c','#e64a19','#ff8a65'],['#4e342e','#6d4c41','#ffccbc']
-  ],
-  mythical:[
-    ['#b71c1c','#c62828','#ef9a9a'],['#d32f2f','#e53935','#ffcdd2'],
-    ['#880e4f','#ad1457','#f48fb1'],['#4a148c','#6a1b9a','#ce93d8'],
-    ['#b71c1c','#d32f2f','#ff8a80'],['#880e4f','#c2185b','#f8bbd0'],
-    ['#6a1b9a','#8e24aa','#ea80fc'],['#c62828','#b71c1c','#ffcdd2']
-  ],
-  immortal:[
-    ['#006064','#00838f','#84ffff'],['#1a237e','#283593','#8c9eff'],
-    ['#004d40','#00695c','#a7ffeb'],['#4a148c','#6a1b9a','#ea80fc'],
-    ['#0d47a1','#1565c0','#82b1ff'],['#880e4f','#ad1457','#ff80ab'],
-    ['#e65100','#ef6c00','#ffd180'],['#1b5e20','#2e7d32','#b9f6ca']
-  ]
+  common:[['#37474f','#546e7a','#cfd8dc'],['#455a64','#607d8b','#eceff1'],['#263238','#37474f','#b0bec5'],['#546e7a','#78909c','#fff'],['#1c313a','#455a64','#cfd8dc'],['#29434e','#546e7a','#b2dfdb'],['#4a6572','#6c8a96','#fff'],['#102027','#37474f','#90a4ae']],
+  uncommon:[['#1b5e20','#2e7d32','#a5d6a7'],['#388e3c','#43a047','#c8e6c9'],['#0a3d1f','#1b5e20','#69f0ae'],['#0d47a1','#1565c0','#90caf9'],['#194d33','#2e7d32','#b9f6ca'],['#004d40','#00695c','#a7ffeb'],['#1a237e','#283593','#9fa8da'],['#00695c','#00897b','#80cbc4']],
+  rare:[['#0d47a1','#1565c0','#90caf9'],['#1565c0','#1976d2','#bbdefb'],['#006064','#00838f','#80deea'],['#01579b','#0277bd','#81d4fa'],['#1a237e','#283593','#7986cb'],['#004d40','#00695c','#80cbc4'],['#0277bd','#0288d1','#b3e5fc'],['#283593','#3949ab','#9fa8da']],
+  epic:[['#4a148c','#6a1b9a','#ea80fc'],['#7b1fa2','#8e24aa','#ce93d8'],['#880e4f','#ad1457','#f48fb1'],['#311b92','#4527a0','#b39ddb'],['#6a1b9a','#8e24aa','#f3e5f5'],['#4a0072','#6a1b9a','#ce93d8'],['#38006b','#7b1fa2','#ea80fc'],['#1a0533','#4a148c','#e040fb']],
+  legendary:[['#e65100','#ef6c00','#ffcc80'],['#f57c00','#fb8c00','#ffe082'],['#bf360c','#d84315','#ffab91'],['#f9a825','#f57f17','#fff9c4'],['#ff6f00','#ff8f00','#ffecb3'],['#bf360c','#e64a19','#ff8a65'],['#e65100','#f57c00','#ffe57f'],['#4e342e','#6d4c41','#ffccbc']],
+  mythical:[['#b71c1c','#c62828','#ef9a9a'],['#d32f2f','#e53935','#ffcdd2'],['#880e4f','#ad1457','#f48fb1'],['#4a148c','#6a1b9a','#ce93d8'],['#b71c1c','#d32f2f','#ff8a80'],['#880e4f','#c2185b','#f8bbd0'],['#6a1b9a','#8e24aa','#ea80fc'],['#c62828','#b71c1c','#ffcdd2']],
+  immortal:[['#006064','#00838f','#84ffff'],['#1a237e','#283593','#8c9eff'],['#004d40','#00695c','#a7ffeb'],['#4a148c','#6a1b9a','#ea80fc'],['#0d47a1','#1565c0','#82b1ff'],['#880e4f','#ad1457','#ff80ab'],['#e65100','#ef6c00','#ffd180'],['#1b5e20','#2e7d32','#b9f6ca']]
 };
 
 var CASES=[
-  {id:'common',   name:'Common',   price:50000,    border:'#9e9e9e',glow:'rgba(158,158,158,0.3)',nameColor:'#bdbdbd',priceColor:'#9e9e9e',bg:'linear-gradient(135deg,#1a1510,#2a2015)',
-   rewards:[{label:'+5% тапу',chance:28,type:'tap_pct',val:0.05},{label:'+8% тапу',chance:22,type:'tap_pct',val:0.08},{label:'+10% тапу',chance:15,type:'tap_pct',val:0.10},{label:'+$500',chance:13,type:'coins',val:500},{label:'+$1K',chance:10,type:'coins',val:1000},{label:'+$2K',chance:8,type:'coins',val:2000},{label:'Бар',chance:3,type:'biz',val:'bar'},{label:'Кофейня',chance:1,type:'biz',val:'cafe'}]},
-  {id:'uncommon', name:'Uncommon', price:200000,   border:'#4caf50',glow:'rgba(76,175,80,0.35)',nameColor:'#81c784',priceColor:'#4caf50',bg:'linear-gradient(135deg,#0d1f0d,#152815)',
-   rewards:[{label:'+12% тапу',chance:25,type:'tap_pct',val:0.12},{label:'+18% тапу',chance:20,type:'tap_pct',val:0.18},{label:'+$5K',chance:18,type:'coins',val:5000},{label:'+$10K',chance:15,type:'coins',val:10000},{label:'+$20K',chance:10,type:'coins',val:20000},{label:'Ресторан',chance:8,type:'biz',val:'rest'},{label:'Такси',chance:4,type:'biz',val:'taxi'}]},
-  {id:'rare',     name:'Rare',     price:500000,   border:'#2196f3',glow:'rgba(33,150,243,0.4)',nameColor:'#64b5f6',priceColor:'#2196f3',bg:'linear-gradient(135deg,#0a1220,#0f1f3a)',
-   rewards:[{label:'+25% тапу',chance:22,type:'tap_pct',val:0.25},{label:'+35% тапу',chance:18,type:'tap_pct',val:0.35},{label:'+$30K',chance:20,type:'coins',val:30000},{label:'+$60K',chance:15,type:'coins',val:60000},{label:'+$100K',chance:12,type:'coins',val:100000},{label:'Отель',chance:9,type:'biz',val:'hotel'},{label:'Фитнес',chance:4,type:'biz',val:'fitnes'}]},
-  {id:'epic',     name:'Epic',     price:2000000,  border:'#9c27b0',glow:'rgba(156,39,176,0.45)',nameColor:'#ce93d8',priceColor:'#9c27b0',bg:'linear-gradient(135deg,#1a0a20,#281038)',
-   rewards:[{label:'+50% тапу',chance:20,type:'tap_pct',val:0.50},{label:'+75% тапу',chance:15,type:'tap_pct',val:0.75},{label:'+$200K',chance:20,type:'coins',val:200000},{label:'+$500K',chance:17,type:'coins',val:500000},{label:'+$1M',chance:13,type:'coins',val:1000000},{label:'Казино',chance:10,type:'biz',val:'casino'},{label:'Автосалон',chance:5,type:'biz',val:'carshop'}]},
-  {id:'legendary',name:'Legendary',price:8000000,  border:'#ff9800',glow:'rgba(255,152,0,0.5)',nameColor:'#ffcc02',priceColor:'#ff9800',bg:'linear-gradient(135deg,#1f1000,#382000)',
-   rewards:[{label:'+100% тапу',chance:18,type:'tap_pct',val:1.00},{label:'+150% тапу',chance:13,type:'tap_pct',val:1.50},{label:'+$2M',chance:20,type:'coins',val:2000000},{label:'+$5M',chance:18,type:'coins',val:5000000},{label:'+$10M',chance:14,type:'coins',val:10000000},{label:'Завод',chance:11,type:'biz',val:'factory'},{label:'Порт',chance:6,type:'biz',val:'port'}]},
-  {id:'mythical', name:'Mythical', price:30000000, border:'#f44336',glow:'rgba(244,67,54,0.5)',nameColor:'#ef9a9a',priceColor:'#f44336',bg:'linear-gradient(135deg,#200808,#380a0a)',
-   rewards:[{label:'+200% тапу',chance:16,type:'tap_pct',val:2.00},{label:'+300% тапу',chance:11,type:'tap_pct',val:3.00},{label:'+$20M',chance:20,type:'coins',val:20000000},{label:'+$50M',chance:19,type:'coins',val:50000000},{label:'+$100M',chance:15,type:'coins',val:100000000},{label:'Нефтебаза',chance:11,type:'biz',val:'oil'},{label:'НПЗ',chance:8,type:'biz',val:'refinery'}]},
-  {id:'immortal', name:'Immortal', price:200000000,border:'#00bcd4',glow:'rgba(0,188,212,0.6)',nameColor:'SHIMMER',priceColor:'#e040fb',bg:'linear-gradient(135deg,#080818,#100828)',
-   rewards:[{label:'+500% тапу',chance:13,type:'tap_pct',val:5.00},{label:'+$200M',chance:18,type:'coins',val:200000000},{label:'+$500M',chance:16,type:'coins',val:500000000},{label:'+$1B',chance:14,type:'coins',val:1000000000},{label:'НПЗ',chance:11,type:'biz',val:'refinery'},{label:'Авиакомп.',chance:10,type:'biz',val:'airline'},{label:'Остров',chance:10,type:'biz',val:'island'},{label:'Космодром',chance:8,type:'biz',val:'space'}]}
+  {id:'common',   name:'Common',   price:50000,    border:'#9e9e9e',glow:'rgba(158,158,158,.3)',nc:'#bdbdbd',pc:'#9e9e9e',bg:'linear-gradient(135deg,#1a1510,#2a2015)',
+   rewards:[{l:'+5% тапу',c:28,t:'tap',v:.05},{l:'+8% тапу',c:22,t:'tap',v:.08},{l:'+10% тапу',c:15,t:'tap',v:.10},{l:'+$500',c:13,t:'$',v:500},{l:'+$1K',c:10,t:'$',v:1000},{l:'+$2K',c:8,t:'$',v:2000},{l:'Бар',c:3,t:'biz',v:'bar'},{l:'Кофейня',c:1,t:'biz',v:'cafe'}]},
+  {id:'uncommon', name:'Uncommon', price:200000,   border:'#4caf50',glow:'rgba(76,175,80,.35)',nc:'#81c784',pc:'#4caf50',bg:'linear-gradient(135deg,#0d1f0d,#152815)',
+   rewards:[{l:'+12% тапу',c:25,t:'tap',v:.12},{l:'+18% тапу',c:20,t:'tap',v:.18},{l:'+$5K',c:18,t:'$',v:5000},{l:'+$10K',c:15,t:'$',v:10000},{l:'+$20K',c:10,t:'$',v:20000},{l:'Ресторан',c:8,t:'biz',v:'rest'},{l:'Такси',c:4,t:'biz',v:'taxi'}]},
+  {id:'rare',     name:'Rare',     price:500000,   border:'#2196f3',glow:'rgba(33,150,243,.4)',nc:'#64b5f6',pc:'#2196f3',bg:'linear-gradient(135deg,#0a1220,#0f1f3a)',
+   rewards:[{l:'+25% тапу',c:22,t:'tap',v:.25},{l:'+35% тапу',c:18,t:'tap',v:.35},{l:'+$30K',c:20,t:'$',v:30000},{l:'+$60K',c:15,t:'$',v:60000},{l:'+$100K',c:12,t:'$',v:100000},{l:'Отель',c:9,t:'biz',v:'hotel'},{l:'Фитнес',c:4,t:'biz',v:'fitnes'}]},
+  {id:'epic',     name:'Epic',     price:2000000,  border:'#9c27b0',glow:'rgba(156,39,176,.45)',nc:'#ce93d8',pc:'#9c27b0',bg:'linear-gradient(135deg,#1a0a20,#281038)',
+   rewards:[{l:'+50% тапу',c:20,t:'tap',v:.50},{l:'+75% тапу',c:15,t:'tap',v:.75},{l:'+$200K',c:20,t:'$',v:200000},{l:'+$500K',c:17,t:'$',v:500000},{l:'+$1M',c:13,t:'$',v:1000000},{l:'Казино',c:10,t:'biz',v:'casino'},{l:'Автосалон',c:5,t:'biz',v:'carshop'}]},
+  {id:'legendary',name:'Legendary',price:8000000,  border:'#ff9800',glow:'rgba(255,152,0,.5)',nc:'#ffcc02',pc:'#ff9800',bg:'linear-gradient(135deg,#1f1000,#382000)',
+   rewards:[{l:'+100% тапу',c:18,t:'tap',v:1.00},{l:'+150% тапу',c:13,t:'tap',v:1.50},{l:'+$2M',c:20,t:'$',v:2000000},{l:'+$5M',c:18,t:'$',v:5000000},{l:'+$10M',c:14,t:'$',v:10000000},{l:'Завод',c:11,t:'biz',v:'factory'},{l:'Порт',c:6,t:'biz',v:'port'}]},
+  {id:'mythical', name:'Mythical', price:30000000, border:'#f44336',glow:'rgba(244,67,54,.5)',nc:'#ef9a9a',pc:'#f44336',bg:'linear-gradient(135deg,#200808,#380a0a)',
+   rewards:[{l:'+200% тапу',c:16,t:'tap',v:2.00},{l:'+300% тапу',c:11,t:'tap',v:3.00},{l:'+$20M',c:20,t:'$',v:20000000},{l:'+$50M',c:19,t:'$',v:50000000},{l:'+$100M',c:15,t:'$',v:100000000},{l:'Нефтебаза',c:11,t:'biz',v:'oil'},{l:'НПЗ',c:8,t:'biz',v:'refinery'}]},
+  {id:'immortal', name:'Immortal', price:200000000,border:'#00bcd4',glow:'rgba(0,188,212,.6)',nc:'SHIMMER',pc:'#e040fb',bg:'linear-gradient(135deg,#080818,#100828)',
+   rewards:[{l:'+500% тапу',c:13,t:'tap',v:5.00},{l:'+$200M',c:18,t:'$',v:200000000},{l:'+$500M',c:16,t:'$',v:500000000},{l:'+$1B',c:14,t:'$',v:1000000000},{l:'НПЗ',c:11,t:'biz',v:'refinery'},{l:'Авиакомп.',c:10,t:'biz',v:'airline'},{l:'Остров',c:10,t:'biz',v:'island'},{l:'Космодром',c:8,t:'biz',v:'space'}]}
 ];
 
-var COLORS=['#7c3aed','#ec4899','#f59e0b','#10b981','#3b82f6','#ef4444','#8b5cf6','#06b6d4','#84cc16','#f97316'];
+var CLR=['#7c3aed','#ec4899','#f59e0b','#10b981','#3b82f6','#ef4444','#8b5cf6','#06b6d4','#84cc16','#f97316'];
 
 var BIZ=[
-  {id:'kiosk',   name:'Газетный ларёк',  icon:'📰',base:150,      inc:3},
-  {id:'cafe',    name:'Кофейня',          icon:'☕',base:400,      inc:8},
-  {id:'parking', name:'Парковка',         icon:'🅿️',base:900,      inc:18},
-  {id:'bar',     name:'Бар',             icon:'🍺',base:2000,     inc:38},
-  {id:'taxi',    name:'Служба такси',     icon:'🚕',base:4500,     inc:75},
-  {id:'salon',   name:'Салон красоты',    icon:'💅',base:8000,     inc:140},
-  {id:'repair',  name:'Ремонт техники',   icon:'🔩',base:12000,    inc:200},
-  {id:'toys',    name:'Магазин игрушек',  icon:'🧸',base:16000,    inc:260},
-  {id:'store',   name:'Магазин одежды',   icon:'👗',base:20000,    inc:330},
-  {id:'tech',    name:'Магазин техники',  icon:'💻',base:30000,    inc:450},
-  {id:'rest',    name:'Ресторан',         icon:'🍽️',base:40000,    inc:580},
-  {id:'hotel',   name:'Отель',           icon:'🏨',base:65000,    inc:900},
-  {id:'fitnes',  name:'Фитнес клуб',      icon:'💪',base:130000,   inc:1700},
-  {id:'carshop', name:'Автосалон',        icon:'🚗',base:200000,   inc:2600},
-  {id:'club',    name:'Ночной клуб',      icon:'🎶',base:300000,   inc:3800},
-  {id:'casino',  name:'Казино',          icon:'🎰',base:450000,   inc:5500},
-  {id:'market',  name:'Супермаркет',      icon:'🛒',base:700000,   inc:8000},
-  {id:'vipclub', name:'VIP Клуб',         icon:'🎷',base:1000000,  inc:12000},
-  {id:'port',    name:'Грузовой порт',    icon:'⚓',base:1800000,  inc:20000},
-  {id:'factory', name:'Завод',           icon:'🏭',base:3500000,  inc:38000},
-  {id:'oil',     name:'Нефтебаза',       icon:'🛢️',base:7000000,  inc:70000},
-  {id:'pipeline',name:'Нефтепровод',      icon:'🔧',base:14000000, inc:130000},
-  {id:'refinery',name:'НПЗ',             icon:'⚗️',base:28000000, inc:240000},
-  {id:'bank',    name:'Банк',            icon:'🏦',base:60000000, inc:450000},
-  {id:'airline', name:'Авиакомпания',     icon:'✈️',base:120000000,inc:850000},
-  {id:'island',  name:'Частный остров',   icon:'🏝️',base:250000000,inc:1600000},
-  {id:'space',   name:'Космодром',       icon:'🚀',base:500000000,inc:3000000},
-  {id:'planet',  name:'Колония на Марсе', icon:'🔴',base:1000000000,inc:6000000}
+  {id:'kiosk',   n:'Газетный ларёк',  i:'📰',b:150,     p:3},
+  {id:'cafe',    n:'Кофейня',          i:'☕',b:400,     p:8},
+  {id:'parking', n:'Парковка',         i:'🅿️',b:900,     p:18},
+  {id:'bar',     n:'Бар',             i:'🍺',b:2000,    p:38},
+  {id:'taxi',    n:'Служба такси',     i:'🚕',b:4500,    p:75},
+  {id:'salon',   n:'Салон красоты',    i:'💅',b:8000,    p:140},
+  {id:'repair',  n:'Ремонт техники',   i:'🔩',b:12000,   p:200},
+  {id:'toys',    n:'Магазин игрушек',  i:'🧸',b:16000,   p:260},
+  {id:'store',   n:'Магазин одежды',   i:'👗',b:20000,   p:330},
+  {id:'tech',    n:'Магазин техники',  i:'💻',b:30000,   p:450},
+  {id:'rest',    n:'Ресторан',         i:'🍽️',b:40000,   p:580},
+  {id:'hotel',   n:'Отель',           i:'🏨',b:65000,   p:900},
+  {id:'fitnes',  n:'Фитнес клуб',      i:'💪',b:130000,  p:1700},
+  {id:'carshop', n:'Автосалон',        i:'🚗',b:200000,  p:2600},
+  {id:'club',    n:'Ночной клуб',      i:'🎶',b:300000,  p:3800},
+  {id:'casino',  n:'Казино',          i:'🎰',b:450000,  p:5500},
+  {id:'market',  n:'Супермаркет',      i:'🛒',b:700000,  p:8000},
+  {id:'vipclub', n:'VIP Клуб',         i:'🎷',b:1000000, p:12000},
+  {id:'port',    n:'Грузовой порт',    i:'⚓',b:1800000, p:20000},
+  {id:'factory', n:'Завод',           i:'🏭',b:3500000, p:38000},
+  {id:'oil',     n:'Нефтебаза',       i:'🛢️',b:7000000, p:70000},
+  {id:'pipeline',n:'Нефтепровод',      i:'🔧',b:14000000,p:130000},
+  {id:'refinery',n:'НПЗ',             i:'⚗️',b:28000000,p:240000},
+  {id:'bank',    n:'Банк',            i:'🏦',b:60000000,p:450000},
+  {id:'airline', n:'Авиакомпания',     i:'✈️',b:120000000,p:850000},
+  {id:'island',  n:'Частный остров',   i:'🏝️',b:250000000,p:1600000},
+  {id:'space',   n:'Космодром',       i:'🚀',b:500000000,p:3000000},
+  {id:'planet',  n:'Колония на Марсе', i:'🔴',b:1000000000,p:6000000}
 ];
 
 var UPG=[
-  {id:'cl1',name:'Деловая хватка',    icon:'💼',cost:300,      desc:'x2 к тапу',            t:'click',m:2},
-  {id:'cl2',name:'Финансовый гений',  icon:'🧠',cost:8000,     desc:'x2 к тапу',            t:'click',m:2},
-  {id:'cl3',name:'Харизма лидера',    icon:'🎯',cost:80000,    desc:'x3 к тапу',            t:'click',m:3},
-  {id:'cl4',name:'Стратег',           icon:'♟️',cost:800000,   desc:'x4 к тапу',            t:'click',m:4},
-  {id:'cl5',name:'Империя',           icon:'👑',cost:8000000,  desc:'x5 к тапу',            t:'click',m:5},
-  {id:'cl6',name:'Мегакорпорация',    icon:'🏙️',cost:80000000, desc:'x8 к тапу',            t:'click',m:8},
-  {id:'uk', name:'Ремонт ларька',     icon:'🔨',cost:500,      desc:'x2 доход ларька',       t:'kiosk',m:2},
-  {id:'uca',name:'Кофемашина',        icon:'☕',cost:2000,     desc:'x2 доход кофейни',      t:'cafe',m:2},
-  {id:'up', name:'Доп. парковки',     icon:'🚘',cost:5000,     desc:'x2 доход парковки',     t:'parking',m:2},
-  {id:'ub', name:'VIP зона бара',     icon:'🍸',cost:10000,    desc:'x2 доход бара',         t:'bar',m:2},
-  {id:'ut', name:'Авто-диспетчер',    icon:'📡',cost:22000,    desc:'x2 доход такси',        t:'taxi',m:2},
-  {id:'urep',name:'Сертификат мастера',icon:'🏅',cost:60000,   desc:'x2 доход ремонта',      t:'repair',m:2},
-  {id:'utoy',name:'Новая коллекция',  icon:'🎀',cost:80000,    desc:'x2 доход игрушек',      t:'toys',m:2},
-  {id:'ust',name:'Бренд одежды',      icon:'👔',cost:100000,   desc:'x2 доход магазина',     t:'store',m:2},
-  {id:'utc',name:'Apple Premium',     icon:'📱',cost:150000,   desc:'x2 доход техники',      t:'tech',m:2},
-  {id:'ur', name:'Звезда Мишлен',     icon:'⭐',cost:200000,   desc:'x2 доход ресторана',    t:'rest',m:2},
-  {id:'uh', name:'5 звёзд отель',     icon:'💎',cost:320000,   desc:'x2 доход отеля',        t:'hotel',m:2},
-  {id:'ucar',name:'Премиум дилер',    icon:'🏎️',cost:1000000,  desc:'x2 доход автосалона',   t:'carshop',m:2},
-  {id:'ucl',name:'VIP-зал клуба',     icon:'🎵',cost:1500000,  desc:'x2 доход клуба',        t:'club',m:2},
-  {id:'ucs',name:'VIP зал казино',    icon:'🃏',cost:2000000,  desc:'x2 доход казино',       t:'casino',m:2},
-  {id:'uoi',name:'Новые насосы',      icon:'⚙️',cost:7000000,  desc:'x2 доход нефтебазы',    t:'oil',m:2},
-  {id:'uop',name:'Новая труба',       icon:'🔩',cost:15000000, desc:'x2 доход нефтепровода', t:'pipeline',m:2},
-  {id:'ua1',name:'Налоговые льготы',  icon:'📋',cost:40000,    desc:'+20% ко всем',          t:'all',m:1.2},
-  {id:'ua2',name:'Гос контракт',      icon:'🤝',cost:400000,   desc:'+35% ко всем',          t:'all',m:1.35},
-  {id:'ua3',name:'Монополия',         icon:'🏆',cost:4000000,  desc:'+50% ко всем',          t:'all',m:1.5},
-  {id:'ua4',name:'Мировой рынок',     icon:'🌍',cost:40000000, desc:'+100% ко всем',         t:'all',m:2.0},
-  {id:'ua5',name:'Галактическая сеть',icon:'🌌',cost:500000000,desc:'+150% ко всем',         t:'all',m:2.5}
+  {id:'cl1',n:'Деловая хватка',    i:'💼',c:300,      d:'x2 к тапу',            t:'click',m:2},
+  {id:'cl2',n:'Финансовый гений',  i:'🧠',c:8000,     d:'x2 к тапу',            t:'click',m:2},
+  {id:'cl3',n:'Харизма лидера',    i:'🎯',c:80000,    d:'x3 к тапу',            t:'click',m:3},
+  {id:'cl4',n:'Стратег',           i:'♟️',c:800000,   d:'x4 к тапу',            t:'click',m:4},
+  {id:'cl5',n:'Империя',           i:'👑',c:8000000,  d:'x5 к тапу',            t:'click',m:5},
+  {id:'cl6',n:'Мегакорпорация',    i:'🏙️',c:80000000, d:'x8 к тапу',            t:'click',m:8},
+  {id:'uk', n:'Ремонт ларька',     i:'🔨',c:500,      d:'x2 доход ларька',       t:'kiosk',m:2},
+  {id:'uca',n:'Кофемашина',        i:'☕',c:2000,     d:'x2 доход кофейни',      t:'cafe',m:2},
+  {id:'up', n:'Доп. парковки',     i:'🚘',c:5000,     d:'x2 доход парковки',     t:'parking',m:2},
+  {id:'ub', n:'VIP зона бара',     i:'🍸',c:10000,    d:'x2 доход бара',         t:'bar',m:2},
+  {id:'ut', n:'Авто-диспетчер',    i:'📡',c:22000,    d:'x2 доход такси',        t:'taxi',m:2},
+  {id:'urp',n:'Сертификат мастера',i:'🏅',c:60000,    d:'x2 доход ремонта',      t:'repair',m:2},
+  {id:'uty',n:'Новая коллекция',   i:'🎀',c:80000,    d:'x2 доход игрушек',      t:'toys',m:2},
+  {id:'ust',n:'Бренд одежды',      i:'👔',c:100000,   d:'x2 доход магазина',     t:'store',m:2},
+  {id:'utc',n:'Apple Premium',     i:'📱',c:150000,   d:'x2 доход техники',      t:'tech',m:2},
+  {id:'ur', n:'Звезда Мишлен',     i:'⭐',c:200000,   d:'x2 доход ресторана',    t:'rest',m:2},
+  {id:'uh', n:'5 звёзд отель',     i:'💎',c:320000,   d:'x2 доход отеля',        t:'hotel',m:2},
+  {id:'uca2',n:'Премиум дилер',    i:'🏎️',c:1000000,  d:'x2 доход автосалона',   t:'carshop',m:2},
+  {id:'ucl',n:'VIP-зал клуба',     i:'🎵',c:1500000,  d:'x2 доход клуба',        t:'club',m:2},
+  {id:'ucs',n:'VIP зал казино',    i:'🃏',c:2000000,  d:'x2 доход казино',       t:'casino',m:2},
+  {id:'uoi',n:'Новые насосы',      i:'⚙️',c:7000000,  d:'x2 доход нефтебазы',    t:'oil',m:2},
+  {id:'uop',n:'Новая труба',       i:'🔩',c:15000000, d:'x2 доход нефтепровода', t:'pipeline',m:2},
+  {id:'ua1',n:'Налоговые льготы',  i:'📋',c:40000,    d:'+20% ко всем',          t:'all',m:1.2},
+  {id:'ua2',n:'Гос контракт',      i:'🤝',c:400000,   d:'+35% ко всем',          t:'all',m:1.35},
+  {id:'ua3',n:'Монополия',         i:'🏆',c:4000000,  d:'+50% ко всем',          t:'all',m:1.5},
+  {id:'ua4',n:'Мировой рынок',     i:'🌍',c:40000000, d:'+100% ко всем',         t:'all',m:2.0},
+  {id:'ua5',n:'Галактическая сеть',i:'🌌',c:500000000,d:'+150% ко всем',         t:'all',m:2.5}
 ];
 
 var SK=[
-  {id:'charisma',   name:'Харизма',     emoji:'🗣️',desc:'+8% дохода за уровень',  max:15,base:500},
-  {id:'management', name:'Менеджмент',  emoji:'📊',desc:'+6% к тапу за уровень',  max:15,base:400},
-  {id:'connections',name:'Связи',       emoji:'🤝',desc:'-4% цена покупок',         max:15,base:600},
-  {id:'security',   name:'Безопасность',emoji:'🛡️',desc:'+10% оффлайн доход',      max:10,base:800},
-  {id:'energy_sk',  name:'Выносливость',emoji:'⚡',desc:'+5% макс. энергии',        max:10,base:1000}
+  {id:'charisma',   n:'Харизма',     e:'🗣️',d:'+8% дохода за уровень', mx:15,b:500},
+  {id:'management', n:'Менеджмент',  e:'📊',d:'+6% к тапу за уровень', mx:15,b:400},
+  {id:'connections',n:'Связи',       e:'🤝',d:'-4% цена покупок',       mx:15,b:600},
+  {id:'security',   n:'Безопасность',e:'🛡️',d:'+10% оффлайн доход',    mx:10,b:800},
+  {id:'energy_sk',  n:'Выносливость',e:'⚡',d:'+5% макс. энергии',      mx:10,b:1000}
 ];
 
-var XPT=[0,300,700,1400,2500,4000,6000,9000,13000,18000,25000,34000,45000,60000,80000,105000,140000,185000,240000,310000,400000,520000,670000,860000,1100000];
+var XP=[0,300,700,1400,2500,4000,6000,9000,13000,18000,25000,34000,45000,60000,80000,105000,140000,185000,240000,310000,400000,520000,670000,860000,1100000];
 var TTL=['','Стажёр','Сотрудник','Специалист','Ст.специалист','Менеджер','Ст.менеджер','Рук.отдела','Директор','Ст.директор','Вице-президент','Ст.вице-президент','Исп.директор','Президент','Председатель','Основатель','Предприниматель','Инвестор','Миллиардер','Магнат','Олигарх','Пром.гигант','Мировой лидер','Легенда','Повелитель','EMPEROR'];
 var ACH=[
-  {id:'a1',icon:'🏪',name:'Первый бизнес',desc:'Открой любой бизнес',    rew:500,    c:function(g){for(var k in g.biz){if(g.biz[k]>0)return true;}return false;}},
-  {id:'a2',icon:'💰',name:'Миллионер',    desc:'Заработай $1M',          rew:10000,  c:function(g){return g.total>=1000000;}},
-  {id:'a3',icon:'💎',name:'Миллиардер',   desc:'Заработай $1B',          rew:1000000,c:function(g){return g.total>=1000000000;}},
-  {id:'a4',icon:'⭐',name:'Уровень 10',   desc:'Достигни уровня 10',     rew:5000,   c:function(g){return g.level>=10;}},
-  {id:'a5',icon:'👑',name:'Уровень 20',   desc:'Достигни уровня 20',     rew:50000,  c:function(g){return g.level>=20;}},
-  {id:'a6',icon:'🛢️',name:'Нефтяник',    desc:'Открой нефтебазу',       rew:20000,  c:function(g){return (g.biz['oil']||0)>0;}},
-  {id:'a7',icon:'✈️',name:'Авиамагнат',   desc:'Открой авиакомпанию',    rew:100000, c:function(g){return (g.biz['airline']||0)>0;}},
-  {id:'a8',icon:'🚀',name:'К звёздам',    desc:'Открой космодром',       rew:500000, c:function(g){return (g.biz['space']||0)>0;}},
-  {id:'a9',icon:'⚙️',name:'Технарь',      desc:'Купи 10 апгрейдов',      rew:15000,  c:function(g){return g.upg.length>=10;}},
-  {id:'a10',icon:'🔥',name:'Верность',    desc:'7 дней подряд',          rew:7000,   c:function(g){return (g.streak||0)>=7;}},
-  {id:'a11',icon:'🔴',name:'Переродился', desc:'Переродись впервые',      rew:0,      c:function(g){return (g.rebirths||0)>=1;}}
+  {id:'a1',i:'🏪',n:'Первый бизнес',d:'Открой любой бизнес',    r:500,    c:function(g){for(var k in g.biz){if(g.biz[k]>0)return true;}return false;}},
+  {id:'a2',i:'💰',n:'Миллионер',    d:'Заработай $1M',          r:10000,  c:function(g){return g.total>=1000000;}},
+  {id:'a3',i:'💎',n:'Миллиардер',   d:'Заработай $1B',          r:1000000,c:function(g){return g.total>=1000000000;}},
+  {id:'a4',i:'⭐',n:'Уровень 10',   d:'Достигни уровня 10',     r:5000,   c:function(g){return g.level>=10;}},
+  {id:'a5',i:'👑',n:'Уровень 20',   d:'Достигни уровня 20',     r:50000,  c:function(g){return g.level>=20;}},
+  {id:'a6',i:'🛢️',n:'Нефтяник',    d:'Открой нефтебазу',       r:20000,  c:function(g){return (g.biz['oil']||0)>0;}},
+  {id:'a7',i:'✈️',n:'Авиамагнат',   d:'Открой авиакомпанию',    r:100000, c:function(g){return (g.biz['airline']||0)>0;}},
+  {id:'a8',i:'🚀',n:'К звёздам',    d:'Открой космодром',       r:500000, c:function(g){return (g.biz['space']||0)>0;}},
+  {id:'a9',i:'⚙️',n:'Технарь',      d:'Купи 10 апгрейдов',      r:15000,  c:function(g){return g.upg.length>=10;}},
+  {id:'a10',i:'🔥',n:'Верность',    d:'7 дней подряд',          r:7000,   c:function(g){return (g.streak||0)>=7;}},
+  {id:'a11',i:'🔴',n:'Переродился', d:'Переродись впервые',      r:0,      c:function(g){return (g.rebirths||0)>=1;}}
 ];
 
+// ══ СОСТОЯНИЕ — ключ be8 сбрасывает всех ══
 var G={coins:500,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),biz:{},bizLvl:{},upg:[],
   skills:{charisma:0,management:0,connections:0,security:0,energy_sk:0},
   ach:[],daily:null,streak:0,tapBonus:0,rebirthBonus:0,rebirths:0,
   energy:100,energyLastTs:Date.now()};
-var _off=0,_name='ИГРОК',_uid='',_color='#7c3aed',_letter='И';
-var _curCase=null,_spinning=false,_pendingReward=null,_wheelAngle=0,_curBiz=null,_lastTapTs=0;
+var _off=0,_nm='ИГРОК',_uid='',_col='#7c3aed',_let='И';
+var _cc=null,_sp=false,_pr=null,_wa=0,_cb=null,_ltt=0;
 
-function bizMinLevel(idx){var g=Math.floor(idx/4);if(g===0)return 2;if(g===1)return 4;if(g===2)return 6;return 4+g;}
-function rebirthCost(){return(5+(G.rebirths||0)*4)*1000000;}
-function maxEnergy(){var lv=G.level,sk=G.skills.energy_sk||0;var base=lv<=9?lv*100:900+(lv-9)*500;return Math.floor(base*(1+sk*0.05));}
-function regenPerSec(){return maxEnergy()/300;}
+function bml(idx){return 2+Math.floor(idx/4);}
+function rbc(){return(5+(G.rebirths||0)*4)*1000000;}
+function mxE(){var lv=G.level,sk=G.skills.energy_sk||0;var b=lv<=9?lv*100:900+(lv-9)*500;return Math.floor(b*(1+sk*.05));}
+function rps(){return mxE()/300;}
 
-function updateEnergy(){
+function updE(){
   var now=Date.now();
-  if((now-_lastTapTs)/1000<2){G.energyLastTs=now;return;}
+  if((now-_ltt)/1000<2){G.energyLastTs=now;return;}
   var el=(now-(G.energyLastTs||now))/1000;G.energyLastTs=now;
-  var mx=maxEnergy();if(G.energy<mx)G.energy=Math.min(mx,(G.energy||0)+regenPerSec()*el);
+  var mx=mxE();if(G.energy<mx)G.energy=Math.min(mx,(G.energy||0)+rps()*el);
 }
-function renderEnergy(){
-  var mx=maxEnergy(),cur=Math.max(0,Math.floor(G.energy)),pct=Math.min(100,cur/mx*100);
-  var fill=document.getElementById('energyFill');fill.style.width=pct+'%';
-  if(pct>60)fill.style.background='linear-gradient(90deg,#006064,#00bcd4,#4dd0e1)';
-  else if(pct>30)fill.style.background='linear-gradient(90deg,#00838f,#26c6da)';
-  else fill.style.background='linear-gradient(90deg,#c62828,#ef5350)';
-  document.getElementById('energyVal').textContent=cur+'/'+mx;
-  var tmr=document.getElementById('energyTimer');
-  var tap=(Date.now()-_lastTapTs)/1000<2;
-  if(cur>=mx)tmr.textContent='';
-  else if(tap)tmr.textContent='⏸ Пауза регенерации...';
-  else{var s=Math.ceil((mx-cur)/regenPerSec()),m=Math.floor(s/60),ss=s%60;tmr.textContent='Восстановление: '+m+'мин '+(ss<10?'0':'')+ss+'сек';}
+function rnE(){
+  var mx=mxE(),cur=Math.max(0,Math.floor(G.energy)),pct=Math.min(100,cur/mx*100);
+  var f=document.getElementById('eFill');f.style.width=pct+'%';
+  if(pct>60)f.style.background='linear-gradient(90deg,#006064,#00bcd4,#4dd0e1)';
+  else if(pct>30)f.style.background='linear-gradient(90deg,#00838f,#26c6da)';
+  else f.style.background='linear-gradient(90deg,#c62828,#ef5350)';
+  document.getElementById('eVal').textContent=cur+'/'+mx;
+  var t=document.getElementById('eTmr'),tap=(Date.now()-_ltt)/1000<2;
+  if(cur>=mx)t.textContent='';
+  else if(tap)t.textContent='⏸ Пауза...';
+  else{var s=Math.ceil((mx-cur)/rps()),m=Math.floor(s/60),ss=s%60;t.textContent='Восст.: '+m+'м '+(ss<10?'0':'')+ss+'с';}
   var btn=document.getElementById('cbtn');
   if(cur<1)btn.classList.add('disabled');else btn.classList.remove('disabled');
 }
-function updateXPBar(){
-  var pv=XPT[G.level-1]||0,nx=XPT[G.level]||(G.xp+1);
+function uxpb(){
+  var pv=XP[G.level-1]||0,nx=XP[G.level]||(G.xp+1);
   var pct=Math.min(100,nx>pv?((G.xp-pv)/(nx-pv))*100:100);
   document.getElementById('xpF').style.width=pct+'%';
   document.getElementById('xpV').textContent=G.xp;
   document.getElementById('xpN').textContent=nx>G.xp?'до ур.'+(G.level+1)+': '+(nx-G.xp):'МАКСИМУМ';
   document.getElementById('lvlBadge').textContent='УР. '+G.level;
 }
-function getAvaLetter(n){return n&&n.length?n.charAt(0).toUpperCase():'И';}
-function getAvaColor(u){var h=0;for(var i=0;i<u.length;i++)h=(h*31+u.charCodeAt(i))&0xfffffff;return COLORS[h%COLORS.length];}
+function gal(n){return n&&n.length?n.charAt(0).toUpperCase():'И';}
+function gac(u){var h=0;for(var i=0;i<u.length;i++)h=(h*31+u.charCodeAt(i))&0xfffffff;return CLR[h%CLR.length];}
 
-function sv(){G.lastSave=Date.now();try{localStorage.setItem('be7',JSON.stringify(G));}catch(e){}}
+function sv(){G.lastSave=Date.now();try{localStorage.setItem('be8',JSON.stringify(G));}catch(e){}}
 function ld(){
-  try{
-    var d=localStorage.getItem('be7')||localStorage.getItem('be6')||localStorage.getItem('be5');
-    if(d){var p=JSON.parse(d);for(var k in p){G[k]=p[k];}}
-  }catch(e){}
-  // ═══ ФИКС МУСОРНЫХ ДАННЫХ ═══
-  var rb=parseInt(G.rebirths)||0;
-  var bonus=parseFloat(G.rebirthBonus)||0;
-  // Реальный максимум: 50 перерождений = 200M, больше — это баг от старого кода
-  if(rb<0||rb>50){G.rebirths=0;G.rebirthBonus=0;}
-  else{G.rebirths=rb;G.rebirthBonus=Math.min(bonus,20);}
-  // ════════════════════════════
+  // be8 — новый ключ, старые данные be7/be6/be5 игнорируются — у всех сброс
+  try{var d=localStorage.getItem('be8');if(d){var p=JSON.parse(d);for(var k in p){G[k]=p[k];}}}catch(e){}
   if(!G.skills)G.skills={charisma:0,management:0,connections:0,security:0,energy_sk:0};
   ['management','security','energy_sk'].forEach(function(k){if(!G.skills[k])G.skills[k]=0;});
   if(!G.biz)G.biz={};if(!G.bizLvl)G.bizLvl={};
   if(!G.upg)G.upg=[];if(!G.ach)G.ach=[];
   if(!G.tapBonus)G.tapBonus=0;
-  if(G.energy===undefined||G.energy===null)G.energy=maxEnergy();
+  // Защита от мусора
+  G.rebirths=Math.max(0,Math.min(parseInt(G.rebirths)||0,50));
+  G.rebirthBonus=Math.max(0,Math.min(parseFloat(G.rebirthBonus)||0,20));
+  if(G.energy===undefined||G.energy===null)G.energy=mxE();
   if(!G.energyLastTs)G.energyLastTs=Date.now();
-  var offS=(Date.now()-G.energyLastTs)/1000;
-  G.energy=Math.min(maxEnergy(),(G.energy||0)+regenPerSec()*offS);
+  var os=(Date.now()-G.energyLastTs)/1000;
+  G.energy=Math.min(mxE(),(G.energy||0)+rps()*os);
   G.energyLastTs=Date.now();
   var el=(Date.now()-(G.lastSave||Date.now()))/60000;
-  var ipm=cIPM(),sb=1+(G.skills.security||0)*0.1;
+  var ipm=cIPM(),sb=1+(G.skills.security||0)*.1;
   if(el>1&&ipm>0){_off=Math.floor(ipm*Math.min(el,480)*sb);G.coins+=_off;G.total+=_off;}
   G.lastSave=Date.now();
 }
 
-function syncToServer(){
+function sync(){
   if(!SERVER)return;
   var cnt=0;for(var k in G.biz){if(G.biz[k]>0)cnt++;}
   fetch(SERVER+'/save',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({uid:_uid,name:_name,avatar_color:_color,avatar_letter:_letter,
+    body:JSON.stringify({uid:_uid,name:_nm,avatar_color:_col,avatar_letter:_let,
       level:G.level,total:Math.floor(G.total),coins:Math.floor(G.coins),ipm:G.ipm,
       biz_count:cnt,rebirths:G.rebirths||0,rebirthBonus:G.rebirthBonus||0,tapBonus:G.tapBonus||0})
   }).catch(function(){});
@@ -563,12 +520,12 @@ function syncToServer(){
 function cIPM(){
   var am=1;
   for(var i=0;i<G.upg.length;i++){for(var j=0;j<UPG.length;j++){if(UPG[j].id===G.upg[i]&&UPG[j].t==='all'){am*=UPG[j].m;break;}}}
-  var cm=1+(G.skills.charisma||0)*0.08,t=0;
+  var cm=1+(G.skills.charisma||0)*.08,t=0;
   for(var b=0;b<BIZ.length;b++){
     var n=G.biz[BIZ[b].id]||0;if(!n)continue;
     var lv=G.bizLvl[BIZ[b].id]||0,bm=1;
     for(var i=0;i<G.upg.length;i++){for(var j=0;j<UPG.length;j++){if(UPG[j].id===G.upg[i]&&UPG[j].t===BIZ[b].id){bm*=UPG[j].m;break;}}}
-    t+=BIZ[b].inc*n*bm*(1+lv*0.5);
+    t+=BIZ[b].p*n*bm*(1+lv*.5);
   }
   return t*am*cm;
 }
@@ -576,91 +533,85 @@ function cClk(){
   var base=5+(G.level-1)*2;
   var p=base*(1+(G.tapBonus||0)+(G.rebirthBonus||0));
   for(var i=0;i<G.upg.length;i++){for(var j=0;j<UPG.length;j++){if(UPG[j].id===G.upg[i]&&UPG[j].t==='click'){p*=UPG[j].m;break;}}}
-  return Math.floor(p*(1+(G.skills.management||0)*0.06));
+  return Math.floor(p*(1+(G.skills.management||0)*.06));
 }
-function cCost(biz){var n=G.biz[biz.id]||0,disc=Math.min((G.skills.connections||0)*0.04,0.4);return Math.floor(biz.base*Math.pow(1.15,n)*(1-disc));}
-function cUC(biz){var lv=G.bizLvl[biz.id]||0;if(lv>=5)return null;return Math.floor(biz.base*2*Math.pow(3,lv));}
-function cSkC(sk){return Math.floor(sk.base*Math.pow(2,G.skills[sk.id]||0));}
+function cCst(bz){var n=G.biz[bz.id]||0,d=Math.min((G.skills.connections||0)*.04,.4);return Math.floor(bz.b*Math.pow(1.15,n)*(1-d));}
+function cUC(bz){var lv=G.bizLvl[bz.id]||0;if(lv>=5)return null;return Math.floor(bz.b*2*Math.pow(3,lv));}
+function cSkC(sk){return Math.floor(sk.b*Math.pow(2,G.skills[sk.id]||0));}
 function fmt(n){n=Math.floor(n);if(n>=1e12)return'$'+(n/1e12).toFixed(1)+'T';if(n>=1e9)return'$'+(n/1e9).toFixed(2)+'B';if(n>=1e6)return'$'+(n/1e6).toFixed(1)+'M';if(n>=1e3)return'$'+(n/1e3).toFixed(1)+'K';return'$'+n;}
-function fmtCase(n){if(n>=1e9)return(n/1e9).toFixed(0)+'B';if(n>=1e6)return(n/1e6).toFixed(0)+'M';if(n>=1e3)return(n/1e3).toFixed(0)+'K';return n+'';}
+function fmtC(n){if(n>=1e9)return(n/1e9).toFixed(0)+'B';if(n>=1e6)return(n/1e6).toFixed(0)+'M';if(n>=1e3)return(n/1e3).toFixed(0)+'K';return n+'';}
 
-function aXP(v){
+function axp(v){
   G.xp+=v;var lv=false;
-  while(G.level<XPT.length&&G.xp>=(XPT[G.level]||Infinity)){G.level++;lv=true;}
+  while(G.level<XP.length&&G.xp>=(XP[G.level]||Infinity)){G.level++;lv=true;}
   if(lv)ntf('▲ УР.'+G.level+' — '+TTL[Math.min(G.level,TTL.length-1)],'lvl');
-  updateXPBar();
+  uxpb();
 }
-function chAch(){
+function chk(){
   for(var i=0;i<ACH.length;i++){
     var a=ACH[i];
     if(G.ach.indexOf(a.id)===-1&&a.c(G)){
-      G.ach.push(a.id);if(a.rew>0){G.coins+=a.rew;G.total+=a.rew;}
-      (function(nm,rw){if(rw>0)setTimeout(function(){ntf('🏆 '+nm+' +'+fmt(rw),'ok');},700);})(a.name,a.rew);
+      G.ach.push(a.id);if(a.r>0){G.coins+=a.r;G.total+=a.r;}
+      (function(nm,rw){if(rw>0)setTimeout(function(){ntf('🏆 '+nm+' +'+fmt(rw),'ok');},700);})(a.n,a.r);
     }
   }
 }
 
-function askRebirth(){
+function askRb(){
   if(G.level<10){ntf('Нужен уровень 10!','err');return;}
-  var cost=rebirthCost(),nb=Math.round(((G.rebirthBonus||0)+0.40)*100);
-  document.getElementById('confirmText').innerHTML=
-    'Весь прогресс сбросится.<br>Старт: <b style="color:#f0c96a">$15 000</b><br>'+
-    'Цена: <b style="color:#f0c96a">'+fmt(cost)+'</b><br>'+
-    'Бонус к тапу: <b style="color:#ff8a80">+40% (итого '+nb+'%)</b><br><br>Вы уверены?';
-  document.getElementById('confirmBg').classList.add('show');
+  var cost=rbc(),nb=Math.round(((G.rebirthBonus||0)+.40)*100);
+  document.getElementById('cfmTxt').innerHTML='Весь прогресс сбросится.<br>Старт: <b style="color:#f0c96a">$15 000</b><br>Цена: <b style="color:#f0c96a">'+fmt(cost)+'</b><br>Бонус: <b style="color:#ff8a80">+40% (итого '+nb+'%)</b><br><br>Уверены?';
+  document.getElementById('cfmBg').classList.add('show');
 }
-function closeConfirm(){document.getElementById('confirmBg').classList.remove('show');}
-function doRebirth(){
-  if(G.level<10){ntf('Нужен уровень 10!','err');closeConfirm();return;}
-  var cost=rebirthCost();
-  if(G.coins<cost){ntf('Нужно '+fmt(cost),'err');closeConfirm();return;}
-  var nb=(G.rebirthBonus||0)+0.40,nr=(G.rebirths||0)+1;
+function closeCfm(){document.getElementById('cfmBg').classList.remove('show');}
+function doRb(){
+  if(G.level<10){ntf('Нужен уровень 10!','err');closeCfm();return;}
+  var cost=rbc();if(G.coins<cost){ntf('Нужно '+fmt(cost),'err');closeCfm();return;}
+  var nb=(G.rebirthBonus||0)+.40,nr=(G.rebirths||0)+1;
   var pd=G.daily,ps=G.streak;
-  G={coins:15000,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),
-     biz:{},bizLvl:{},upg:[],
+  G={coins:15000,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),biz:{},bizLvl:{},upg:[],
      skills:{charisma:0,management:0,connections:0,security:0,energy_sk:0},
-     ach:[],daily:pd,streak:ps,tapBonus:0,
-     rebirthBonus:nb,rebirths:nr,energy:maxEnergy(),energyLastTs:Date.now()};
-  closeConfirm();sv();rdr();
-  ntf('🔴 ПЕРЕРОЖДЕНИЕ №'+nr+'! Тап +'+Math.round(nb*100)+'% навсегда!','lvl');
-  syncToServer();
+     ach:[],daily:pd,streak:ps,tapBonus:0,rebirthBonus:nb,rebirths:nr,
+     energy:mxE(),energyLastTs:Date.now()};
+  closeCfm();sv();rdr();
+  ntf('🔴 ПЕРЕРОЖДЕНИЕ №'+nr+'! +'+Math.round(nb*100)+'% к тапу!','lvl');sync();
 }
 
 function buyB(id){
-  var biz=null,idx=-1;for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){biz=BIZ[i];idx=i;break;}}
-  if(!biz)return;
-  var ml=bizMinLevel(idx);if(G.level<ml){ntf('Нужен уровень '+ml+'!','err');return;}
-  var c=cCost(biz);if(G.coins<c){ntf('Недостаточно средств','err');return;}
-  G.coins-=c;G.biz[id]=(G.biz[id]||0)+1;aXP(20);chAch();ntf(biz.name+' открыт!','ok');sv();rdr();
+  var bz=null,idx=-1;for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){bz=BIZ[i];idx=i;break;}}
+  if(!bz)return;
+  var ml=bml(idx);if(G.level<ml){ntf('Нужен уровень '+ml+'!','err');return;}
+  var c=cCst(bz);if(G.coins<c){ntf('Недостаточно средств','err');return;}
+  G.coins-=c;G.biz[id]=(G.biz[id]||0)+1;axp(20);chk();ntf(bz.n+' открыт!','ok');sv();rdr();
 }
-function upgBiz(id){
-  var biz=null;for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){biz=BIZ[i];break;}}
-  if(!biz)return;var lv=G.bizLvl[id]||0;if(lv>=5){ntf('Максимальный уровень!','err');return;}
-  var c=cUC(biz);if(!c||G.coins<c){ntf('Недостаточно средств','err');return;}
-  G.coins-=c;G.bizLvl[id]=(G.bizLvl[id]||0)+1;aXP(30);chAch();
-  ntf(biz.name+' прокачан до ур.'+(G.bizLvl[id]),'ok');sv();rdr();
+function upgB(id){
+  var bz=null;for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){bz=BIZ[i];break;}}
+  if(!bz)return;var lv=G.bizLvl[id]||0;if(lv>=5){ntf('Максимальный уровень!','err');return;}
+  var c=cUC(bz);if(!c||G.coins<c){ntf('Недостаточно средств','err');return;}
+  G.coins-=c;G.bizLvl[id]=(G.bizLvl[id]||0)+1;axp(30);chk();
+  ntf(bz.n+' прокачан до ур.'+(G.bizLvl[id]),'ok');sv();rdr();
 }
 function buyU(id){
-  var upg=null;for(var i=0;i<UPG.length;i++){if(UPG[i].id===id){upg=UPG[i];break;}}
-  if(!upg||G.upg.indexOf(id)!==-1)return;
-  if(G.coins<upg.cost){ntf('Недостаточно средств','err');return;}
-  G.coins-=upg.cost;G.upg.push(id);aXP(30);chAch();ntf(upg.name+' активирован!','ok');sv();rdr();
+  var u=null;for(var i=0;i<UPG.length;i++){if(UPG[i].id===id){u=UPG[i];break;}}
+  if(!u||G.upg.indexOf(id)!==-1)return;
+  if(G.coins<u.c){ntf('Недостаточно средств','err');return;}
+  G.coins-=u.c;G.upg.push(id);axp(30);chk();ntf(u.n+' активирован!','ok');sv();rdr();
 }
 function buySk(id){
   var sk=null;for(var i=0;i<SK.length;i++){if(SK[i].id===id){sk=SK[i];break;}}
-  if(!sk)return;var lv=G.skills[id]||0;if(lv>=sk.max)return;
+  if(!sk)return;var lv=G.skills[id]||0;if(lv>=sk.mx)return;
   var c=cSkC(sk);if(G.coins<c){ntf('Недостаточно средств','err');return;}
-  G.coins-=c;G.skills[id]=lv+1;aXP(25);ntf(sk.name+' — уровень '+(lv+1),'ok');sv();rdr();
+  G.coins-=c;G.skills[id]=lv+1;axp(25);ntf(sk.n+' — уровень '+(lv+1),'ok');sv();rdr();
 }
-function claimDaily(){
+function claimD(){
   var now=Date.now();
   if(G.daily){var d=now-G.daily;if(d<86400000){updDT();return;}G.streak=d<172800000?(G.streak||0)+1:1;}
-  else{G.streak=1;}
+  else G.streak=1;
   var bon=1000+G.level*500+(G.streak||0)*200;
-  G.coins+=bon;G.total+=bon;G.daily=now;aXP(30);chAch();ntf('Бонус — +'+fmt(bon),'ok');sv();rdr();
+  G.coins+=bon;G.total+=bon;G.daily=now;axp(30);chk();ntf('Бонус — +'+fmt(bon),'ok');sv();rdr();
 }
 function updDT(){
-  var btn=document.getElementById('dBtn'),tmr=document.getElementById('dTimer'),dot=document.getElementById('bonusDot');
+  var btn=document.getElementById('dBtn'),tmr=document.getElementById('dTimer'),dot=document.getElementById('bdot');
   if(!G.daily||Date.now()-G.daily>=86400000){
     btn.disabled=false;btn.textContent='[ ЗАБРАТЬ БОНУС ]';tmr.style.display='none';
     if(dot)dot.style.display='block';
@@ -673,313 +624,240 @@ function updDT(){
 }
 
 function openCase(idx){
-  _curCase=CASES[idx];_pendingReward=null;_spinning=false;
-  var nc=_curCase.nameColor==='SHIMMER'?'#00bcd4':_curCase.nameColor;
-  document.getElementById('wmTitle').textContent=_curCase.name+' Case';
-  document.getElementById('wmTitle').style.color=nc;
-  document.getElementById('wmPrice').textContent='Цена: $'+fmtCase(_curCase.price)+' · Баланс: '+fmt(G.coins);
-  document.getElementById('wheelBox').style.boxShadow='0 30px 80px rgba(0,0,0,.85),0 0 50px '+_curCase.glow;
-  document.getElementById('resultBox').style.display='none';
+  _cc=CASES[idx];_pr=null;_sp=false;
+  var nc=_cc.nc==='SHIMMER'?'#00bcd4':_cc.nc;
+  document.getElementById('wTitle').textContent=_cc.name+' Case';
+  document.getElementById('wTitle').style.color=nc;
+  document.getElementById('wPrice').textContent='Цена: $'+fmtC(_cc.price)+' · Баланс: '+fmt(G.coins);
+  document.getElementById('wBox').style.boxShadow='0 30px 80px rgba(0,0,0,.85),0 0 50px '+_cc.glow;
+  document.getElementById('rBox').style.display='none';
   document.getElementById('spinBtn').style.display='block';
   document.getElementById('spinBtn').disabled=false;
-  document.getElementById('spinBtn').textContent='[ ВРАЩАТЬ — $'+fmtCase(_curCase.price)+' ]';
-  document.getElementById('spinBtn').style.borderColor=_curCase.border;
+  document.getElementById('spinBtn').textContent='[ ВРАЩАТЬ — $'+fmtC(_cc.price)+' ]';
+  document.getElementById('spinBtn').style.borderColor=_cc.border;
   document.getElementById('spinBtn').style.color=nc;
-  document.getElementById('collectBtn').style.display='none';
-  _wheelAngle=0;drawWheel(0);
-  document.getElementById('wheelModal').classList.add('show');
+  document.getElementById('collBtn').style.display='none';
+  _wa=0;dw(0);
+  document.getElementById('wModal').classList.add('show');
 }
 
-// ══ КОЛЕСО ФОРТУНЫ — высокое качество, уникальные цвета ══
-function drawWheel(angle){
-  var cv=document.getElementById('wheelCanvas');if(!cv)return;
+function dw(angle){
+  var cv=document.getElementById('wCanvas');if(!cv)return;
   var ctx=cv.getContext('2d');
   var cx=cv.width/2,cy=cv.height/2,r=cx-8;
-  var rewards=_curCase?_curCase.rewards:[];
-  if(!rewards.length)return;
-  var total=0;rewards.forEach(function(rw){total+=rw.chance;});
+  var rw=_cc?_cc.rewards:[];if(!rw.length)return;
+  var tot=0;rw.forEach(function(x){tot+=x.c;});
   ctx.clearRect(0,0,cv.width,cv.height);
-
-  var caseId=_curCase?_curCase.id:'common';
-  var palette=WP[caseId]||WP.common;
-
+  var pal=WP[_cc?_cc.id:'common']||WP.common;
   // Внешнее свечение
-  ctx.save();
-  ctx.shadowColor=_curCase.glow;ctx.shadowBlur=25;
+  ctx.save();ctx.shadowColor=_cc.glow;ctx.shadowBlur=25;
   ctx.beginPath();ctx.arc(cx,cy,r+6,0,Math.PI*2);
-  ctx.strokeStyle=_curCase.border;ctx.lineWidth=3;ctx.stroke();
+  ctx.strokeStyle=_cc.border;ctx.lineWidth=3;ctx.stroke();
   ctx.restore();
-
-  // Декоративные кольца снаружи
-  ctx.beginPath();ctx.arc(cx,cy,r+9,0,Math.PI*2);
-  ctx.strokeStyle='rgba(255,255,255,0.06)';ctx.lineWidth=2;ctx.stroke();
-  ctx.beginPath();ctx.arc(cx,cy,r+12,0,Math.PI*2);
-  ctx.strokeStyle='rgba(255,255,255,0.03)';ctx.lineWidth=2;ctx.stroke();
-
-  // Фон колеса
-  ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
-  ctx.fillStyle='rgba(5,2,15,0.8)';ctx.fill();
-
+  ctx.beginPath();ctx.arc(cx,cy,r+9,0,Math.PI*2);ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=2;ctx.stroke();
+  // Фон
+  ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba(5,2,15,.8)';ctx.fill();
   var sa=angle||0;
-  for(var i=0;i<rewards.length;i++){
-    var seg=rewards[i],sw=(seg.chance/total)*Math.PI*2,ea=sa+sw;
-    var mid=sa+sw/2;
-    var col=palette[i%palette.length];
-    var c1=col[0],c2=col[1],tc=col[2]||'#ffffff';
-
-    // Радиальный градиент для каждого сегмента
-    var grad=ctx.createRadialGradient(
-      cx+Math.cos(mid)*r*0.3,cy+Math.sin(mid)*r*0.3,r*0.1,
-      cx+Math.cos(mid)*r*0.7,cy+Math.sin(mid)*r*0.7,r*0.55
-    );
-    grad.addColorStop(0,c2+'ff');
-    grad.addColorStop(1,c1+'cc');
-
-    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,sa,ea);ctx.closePath();
-    ctx.fillStyle=grad;ctx.fill();
-
-    // Тёмная граница между сегментами
-    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,sa,ea);ctx.closePath();
-    ctx.strokeStyle='rgba(0,0,0,0.5)';ctx.lineWidth=2;ctx.stroke();
-
-    // Светлая линия-разделитель
-    ctx.save();
-    ctx.translate(cx,cy);ctx.rotate(sa);
-    ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(r,0);
-    ctx.strokeStyle='rgba(255,255,255,0.12)';ctx.lineWidth=1;ctx.stroke();
-    ctx.restore();
-
-    // Блик у края
-    ctx.beginPath();ctx.arc(cx,cy,r-1,sa,ea);
-    ctx.strokeStyle='rgba(255,255,255,0.2)';ctx.lineWidth=2;ctx.stroke();
-
-    // Блик в теле сегмента
-    ctx.save();
-    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,sa,ea);ctx.closePath();ctx.clip();
-    var sh=ctx.createRadialGradient(cx+Math.cos(mid)*r*0.5,cy+Math.sin(mid)*r*0.5,0,cx+Math.cos(mid)*r*0.5,cy+Math.sin(mid)*r*0.5,r*0.4);
-    sh.addColorStop(0,'rgba(255,255,255,0.15)');sh.addColorStop(1,'rgba(255,255,255,0)');
-    ctx.fillStyle=sh;ctx.fill();
-    ctx.restore();
-
-    // Текст
-    ctx.save();
-    ctx.translate(cx,cy);ctx.rotate(mid);
-    var fs=Math.max(9,Math.min(11,Math.floor(175/rewards.length)));
-    ctx.font='bold '+fs+'px Nunito,sans-serif';
-    ctx.textAlign='center';ctx.textBaseline='middle';
-    // Тень
-    ctx.shadowColor='rgba(0,0,0,1)';ctx.shadowBlur=6;
-    ctx.fillStyle=tc;
-    ctx.fillText(seg.label,r*0.62,0);
-    ctx.restore();
+  for(var i=0;i<rw.length;i++){
+    var seg=rw[i],sw=(seg.c/tot)*Math.PI*2,ea=sa+sw,mid=sa+sw/2;
+    var col=pal[i%pal.length],c1=col[0],c2=col[1],tc=col[2]||'#fff';
+    var gr=ctx.createRadialGradient(cx+Math.cos(mid)*r*.3,cy+Math.sin(mid)*r*.3,r*.1,cx+Math.cos(mid)*r*.7,cy+Math.sin(mid)*r*.7,r*.55);
+    gr.addColorStop(0,c2+'ff');gr.addColorStop(1,c1+'cc');
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,sa,ea);ctx.closePath();ctx.fillStyle=gr;ctx.fill();
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,sa,ea);ctx.closePath();ctx.strokeStyle='rgba(0,0,0,.5)';ctx.lineWidth=2;ctx.stroke();
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(sa);ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(r,0);ctx.strokeStyle='rgba(255,255,255,.1)';ctx.lineWidth=1;ctx.stroke();ctx.restore();
+    ctx.beginPath();ctx.arc(cx,cy,r-1,sa,ea);ctx.strokeStyle='rgba(255,255,255,.2)';ctx.lineWidth=2;ctx.stroke();
+    ctx.save();ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,sa,ea);ctx.closePath();ctx.clip();
+    var sh=ctx.createRadialGradient(cx+Math.cos(mid)*r*.5,cy+Math.sin(mid)*r*.5,0,cx+Math.cos(mid)*r*.5,cy+Math.sin(mid)*r*.5,r*.4);
+    sh.addColorStop(0,'rgba(255,255,255,.15)');sh.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=sh;ctx.fill();ctx.restore();
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(mid);
+    var fs=Math.max(9,Math.min(11,Math.floor(175/rw.length)));
+    ctx.font='bold '+fs+'px Nunito,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.shadowColor='rgba(0,0,0,1)';ctx.shadowBlur=6;ctx.fillStyle=tc;ctx.fillText(seg.l,r*.62,0);ctx.restore();
     sa=ea;
   }
-
-  // Декоративные точки по кругу
-  for(var d=0;d<rewards.length*2;d++){
-    var da=angle+(d/rewards.length/2)*Math.PI*2;
-    var dr=d%2===0?r+3:r+6;
-    ctx.beginPath();ctx.arc(cx+Math.cos(da)*dr,cy+Math.sin(da)*dr,d%2===0?1.5:2.5,0,Math.PI*2);
-    ctx.fillStyle=d%2===0?'rgba(255,255,255,0.4)':_curCase.border;ctx.fill();
+  // Точки по кругу
+  for(var d=0;d<rw.length*2;d++){
+    var da=angle+(d/rw.length/.5)*Math.PI;
+    ctx.beginPath();ctx.arc(cx+Math.cos(da)*(r+(d%2?5:2)),cy+Math.sin(da)*(r+(d%2?5:2)),d%2?2:1.5,0,Math.PI*2);
+    ctx.fillStyle=d%2?_cc.border:'rgba(255,255,255,.4)';ctx.fill();
   }
-
-  // Центральный диск
+  // Центр
   var cg=ctx.createRadialGradient(cx-5,cy-6,1,cx,cy,28);
-  cg.addColorStop(0,'#fffde7');cg.addColorStop(0.4,'#f0c96a');cg.addColorStop(0.75,'#c8860a');cg.addColorStop(1,'#5a3a06');
-  ctx.beginPath();ctx.arc(cx,cy,28,0,Math.PI*2);
-  ctx.shadowColor='rgba(212,168,75,1)';ctx.shadowBlur=20;
-  ctx.fillStyle=cg;ctx.fill();ctx.shadowBlur=0;
-  // Обводки центра
-  ctx.beginPath();ctx.arc(cx,cy,28,0,Math.PI*2);
-  ctx.strokeStyle='rgba(255,255,255,0.6)';ctx.lineWidth=2;ctx.stroke();
-  ctx.beginPath();ctx.arc(cx,cy,22,0,Math.PI*2);
-  ctx.strokeStyle='rgba(255,255,255,0.15)';ctx.lineWidth=1;ctx.stroke();
-  // ₿
-  ctx.font='bold 16px serif';ctx.textAlign='center';ctx.textBaseline='middle';
-  ctx.shadowColor='rgba(90,58,6,0.8)';ctx.shadowBlur=4;
-  ctx.fillStyle='rgba(60,35,5,0.95)';ctx.fillText('₿',cx,cy);ctx.shadowBlur=0;
+  cg.addColorStop(0,'#fffde7');cg.addColorStop(.4,'#f0c96a');cg.addColorStop(.75,'#c8860a');cg.addColorStop(1,'#5a3a06');
+  ctx.beginPath();ctx.arc(cx,cy,28,0,Math.PI*2);ctx.shadowColor='rgba(212,168,75,1)';ctx.shadowBlur=20;ctx.fillStyle=cg;ctx.fill();ctx.shadowBlur=0;
+  ctx.beginPath();ctx.arc(cx,cy,28,0,Math.PI*2);ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=2;ctx.stroke();
+  ctx.font='bold 16px serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.shadowColor='rgba(90,58,6,.8)';ctx.shadowBlur=4;ctx.fillStyle='rgba(60,35,5,.95)';ctx.fillText('₿',cx,cy);ctx.shadowBlur=0;
 }
 
 function doSpin(){
-  if(_spinning)return;
-  if(G.coins<_curCase.price){ntf('Недостаточно средств!','err');return;}
-  G.coins-=_curCase.price;
-  _spinning=true;
+  if(_sp)return;
+  if(G.coins<_cc.price){ntf('Недостаточно средств!','err');return;}
+  G.coins-=_cc.price;_sp=true;
   document.getElementById('spinBtn').disabled=true;
-  document.getElementById('resultBox').style.display='none';
-  document.getElementById('collectBtn').style.display='none';
-  var rewards=_curCase.rewards;
-  var total=0;rewards.forEach(function(rw){total+=rw.chance;});
-  var rand=Math.random()*total,cum=0,idx=rewards.length-1;
-  for(var i=0;i<rewards.length;i++){cum+=rewards[i].chance;if(rand<cum){idx=i;break;}}
-  var chosen=rewards[idx];_pendingReward=chosen;
-  var segStart=0;for(var i=0;i<idx;i++)segStart+=rewards[i].chance;
-  var segFrac=(segStart+rewards[idx].chance/2)/total;
-  var curNorm=((_wheelAngle%(Math.PI*2))+Math.PI*2)%(Math.PI*2);
-  var tgt=(-Math.PI/2-segFrac*Math.PI*2+Math.PI*2*10)%(Math.PI*2);
-  if(tgt<curNorm)tgt+=Math.PI*2;
-  var totalRot=Math.PI*2*5+(tgt-curNorm),finalA=_wheelAngle+totalRot;
-  var start=null,dur=4500,startA=_wheelAngle;
-  function frame(ts){
-    if(!start)start=ts;
-    var el=ts-start,prog=Math.min(el/dur,1);
-    _wheelAngle=startA+totalRot*(1-Math.pow(1-prog,3));
-    drawWheel(_wheelAngle);
-    if(prog<1){requestAnimationFrame(frame);}
+  document.getElementById('rBox').style.display='none';
+  document.getElementById('collBtn').style.display='none';
+  var rw=_cc.rewards,tot=0;rw.forEach(function(x){tot+=x.c;});
+  var rand=Math.random()*tot,cum=0,idx=rw.length-1;
+  for(var i=0;i<rw.length;i++){cum+=rw[i].c;if(rand<cum){idx=i;break;}}
+  var ch=rw[idx];_pr=ch;
+  var ss=0;for(var i=0;i<idx;i++)ss+=rw[i].c;
+  var sf=(ss+rw[idx].c/2)/tot;
+  var cn=((_wa%(Math.PI*2))+Math.PI*2)%(Math.PI*2);
+  var tg=(-Math.PI/2-sf*Math.PI*2+Math.PI*2*10)%(Math.PI*2);
+  if(tg<cn)tg+=Math.PI*2;
+  var tr=Math.PI*2*5+(tg-cn),fa=_wa+tr,st=null,dur=4500,sa=_wa;
+  function fr(ts){
+    if(!st)st=ts;var el=ts-st,pg=Math.min(el/dur,1);
+    _wa=sa+tr*(1-Math.pow(1-pg,3));dw(_wa);
+    if(pg<1)requestAnimationFrame(fr);
     else{
-      _wheelAngle=finalA;_spinning=false;
-      var rb=document.getElementById('resultBox');
-      rb.style.display='block';rb.style.borderColor=_curCase.border;
-      rb.style.background='rgba(0,0,0,0.45)';rb.style.boxShadow='0 0 30px '+_curCase.glow;
-      var lbl=document.getElementById('resultLabel');
-      lbl.textContent='🎉 '+chosen.label;
-      lbl.style.color=_curCase.nameColor==='SHIMMER'?'#00bcd4':_curCase.nameColor;
-      document.getElementById('spinBtn').style.display='none';
-      document.getElementById('collectBtn').style.display='block';
-      sv();rdr();
+      _wa=fa;_sp=false;
+      var rb=document.getElementById('rBox');
+      rb.style.display='block';rb.style.borderColor=_cc.border;rb.style.background='rgba(0,0,0,.45)';rb.style.boxShadow='0 0 30px '+_cc.glow;
+      var lb=document.getElementById('rLbl');lb.textContent='🎉 '+ch.l;lb.style.color=_cc.nc==='SHIMMER'?'#00bcd4':_cc.nc;
+      document.getElementById('spinBtn').style.display='none';document.getElementById('collBtn').style.display='block';sv();rdr();
     }
   }
-  requestAnimationFrame(frame);sv();
+  requestAnimationFrame(fr);sv();
 }
 function collectPrize(){
-  if(!_pendingReward)return;
-  var rw=_pendingReward;
-  if(rw.type==='coins'){G.coins+=rw.val;G.total+=rw.val;ntf('💰 Получено '+fmt(rw.val),'ok');}
-  else if(rw.type==='tap_pct'){G.tapBonus=(G.tapBonus||0)+rw.val;ntf('⚡ Тап +'+Math.round(rw.val*100)+'%','ok');}
-  else if(rw.type==='biz'){
-    var biz=null;for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===rw.val){biz=BIZ[i];break;}}
-    if(biz){G.biz[rw.val]=(G.biz[rw.val]||0)+1;ntf('🏢 '+biz.name+' добавлен!','ok');}
+  if(!_pr)return;var rw=_pr;
+  if(rw.t==='$'){G.coins+=rw.v;G.total+=rw.v;ntf('💰 Получено '+fmt(rw.v),'ok');}
+  else if(rw.t==='tap'){G.tapBonus=(G.tapBonus||0)+rw.v;ntf('⚡ Тап +'+Math.round(rw.v*100)+'%','ok');}
+  else if(rw.t==='biz'){
+    var bz=null;for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===rw.v){bz=BIZ[i];break;}}
+    if(bz){G.biz[rw.v]=(G.biz[rw.v]||0)+1;ntf('🏢 '+bz.n+' добавлен!','ok');}
   }
-  aXP(50);chAch();_pendingReward=null;closeWheel();sv();rdr();
+  axp(50);chk();_pr=null;closeW();sv();rdr();
 }
-function closeWheel(){document.getElementById('wheelModal').classList.remove('show');_curCase=null;_pendingReward=null;_spinning=false;}
-document.getElementById('wheelModal').addEventListener('click',function(e){if(e.target===this&&!_spinning)closeWheel();});
+function closeW(){document.getElementById('wModal').classList.remove('show');_cc=null;_pr=null;_sp=false;}
+document.getElementById('wModal').addEventListener('click',function(e){if(e.target===this&&!_sp)closeW();});
 
-function openBizModal(id){
-  var biz=null,idx=-1;for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){biz=BIZ[i];idx=i;break;}}
-  if(!biz)return;_curBiz=biz;
-  var n=G.biz[id]||0,lv=G.bizLvl[id]||0,inc=biz.inc*(1+lv*0.5),uc=cUC(biz),bc=cCost(biz),ml=bizMinLevel(idx);
-  document.getElementById('mTitle').textContent=biz.icon+' '+biz.name;
-  document.getElementById('mCount').textContent=n+' шт.';document.getElementById('mLvl').textContent=lv+'/5';
+function openBM(id){
+  var bz=null,idx=-1;for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){bz=BIZ[i];idx=i;break;}}
+  if(!bz)return;_cb=bz;
+  var n=G.biz[id]||0,lv=G.bizLvl[id]||0,inc=bz.p*(1+lv*.5),uc=cUC(bz),bc=cCst(bz),ml=bml(idx);
+  document.getElementById('mTitle').textContent=bz.i+' '+bz.n;
+  document.getElementById('mCnt').textContent=n+' шт.';document.getElementById('mLvl').textContent=lv+'/5';
   document.getElementById('mInc').textContent=fmt(inc)+'/мин';document.getElementById('mTot').textContent=fmt(inc*n)+'/мин';
   document.getElementById('mBC').textContent=G.level>=ml?fmt(bc):'🔒 УР.'+ml;
   document.getElementById('mUC').textContent=uc?fmt(uc):'МАКСИМУМ';
-  document.getElementById('mBuyBtn').style.opacity=(G.level>=ml&&G.coins>=bc)?'1':'0.4';
-  var ub=document.getElementById('mUpgBtn');
-  if(!uc){ub.textContent='МАК УР.';ub.style.pointerEvents='none';ub.style.opacity='0.3';}
-  else{ub.textContent='ПРОКАЧАТЬ';ub.style.pointerEvents='';ub.style.opacity=G.coins>=uc?'1':'0.4';}
-  document.getElementById('bizModal').classList.add('show');
+  document.getElementById('mBB').style.opacity=(G.level>=ml&&G.coins>=bc)?'1':'0.4';
+  var ub=document.getElementById('mUB');
+  if(!uc){ub.textContent='МАК УР.';ub.style.pointerEvents='none';ub.style.opacity='.3';}
+  else{ub.textContent='ПРОКАЧАТЬ';ub.style.pointerEvents='';ub.style.opacity=G.coins>=uc?'1':'.4';}
+  document.getElementById('bModal').classList.add('show');
 }
-function modalBuy(){if(!_curBiz)return;buyB(_curBiz.id);openBizModal(_curBiz.id);}
-function modalUpg(){if(!_curBiz)return;upgBiz(_curBiz.id);openBizModal(_curBiz.id);}
-function closeBizModal(){document.getElementById('bizModal').classList.remove('show');_curBiz=null;}
-document.getElementById('bizModal').addEventListener('click',function(e){if(e.target===this)closeBizModal();});
+function mBuy(){if(!_cb)return;buyB(_cb.id);openBM(_cb.id);}
+function mUpg(){if(!_cb)return;upgB(_cb.id);openBM(_cb.id);}
+function closeBM(){document.getElementById('bModal').classList.remove('show');_cb=null;}
+document.getElementById('bModal').addEventListener('click',function(e){if(e.target===this)closeBM();});
 
 function rdr(){
   var ipm=cIPM();G.ipm=ipm;var clk=cClk();
   document.getElementById('sC').textContent=fmt(G.coins);
   document.getElementById('sI').textContent=fmt(ipm);
-  updateXPBar();
+  uxpb();
   document.getElementById('cpow').textContent='+'+fmt(clk);
-  var hint=ipm>0?'Пассивный: '+fmt(ipm)+'/мин · Тап: +'+fmt(clk):'Перейди в Бизнес для пассивного дохода';
+  var hint=ipm>0?'Пассивный: '+fmt(ipm)+'/мин · Тап: +'+fmt(clk):'Перейди в Бизнес';
   if((G.rebirths||0)>0)hint+=' · 🔴×'+G.rebirths;
   document.getElementById('ihint').textContent=hint;
-  document.getElementById('rebirthSub').textContent='+40% К ТАПУ · УР.10 · '+fmt(rebirthCost());
+  document.getElementById('rbSub').textContent='+40% К ТАПУ · УР.10 · '+fmt(rbc());
   if(_off>0){document.getElementById('offAmt').textContent=fmt(_off);document.getElementById('offb').classList.add('show');}
-  var pa=document.getElementById('pAva');if(pa){pa.textContent=_letter;pa.style.background=_color;}
-  renderEnergy();updDT();
-  rCases();rBiz();rUpg();rSk();rProf();rAch();rBonus();
+  var pa=document.getElementById('pAva');if(pa){pa.textContent=_let;pa.style.background=_col;}
+  rnE();updDT();rC();rB();rU();rSk();rP();rA();rBon();
 }
 
-function rCases(){
-  var el=document.getElementById('casesList'),html='';
+function rC(){
+  var el=document.getElementById('casesList'),h='';
   for(var i=0;i<CASES.length;i++){
     var c=CASES[i],isI=c.id==='immortal';
-    html+='<div class="case-row'+(isI?' case-immortal':'')+'"';
-    if(!isI)html+=' style="background:'+c.bg+';border-color:'+c.border+';box-shadow:0 2px 14px '+c.glow+'"';
-    html+=' onclick="openCase('+i+')">';
-    html+='<div class="case-left">';
-    if(isI)html+='<div class="case-name immortal-nm">'+c.name+'</div>';
-    else html+='<div class="case-name" style="color:'+c.nameColor+'">'+c.name+'</div>';
-    html+='<div class="case-word" style="color:'+c.border+'">CASE</div>';
-    html+='</div>';
-    html+='<div class="case-price" style="color:'+(isI?'#e040fb':c.priceColor)+';text-shadow:0 0 8px '+(isI?'rgba(224,64,251,.6)':c.glow)+'">$'+fmtCase(c.price)+'</div>';
-    html+='</div>';
+    h+='<div class="case-row'+(isI?' case-imm':'')+'"';
+    if(!isI)h+=' style="background:'+c.bg+';border-color:'+c.border+';box-shadow:0 2px 14px '+c.glow+'"';
+    h+=' onclick="openCase('+i+')">';
+    h+='<div class="case-left">';
+    if(isI)h+='<div class="case-name imm-nm">'+c.name+'</div>';
+    else h+='<div class="case-name" style="color:'+c.nc+'">'+c.name+'</div>';
+    h+='<div class="case-word" style="color:'+c.border+'">CASE</div>';
+    h+='</div>';
+    h+='<div class="case-price" style="color:'+(isI?'#e040fb':c.pc)+';text-shadow:0 0 8px '+(isI?'rgba(224,64,251,.6)':c.glow)+'">$'+fmtC(c.price)+'</div>';
+    h+='</div>';
   }
-  el.innerHTML=html;
+  el.innerHTML=h;
 }
-function rBiz(){
-  var el=document.getElementById('bizGrid'),html='';
+function rB(){
+  var el=document.getElementById('bizGrid'),h='';
   for(var i=0;i<BIZ.length;i++){
-    var b=BIZ[i],n=G.biz[b.id]||0,lv=G.bizLvl[b.id]||0,c=cCost(b),can=G.coins>=c,ml=bizMinLevel(i),locked=G.level<ml;
-    var inc=b.inc*(1+lv*0.5);
-    if(locked){
-      html+='<div class="bc locked"><div class="bc-i">'+b.icon+'</div><div class="bc-name">'+b.name+'</div>';
-      html+='<div class="bc-lock"><span style="font-size:20px">🔒</span><span>УР. '+ml+'</span></div></div>';
+    var b=BIZ[i],n=G.biz[b.id]||0,lv=G.bizLvl[b.id]||0,c=cCst(b),can=G.coins>=c,ml=bml(i),lk=G.level<ml;
+    var inc=b.p*(1+lv*.5);
+    if(lk){
+      h+='<div class="bc locked"><div class="bc-i">'+b.i+'</div><div class="bc-name">'+b.n+'</div>';
+      h+='<div class="bc-lock"><span style="font-size:20px">🔒</span><span>УР. '+ml+'</span></div></div>';
     }else{
-      html+='<div class="bc'+(can?' aff':'')+'" onclick="openBizModal(\''+b.id+'\')">';
-      html+='<div class="bc-lvl">Ур.'+lv+'</div><div class="bc-n">×'+n+'</div>';
-      html+='<div class="bc-i">'+b.icon+'</div><div class="bc-name">'+b.name+'</div>';
-      html+='<div class="bc-inc">'+fmt(inc)+'/мин·ед.</div><div class="bc-cost">'+fmt(c)+'</div></div>';
+      h+='<div class="bc'+(can?' aff':'')+'" onclick="openBM(\''+b.id+'\')">';
+      h+='<div class="bc-lvl">Ур.'+lv+'</div><div class="bc-n">×'+n+'</div>';
+      h+='<div class="bc-i">'+b.i+'</div><div class="bc-name">'+b.n+'</div>';
+      h+='<div class="bc-inc">'+fmt(inc)+'/мин·ед.</div><div class="bc-cost">'+fmt(c)+'</div></div>';
     }
   }
-  el.innerHTML=html;
+  el.innerHTML=h;
 }
-function rUpg(){
-  var el=document.getElementById('upgList'),html='';
+function rU(){
+  var el=document.getElementById('upgList'),h='';
   for(var i=0;i<UPG.length;i++){
-    var u=UPG[i],done=G.upg.indexOf(u.id)!==-1,can=!done&&G.coins>=u.cost;
+    var u=UPG[i],done=G.upg.indexOf(u.id)!==-1,can=!done&&G.coins>=u.c;
     var oc=done?'':'buyU(\''+u.id+'\')';
-    html+='<div class="uc'+(done?' done':(can?' aff':''))+'" onclick="'+oc+'">';
-    html+='<div class="uc-i">'+u.icon+'</div>';
-    html+='<div class="uc-info"><div class="uc-name">'+u.name+(done?' ✓':'')+'</div><div class="uc-desc">'+u.desc+'</div></div>';
-    html+='<div class="uc-cost">'+(done?'✓':fmt(u.cost))+'</div></div>';
+    h+='<div class="uc'+(done?' done':(can?' aff':''))+'" onclick="'+oc+'">';
+    h+='<div class="uc-i">'+u.i+'</div>';
+    h+='<div class="uc-info"><div class="uc-name">'+u.n+(done?' ✓':'')+'</div><div class="uc-desc">'+u.d+'</div></div>';
+    h+='<div class="uc-cost">'+(done?'✓':fmt(u.c))+'</div></div>';
   }
-  el.innerHTML=html;
+  el.innerHTML=h;
 }
 function rSk(){
-  var el=document.getElementById('skList'),html='';
+  var el=document.getElementById('skList'),h='';
   for(var i=0;i<SK.length;i++){
-    var sk=SK[i],lv=G.skills[sk.id]||0,c=cSkC(sk),can=lv<sk.max&&G.coins>=c,mx=lv>=sk.max;
-    var pct=Math.round(lv/sk.max*100),oc=mx?'':'buySk(\''+sk.id+'\')';
-    html+='<div class="skc'+(can?' aff':(mx?' maxed':''))+'" onclick="'+oc+'">';
-    html+='<div class="sk-top"><div class="sk-name">'+sk.emoji+' '+sk.name+' ['+lv+'/'+sk.max+']</div>';
-    html+='<div class="sk-cost">'+(mx?'★ МАКС':fmt(c))+'</div></div>';
-    html+='<div class="sk-desc">'+sk.desc+'</div>';
-    html+='<div class="sk-prog"><div class="sk-fill" style="width:'+pct+'%"></div></div></div>';
+    var sk=SK[i],lv=G.skills[sk.id]||0,c=cSkC(sk),can=lv<sk.mx&&G.coins>=c,mx=lv>=sk.mx;
+    var pct=Math.round(lv/sk.mx*100),oc=mx?'':'buySk(\''+sk.id+'\')';
+    h+='<div class="skc'+(can?' aff':(mx?' maxed':''))+'" onclick="'+oc+'">';
+    h+='<div class="sk-top"><div class="sk-name">'+sk.e+' '+sk.n+' ['+lv+'/'+sk.mx+']</div>';
+    h+='<div class="sk-cost">'+(mx?'★ МАКС':fmt(c))+'</div></div>';
+    h+='<div class="sk-desc">'+sk.d+'</div>';
+    h+='<div class="sk-prog"><div class="sk-fill" style="width:'+pct+'%"></div></div></div>';
   }
-  el.innerHTML=html;
+  el.innerHTML=h;
 }
-function rProf(){
-  document.getElementById('pNm').textContent=_name.toUpperCase();
+function rP(){
+  document.getElementById('pNm').textContent=_nm.toUpperCase();
   document.getElementById('pTl').textContent=TTL[Math.min(G.level,TTL.length-1)];
   document.getElementById('pp1').textContent=fmt(G.coins);document.getElementById('pp2').textContent=fmt(cIPM());
   document.getElementById('pp3').textContent=fmt(G.total);
   var cnt=0;for(var k in G.biz){if(G.biz[k]>0)cnt++;}document.getElementById('pp4').textContent=cnt;
-  var ss='';for(var i=0;i<SK.length;i++){var sk=SK[i],lv=G.skills[sk.id]||0;ss+='<div class="ss"><div class="ss-ico">'+sk.emoji+'</div><div class="ss-n">'+sk.name+'</div><div class="ss-v">'+lv+'/'+sk.max+'</div></div>';}
+  var ss='';for(var i=0;i<SK.length;i++){var sk=SK[i],lv=G.skills[sk.id]||0;ss+='<div class="ss"><div class="ss-ico">'+sk.e+'</div><div class="ss-n">'+sk.n+'</div><div class="ss-v">'+lv+'/'+sk.mx+'</div></div>';}
   document.getElementById('skSum').innerHTML=ss;
 }
-function rAch(){
-  var el=document.getElementById('achGrid'),html='';
+function rA(){
+  var el=document.getElementById('achGrid'),h='';
   for(var i=0;i<ACH.length;i++){
     var a=ACH[i],e=G.ach.indexOf(a.id)!==-1;
-    html+='<div class="ac'+(e?' earned':'')+'">';
-    html+='<div class="ac-i">'+a.icon+'</div><div class="ac-name">'+a.name+'</div>';
-    html+='<div class="ac-desc">'+a.desc+'</div>';
-    html+='<div class="ac-rew">'+(e?'✓ ПОЛУЧЕНО':(a.rew>0?'+'+fmt(a.rew):'🎯'))+'</div></div>';
+    h+='<div class="ac'+(e?' earned':'')+'">';
+    h+='<div class="ac-i">'+a.i+'</div><div class="ac-name">'+a.n+'</div>';
+    h+='<div class="ac-desc">'+a.d+'</div>';
+    h+='<div class="ac-rew">'+(e?'✓ ПОЛУЧЕНО':(a.r>0?'+'+fmt(a.r):'🎯'))+'</div></div>';
   }
-  el.innerHTML=html;
+  el.innerHTML=h;
 }
-function rBonus(){
+function rBon(){
   var bon=1000+G.level*500+(G.streak||0)*200;document.getElementById('dAmt').textContent=fmt(bon);
-  var html='';
+  var h='';
   for(var i=0;i<7;i++){
     var f=(G.streak||0)>i;
-    html+='<div style="flex:1;min-width:36px;height:50px;background:'+(f?'rgba(124,58,237,.2)':'rgba(0,0,0,.2)')+';border:1px solid '+(f?'rgba(168,85,247,.6)':'rgba(168,85,247,.15)')+';border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">';
-    html+='<div style="font-size:14px">'+(f?'⭐':'·')+'</div>';
-    html+='<div style="font-size:8px;color:'+(f?'var(--pur2)':'var(--dim)')+'">ДЕНЬ '+(i+1)+'</div></div>';
+    h+='<div style="flex:1;min-width:36px;height:50px;background:'+(f?'rgba(124,58,237,.2)':'rgba(0,0,0,.2)')+';border:1px solid '+(f?'rgba(168,85,247,.6)':'rgba(168,85,247,.15)')+';border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">';
+    h+='<div style="font-size:14px">'+(f?'⭐':'·')+'</div>';
+    h+='<div style="font-size:8px;color:'+(f?'var(--pur2)':'var(--dim)')+'">ДЕНЬ '+(i+1)+'</div></div>';
   }
-  document.getElementById('streakEl').innerHTML=html;
+  document.getElementById('streakEl').innerHTML=h;
 }
 
 function goTab(n,btn){
@@ -995,15 +873,15 @@ function ntf(msg,tp){
   clearTimeout(_nt);_nt=setTimeout(function(){el.classList.remove('show');},2800);
 }
 
-document.getElementById('cbtn').addEventListener('click',function(e){
+document.getElementById('cbtn').addEventListener('click',function(){
   if(G.energy<1){ntf('⚡ Энергия пуста!','err');return;}
   var earn=cClk();G.coins+=earn;G.total+=earn;
-  G.energy=Math.max(0,(G.energy||0)-1);_lastTapTs=Date.now();
+  G.energy=Math.max(0,(G.energy||0)-1);_ltt=Date.now();
   if(_off>0){_off=0;document.getElementById('offb').classList.remove('show');}
-  aXP(3);chAch();
+  axp(3);chk();
   document.getElementById('sC').textContent=fmt(G.coins);
   document.getElementById('cpow').textContent='+'+fmt(cClk());
-  renderEnergy();
+  rnE();
   var pop=document.createElement('div');pop.className='cpop';pop.textContent='+'+fmt(earn);
   var r=this.getBoundingClientRect();
   pop.style.left=(r.left+r.width/2-28)+'px';pop.style.top=(r.top-10)+'px';
@@ -1013,25 +891,25 @@ document.getElementById('cbtn').addEventListener('click',function(e){
 });
 
 setInterval(function(){
-  updateEnergy();
+  updE();
   var ipm=cIPM();if(ipm>0){var inc=ipm/600;G.coins+=inc;G.total+=inc;}
   document.getElementById('sC').textContent=fmt(G.coins);
   document.getElementById('sI').textContent=fmt(ipm);
-  renderEnergy();sv();
-  _syncTick++;if(_syncTick>=300){_syncTick=0;syncToServer();}
+  rnE();sv();
+  _stk++;if(_stk>=300){_stk=0;sync();}
 },100);
 
 ld();
 _uid='local_'+(Math.random().toString(36).substr(2,9));
-try{var su=localStorage.getItem('be7_uid');if(su)_uid=su;else localStorage.setItem('be7_uid',_uid);}catch(e){}
+try{var su=localStorage.getItem('be8_uid');if(su)_uid=su;else localStorage.setItem('be8_uid',_uid);}catch(e){}
 if(window.Telegram&&window.Telegram.WebApp){
   window.Telegram.WebApp.ready();window.Telegram.WebApp.expand();
   var u=window.Telegram.WebApp.initDataUnsafe&&window.Telegram.WebApp.initDataUnsafe.user;
-  if(u){if(u.first_name)_name=u.first_name+(u.last_name?' '+u.last_name:'');if(u.id)_uid='tg_'+u.id;}
+  if(u){if(u.first_name)_nm=u.first_name+(u.last_name?' '+u.last_name:'');if(u.id)_uid='tg_'+u.id;}
 }
-_letter=getAvaLetter(_name);_color=getAvaColor(_uid);
-rdr();syncToServer();
+_let=gal(_nm);_col=gac(_uid);
+rdr();sync();
 if(_off>0){document.getElementById('offAmt').textContent=fmt(_off);document.getElementById('offb').classList.add('show');}
 </script>
 </body>
-  </html>
+</html>
