@@ -900,12 +900,21 @@ setInterval(function(){
 },100);
 
 ld();
-_uid='local_'+(Math.random().toString(36).substr(2,9));
-try{var su=localStorage.getItem('be8_uid');if(su)_uid=su;else localStorage.setItem('be8_uid',_uid);}catch(e){}
-if(window.Telegram&&window.Telegram.WebApp){
-  window.Telegram.WebApp.ready();window.Telegram.WebApp.expand();
-  var u=window.Telegram.WebApp.initDataUnsafe&&window.Telegram.WebApp.initDataUnsafe.user;
-  if(u){if(u.first_name)_nm=u.first_name+(u.last_name?' '+u.last_name:'');if(u.id)_uid='tg_'+u.id;}
+// Находишь эти строчки в самом низу index.html и делаешь вот так:
+_uid = 'local_' + (Math.random().toString(36).substr(2, 9));
+try {
+  var su = localStorage.getItem('be8_uid');
+  if (su) _uid = su;
+  else localStorage.setItem('be8_uid', _uid);
+} catch (e) {}
+
+function sync() {
+  // Игра берет данные и отправляет их на твой сервер/бот
+  fetch('/api/save', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ uid: _uid, name: "Игрок_" + _uid.substr(6,4), coins: G.coins, total: G.total })
+  }).catch(e => console.log("Ошибка синхронизации"));
 }
 _let=gal(_nm);_col=gac(_uid);
 rdr();sync();
