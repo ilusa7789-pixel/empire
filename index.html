@@ -85,35 +85,30 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 .offb{display:none;background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(212,168,75,.08));border:1px solid var(--bor2);border-radius:12px;padding:9px 13px;margin:10px 0;text-align:center}
 .offb.show{display:block}.offb p{font-size:11px;color:var(--dim);font-style:italic}
 .offb .oamt{font-family:'Cinzel',serif;font-size:18px;color:var(--gold2);margin:3px 0}
-
 /* ══ ПИТОМЕЦ ══ */
-.pet-section{margin-top:4px;margin-bottom:14px}
-.pet-container{background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(212,168,75,.06));border:1px solid var(--bor2);border-radius:18px;padding:16px;text-align:center;position:relative;overflow:hidden}
-.pet-container::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pink),var(--pur2),transparent);opacity:.7}
-.pet-canvas-wrap{position:relative;display:inline-block;margin:0 auto}
+.pet-wrap{background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(212,168,75,.06));border:1px solid var(--bor2);border-radius:18px;padding:14px;text-align:center;position:relative;overflow:hidden;margin-bottom:14px}
+.pet-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--pur2),var(--gold),var(--pink),var(--pur2),transparent);opacity:.7}
+.pet-canvas-area{position:relative;display:inline-block}
 #petCanvas{display:block;margin:0 auto}
-.pet-name{font-family:'Cinzel',serif;font-size:14px;font-weight:900;margin-top:8px;letter-spacing:1px}
-.pet-level{font-size:10px;color:var(--dim);margin-top:2px;font-style:italic}
-.pet-bonus{font-family:'Cinzel',serif;font-size:11px;color:var(--gold2);margin-top:4px}
-.pet-locked{text-align:center;padding:10px 0}
-.pet-locked-icon{font-size:48px;margin-bottom:8px;filter:drop-shadow(0 0 10px rgba(124,58,237,.5));animation:float 3s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.pet-locked-text{font-family:'Cinzel',serif;font-size:13px;color:var(--pur3);margin-bottom:4px}
-.pet-locked-sub{font-size:11px;color:var(--dim);font-style:italic;margin-bottom:10px}
-.pet-actions{display:flex;gap:8px;margin-top:12px;justify-content:center}
-.pet-btn{padding:9px 18px;border-radius:10px;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;border:1px solid;transition:all .15s;text-align:center}
-.pet-btn-gold{background:rgba(212,168,75,.12);border-color:var(--gold);color:var(--gold)}
-.pet-btn-gold:active{background:rgba(212,168,75,.25)}
-.pet-btn-pur{background:rgba(124,58,237,.12);border-color:var(--pur2);color:var(--pur2)}
-.pet-btn-pur:active{background:rgba(124,58,237,.25)}
+.cage-overlay{position:absolute;inset:0;pointer-events:none;z-index:5}
+.cage-bar{position:absolute;top:0;bottom:0;width:3px;border-radius:2px;background:linear-gradient(180deg,#b8860b,#daa520,#b8860b);box-shadow:0 0 4px rgba(218,165,32,.5)}
+.cage-top-bar,.cage-bot-bar{position:absolute;left:0;right:0;height:5px;border-radius:3px;background:linear-gradient(90deg,#8b6914,#daa520,#8b6914);box-shadow:0 0 6px rgba(218,165,32,.4)}
+.cage-top-bar{top:0}.cage-bot-bar{bottom:0}
+.pet-nm{font-family:'Cinzel',serif;font-size:14px;font-weight:900;margin-top:6px;letter-spacing:1px;background:linear-gradient(135deg,#a0f0ff,#ffffff,#a0e0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pet-lv{font-size:10px;color:var(--dim);margin-top:1px;font-style:italic}
+.pet-bonus-txt{font-family:'Cinzel',serif;font-size:11px;color:var(--gold2);margin-top:3px}
+.pet-daily-info{background:rgba(0,188,212,.08);border:1px solid rgba(0,188,212,.25);border-radius:10px;padding:7px 10px;margin-top:8px;font-size:10px;color:var(--cyan);font-style:italic}
+.pet-daily-info b{font-family:'Cinzel',serif;font-size:11px;color:#fff}
+.pet-acts{display:flex;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap}
+.pet-btn{padding:8px 16px;border-radius:10px;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;border:1px solid;transition:all .15s}
+.pb-gold{background:rgba(212,168,75,.12);border-color:var(--gold);color:var(--gold)}.pb-gold:active{background:rgba(212,168,75,.25)}
+.pb-cyan{background:rgba(0,188,212,.12);border-color:var(--cyan);color:var(--cyan)}.pb-cyan:active{background:rgba(0,188,212,.25)}
+.pb-pur{background:rgba(124,58,237,.12);border-color:var(--pur2);color:var(--pur2)}.pb-pur:active{background:rgba(124,58,237,.25)}
 .pet-btn:disabled{opacity:.35;cursor:not-allowed}
-.pet-upgrade-info{font-size:10px;color:var(--dim);margin-top:6px;font-style:italic}
-/* Клетка */
-.cage-wrap{position:absolute;inset:0;pointer-events:none;z-index:5}
-.cage-bar{position:absolute;top:0;bottom:0;width:3px;background:linear-gradient(180deg,rgba(180,130,60,.9),rgba(120,80,30,.7),rgba(180,130,60,.9));border-radius:2px;box-shadow:0 0 4px rgba(180,130,60,.4)}
-.cage-top,.cage-bot{position:absolute;left:0;right:0;height:5px;background:linear-gradient(90deg,rgba(180,130,60,.9),rgba(220,170,80,.9),rgba(180,130,60,.9));border-radius:3px;box-shadow:0 0 6px rgba(180,130,60,.5)}
-.cage-top{top:0}.cage-bot{bottom:0}
-
+.pet-upg-hint{font-size:10px;color:var(--dim);margin-top:5px;font-style:italic}
+.pet-locked-info{padding:6px 0}
+.pet-locked-icon{font-size:42px;display:block;margin-bottom:6px;animation:petfl 3s ease-in-out infinite}
+@keyframes petfl{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
 .bc{background:var(--cardg);border:1px solid var(--borg);border-radius:12px;padding:10px 9px;cursor:pointer;position:relative;overflow:hidden;transition:all .2s;transform:perspective(200px) rotateX(1deg)}
 .bc::before{content:'';position:absolute;top:0;left:0;right:0;height:40%;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);pointer-events:none}
@@ -235,9 +230,8 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
           <div class="rebirth-sub" id="rbSub">+40% К ТАПУ · УР.10 · $5M</div>
         </div>
       </div>
-      <!-- ПИТОМЕЦ -->
-      <div class="dv"><div class="dv-l r"></div><div class="dv-t">ПИТОМЕЦ</div><div class="dv-l"></div></div>
-      <div class="pet-section" id="petSection"></div>
+      <div class="dv"><div class="dv-l r"></div><div class="dv-t">ДУХ-ХРАНИТЕЛЬ</div><div class="dv-l"></div></div>
+      <div id="petSection"></div>
     </div>
     <div class="tab" id="tabBiz"><div class="dv"><div class="dv-l r"></div><div class="dv-t">КУПИТЬ БИЗНЕС</div><div class="dv-l"></div></div><div class="bgrid" id="bizGrid"></div></div>
     <div class="tab" id="tabUpg"><div class="dv"><div class="dv-l r"></div><div class="dv-t">УЛУЧШЕНИЯ</div><div class="dv-l"></div></div><div class="ulist" id="upgList"></div><div class="dv" style="margin-top:6px"><div class="dv-l r"></div><div class="dv-t">НАВЫКИ</div><div class="dv-l"></div></div><div class="sklist" id="skList"></div></div>
@@ -276,7 +270,6 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
     <button class="nb" onclick="goTab('Bonus',this)" style="position:relative"><span class="nb-i">🎁</span>БОНУС<span class="bdot" id="bdot"></span></button>
   </div>
 </div>
-
 <div class="biz-mb" id="bModal">
   <div class="biz-md">
     <div class="m-title" id="mTitle">Бизнес</div>
@@ -293,7 +286,6 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
     </div>
   </div>
 </div>
-
 <div class="cfm-bg" id="cfmBg">
   <div class="cfm-box">
     <h3>🔴 ПЕРЕРОЖДЕНИЕ</h3>
@@ -307,24 +299,35 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 <div class="notif" id="notif"></div>
 
 <script>
-var SERVER=""; // "http://192.168.X.X:8080"
-var _stk=0;
+var SERVER="";
+var _stk=0,_ltt=0,_cb=null;
+var _petAF=null,_pt=0;
 
-// ══ ДАННЫЕ ПИТОМЦА — КРИПТО-ДУХ ══
-// Уникальный персонаж: светящийся дух-дракон сделанный из энергии криптовалют
-var PET_LVL=[
-  {n:'Яйцо',       cost:0,       bonus:0,    desc:'Таинственное яйцо...'},
-  {n:'Крипто-искра',cost:0,      bonus:0.02, desc:'+2% к доходу'},
-  {n:'Крипто-дух',  cost:50000,  bonus:0.05, desc:'+5% к доходу'},
-  {n:'Эфир',        cost:200000, bonus:0.10, desc:'+10% к доходу'},
-  {n:'Плазма',      cost:800000, bonus:0.18, desc:'+18% к доходу'},
-  {n:'Нова',        cost:3000000,bonus:0.30, desc:'+30% к доходу'},
-  {n:'Квазар',      cost:10000000,bonus:0.50,desc:'+50% к доходу'},
-  {n:'КРИПТО-БОГ',  cost:50000000,bonus:1.00,desc:'+100% к доходу'}
+// ══ ПИТОМЕЦ — ДУХ-ХРАНИТЕЛЬ ══
+var PET=[
+  {n:'Яйцо духа',    cost:0,       incB:0,    dailyCoins:0,       dailyName:'—'},
+  {n:'Туманный дух', cost:0,       incB:0.02, dailyCoins:500,     dailyName:'Слабый оберег'},
+  {n:'Бледный призрак',cost:50000, incB:0.05, dailyCoins:3000,    dailyName:'Малый оберег'},
+  {n:'Лунный дух',   cost:200000,  incB:0.10, dailyCoins:12000,   dailyName:'Оберег духа'},
+  {n:'Звёздный призрак',cost:800000,incB:0.18,dailyCoins:50000,   dailyName:'Сильный оберег'},
+  {n:'Астральный дух',cost:3000000,incB:0.30, dailyCoins:200000,  dailyName:'Мощный оберег'},
+  {n:'Небесный призрак',cost:10000000,incB:0.50,dailyCoins:800000,dailyName:'Великий оберег'},
+  {n:'ВЕЧНЫЙ ДУХ',   cost:50000000,incB:1.00, dailyCoins:4000000, dailyName:'БОЖИЙ ОБЕРЕГ'}
+];
+
+// Цвета призрака по уровню
+var PET_COLORS=[
+  [0.5,0.5,0.8],   // 0 - тёмно-синий
+  [0.7,0.9,1.0],   // 1 - голубой
+  [0.8,0.8,1.0],   // 2 - бледно-фиолетовый
+  [0.8,1.0,0.9],   // 3 - лунно-зелёный
+  [1.0,1.0,0.7],   // 4 - жёлтый
+  [1.0,0.7,0.4],   // 5 - оранжевый
+  [1.0,0.5,1.0],   // 6 - розово-фиолетовый
+  [1.0,1.0,1.0],   // 7 - ослепительно белый
 ];
 
 var CLR=['#7c3aed','#ec4899','#f59e0b','#10b981','#3b82f6','#ef4444','#8b5cf6','#06b6d4','#84cc16','#f97316'];
-
 var BIZ=[
   {id:'kiosk',   n:'Газетный ларёк',  i:'📰',b:150,     p:3},
   {id:'cafe',    n:'Кофейня',          i:'☕',b:400,     p:8},
@@ -355,7 +358,6 @@ var BIZ=[
   {id:'space',   n:'Космодром',       i:'🚀',b:500000000,p:3000000},
   {id:'planet',  n:'Колония на Марсе', i:'🔴',b:1000000000,p:6000000}
 ];
-
 var UPG=[
   {id:'cl1',n:'Деловая хватка',    i:'💼',c:300,      d:'x2 к тапу',            t:'click',m:2},
   {id:'cl2',n:'Финансовый гений',  i:'🧠',c:8000,     d:'x2 к тапу',            t:'click',m:2},
@@ -385,7 +387,6 @@ var UPG=[
   {id:'ua4',n:'Мировой рынок',     i:'🌍',c:40000000, d:'+100% ко всем',         t:'all',m:2.0},
   {id:'ua5',n:'Галактическая сеть',i:'🌌',c:500000000,d:'+150% ко всем',         t:'all',m:2.5}
 ];
-
 var SK=[
   {id:'charisma',   n:'Харизма',     e:'🗣️',d:'+8% дохода за уровень', mx:15,b:500},
   {id:'management', n:'Менеджмент',  e:'📊',d:'+6% к тапу за уровень', mx:15,b:400},
@@ -393,7 +394,6 @@ var SK=[
   {id:'security',   n:'Безопасность',e:'🛡️',d:'+10% оффлайн доход',    mx:10,b:800},
   {id:'energy_sk',  n:'Выносливость',e:'⚡',d:'+5% макс. энергии',      mx:10,b:1000}
 ];
-
 var XP=[0,300,700,1400,2500,4000,6000,9000,13000,18000,25000,34000,45000,60000,80000,105000,140000,185000,240000,310000,400000,520000,670000,860000,1100000];
 var TTL=['','Стажёр','Сотрудник','Специалист','Ст.специалист','Менеджер','Ст.менеджер','Рук.отдела','Директор','Ст.директор','Вице-президент','Ст.вице-президент','Исп.директор','Президент','Председатель','Основатель','Предприниматель','Инвестор','Миллиардер','Магнат','Олигарх','Пром.гигант','Мировой лидер','Легенда','Повелитель','EMPEROR'];
 var ACH=[
@@ -408,22 +408,23 @@ var ACH=[
   {id:'a9',i:'⚙️',n:'Технарь',      d:'Купи 10 апгрейдов',      r:15000,  c:function(g){return g.upg.length>=10;}},
   {id:'a10',i:'🔥',n:'Верность',    d:'7 дней подряд',          r:7000,   c:function(g){return (g.streak||0)>=7;}},
   {id:'a11',i:'🔴',n:'Переродился', d:'Переродись впервые',      r:0,      c:function(g){return (g.rebirths||0)>=1;}},
-  {id:'a12',i:'🐉',n:'Дрессировщик',d:'Прокачай питомца до макс',r:100000, c:function(g){return (g.petLevel||0)>=7;}}
+  {id:'a12',i:'👻',n:'Повелитель духов',d:'Прокачай духа до макс',r:200000,c:function(g){return (g.petLevel||0)>=7;}}
 ];
 
-var G={coins:500,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),biz:{},bizLvl:{},upg:[],
+var G={coins:500,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),
+  biz:{},bizLvl:{},upg:[],
   skills:{charisma:0,management:0,connections:0,security:0,energy_sk:0},
   ach:[],daily:null,streak:0,tapBonus:0,rebirthBonus:0,rebirths:0,
   energy:100,energyLastTs:Date.now(),
-  petOwned:false, petLevel:0};
-var _off=0,_nm='ИГРОК',_uid='',_col='#7c3aed',_let='И';
-var _cb=null,_ltt=0,_stk=0;
-var _petAnim=null,_petT=0;
+  petOwned:false,petLevel:0,petDailyLast:null};
 
-function bml(idx){return 2+Math.floor(idx/4);}
+function bml(i){return 2+Math.floor(i/4);}
 function rbc(){return(5+(G.rebirths||0)*4)*1000000;}
 function mxE(){var lv=G.level,sk=G.skills.energy_sk||0;var b=lv<=9?lv*100:900+(lv-9)*500;return Math.floor(b*(1+sk*.05));}
 function rps(){return mxE()/300;}
+function _off2(){return 0;} // заглушка
+
+var _off=0,_nm='ИГРОК',_uid='',_col='#7c3aed',_let='И';
 
 function updE(){
   var now=Date.now();
@@ -465,9 +466,10 @@ function ld(){
   if(!G.upg)G.upg=[];if(!G.ach)G.ach=[];
   if(!G.tapBonus)G.tapBonus=0;
   G.rebirths=Math.max(0,Math.min(parseInt(G.rebirths)||0,50));
-  G.rebirthBonus=Math.max(0,Math.min(parseFloat(G.rebirthBonus)||0,20));
+  G.rebirthBonus=Math.max(0,parseFloat(G.rebirthBonus)||0);
   if(!G.petOwned)G.petOwned=false;
   if(!G.petLevel)G.petLevel=0;
+  if(!G.petDailyLast)G.petDailyLast=null;
   if(G.energy===undefined||G.energy===null)G.energy=mxE();
   if(!G.energyLastTs)G.energyLastTs=Date.now();
   var os=(Date.now()-G.energyLastTs)/1000;
@@ -499,8 +501,7 @@ function cIPM(){
     for(var i=0;i<G.upg.length;i++){for(var j=0;j<UPG.length;j++){if(UPG[j].id===G.upg[i]&&UPG[j].t===BIZ[b].id){bm*=UPG[j].m;break;}}}
     t+=BIZ[b].p*n*bm*(1+lv*.5);
   }
-  // Бонус от питомца
-  var petB=G.petOwned?PET_LVL[G.petLevel||0].bonus:0;
+  var petB=G.petOwned?PET[G.petLevel||0].incB:0;
   return t*am*cm*(1+petB);
 }
 function cClk(){
@@ -530,284 +531,317 @@ function chk(){
   }
 }
 
+// ══ ПЕРЕРОЖДЕНИЕ: +40% к суммарному тапу ══
 function askRb(){
   if(G.level<10){ntf('Нужен уровень 10!','err');return;}
-  var cost=rbc(),nb=Math.round(((G.rebirthBonus||0)+.40)*100);
-  document.getElementById('cfmTxt').innerHTML='Весь прогресс сбросится.<br>Старт: <b style="color:#f0c96a">$15 000</b><br>Цена: <b style="color:#f0c96a">'+fmt(cost)+'</b><br>Бонус: <b style="color:#ff8a80">+40% (итого '+nb+'%)</b><br><br>Уверены?';
+  var cost=rbc();
+  // Суммарный бонус до перерождения
+  var curTotalBonus=(G.tapBonus||0)+(G.rebirthBonus||0);
+  var newBonus=curTotalBonus+0.40;
+  var nb=Math.round(newBonus*100);
+  document.getElementById('cfmTxt').innerHTML=
+    'Весь прогресс сбросится. Дух тоже.<br>'+
+    'Старт: <b style="color:#f0c96a">$5 000</b><br>'+
+    'Цена: <b style="color:#f0c96a">'+fmt(cost)+'</b><br>'+
+    'Бонус к тапу: <b style="color:#ff8a80">итого '+nb+'% навсегда</b><br><br>Уверены?';
   document.getElementById('cfmBg').classList.add('show');
 }
 function closeCfm(){document.getElementById('cfmBg').classList.remove('show');}
 function doRb(){
   if(G.level<10){ntf('Нужен уровень 10!','err');closeCfm();return;}
   var cost=rbc();if(G.coins<cost){ntf('Нужно '+fmt(cost),'err');closeCfm();return;}
-  var nb=(G.rebirthBonus||0)+.40,nr=(G.rebirths||0)+1;
-  var pd=G.daily,ps=G.streak,po=G.petOwned,pl=G.petLevel;
-  G={coins:15000,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),biz:{},bizLvl:{},upg:[],
+  // +40% к ТЕКУЩЕМУ суммарному тапу
+  var curTotalBonus=(G.tapBonus||0)+(G.rebirthBonus||0);
+  var newRbBonus=curTotalBonus+0.40;
+  var nr=(G.rebirths||0)+1;
+  var pd=G.daily,ps=G.streak;
+  G={coins:5000,total:0,xp:0,level:1,ipm:0,lastSave:Date.now(),
+     biz:{},bizLvl:{},upg:[],
      skills:{charisma:0,management:0,connections:0,security:0,energy_sk:0},
-     ach:[],daily:pd,streak:ps,tapBonus:0,rebirthBonus:nb,rebirths:nr,
+     ach:[],daily:pd,streak:ps,
+     tapBonus:0,         // кейсовый бонус сбрасывается
+     rebirthBonus:newRbBonus, // накопленный бонус от перерождений
+     rebirths:nr,
      energy:mxE(),energyLastTs:Date.now(),
-     petOwned:po,petLevel:pl}; // питомец сохраняется при перерождении!
+     petOwned:false,petLevel:0,petDailyLast:null}; // дух сбрасывается
   closeCfm();sv();rdr();
-  ntf('🔴 ПЕРЕРОЖДЕНИЕ №'+nr+'! +'+Math.round(nb*100)+'% к тапу!','lvl');sync();
+  ntf('🔴 ПЕРЕРОЖДЕНИЕ №'+nr+'! Тап: +'+Math.round(newRbBonus*100)+'% навсегда!','lvl');
+  sync();
 }
 
-// ══ ПИТОМЕЦ — покупка и прокачка ══
+// ══ ПИТОМЕЦ ══
 function buyPet(){
   if(G.level<5){ntf('Нужен уровень 5!','err');return;}
   if(G.coins<100000){ntf('Нужно $100K!','err');return;}
   G.coins-=100000;G.petOwned=true;G.petLevel=1;
-  axp(100);chk();ntf('🐉 Крипто-дух освобождён!','lvl');sv();rdr();
+  axp(100);chk();ntf('👻 Дух-хранитель призван!','lvl');sv();rdr();
 }
 function upgPet(){
-  if(!G.petOwned){ntf('Сначала купи питомца!','err');return;}
-  var lv=G.petLevel||0;if(lv>=PET_LVL.length-1){ntf('Максимальный уровень!','err');return;}
-  var cost=PET_LVL[lv+1].cost;
-  if(G.coins<cost){ntf('Нужно '+fmt(cost),'err');return;}
+  if(!G.petOwned){ntf('Сначала призови духа!','err');return;}
+  var lv=G.petLevel||0;if(lv>=PET.length-1){ntf('Максимальный уровень!','err');return;}
+  var cost=PET[lv+1].cost;if(G.coins<cost){ntf('Нужно '+fmt(cost),'err');return;}
   G.coins-=cost;G.petLevel=lv+1;
-  axp(50);chk();ntf('🐉 '+PET_LVL[G.petLevel].n+'! '+PET_LVL[G.petLevel].desc,'ok');sv();rdr();
+  axp(50);chk();ntf('👻 '+PET[G.petLevel].n+'!','ok');sv();rdr();
+}
+function claimPetDaily(){
+  if(!G.petOwned||!G.petLevel){ntf('Призови духа сначала!','err');return;}
+  var now=Date.now();
+  if(G.petDailyLast&&now-G.petDailyLast<86400000){
+    var r=86400000-(now-G.petDailyLast),h=Math.floor(r/3600000),m=Math.floor((r%3600000)/60000);
+    ntf('Следующий оберег через '+h+'ч '+m+'мин','err');return;
+  }
+  var lv=G.petLevel||0;
+  var coins=PET[lv].dailyCoins;
+  G.coins+=coins;G.total+=coins;G.petDailyLast=now;
+  axp(20);chk();ntf('👻 '+PET[lv].dailyName+': +'+fmt(coins),'ok');sv();rdr();
 }
 
-// ══ ОТРИСОВКА ПИТОМЦА НА CANVAS ══
-function drawPet(){
+// ══ ОТРИСОВКА ПРИЗРАКА ══
+function drawGhost(){
   var cv=document.getElementById('petCanvas');
   if(!cv)return;
   var ctx=cv.getContext('2d');
-  var W=cv.width,H=cv.height;
-  var cx=W/2,cy=H/2;
-  _petT+=0.03;
+  var W=cv.width,H=cv.height,cx=W/2,cy=H/2;
+  _pt+=0.025;
   ctx.clearRect(0,0,W,H);
 
   var lv=G.petOwned?(G.petLevel||0):0;
-  var t=_petT;
+  var t=_pt;
 
   if(!G.petOwned){
-    // Рисуем яйцо в клетке
-    drawEgg(ctx,cx,cy,t);
+    drawEggInCage(ctx,cx,cy,t,W,H);
     return;
   }
 
-  // Размер зависит от уровня
-  var sz=20+lv*8; // от 28 до 76
-  // Цвета по уровню
-  var colors=[
-    ['#a0a0ff','#6060cc'],   // 1 - голубой
-    ['#80ffff','#00aaaa'],   // 2 - циан
-    ['#80ff80','#00aa00'],   // 3 - зелёный
-    ['#ffff00','#aaaa00'],   // 4 - жёлтый
-    ['#ff8800','#cc5500'],   // 5 - оранжевый
-    ['#ff4444','#cc0000'],   // 6 - красный
-    ['#ffffff','#aaaaff'],   // 7 - белый+золотой
-  ];
-  var c=colors[Math.min(lv-1,colors.length-1)];
-  var c1=c[0],c2=c[1];
+  // Размер растёт с уровнем: от 30 до 70
+  var sz=30+lv*6;
+  // Яркость и насыщенность растут с уровнем
+  var alpha=0.5+lv*0.07;
+  var glowR=sz*0.8+lv*4;
+  var col=PET_COLORS[lv];
+  var r=Math.round(col[0]*255),g=Math.round(col[1]*255),b=Math.round(col[2]*255);
 
   // Левитация
-  var fy=Math.sin(t*1.2)*6;
-  var cy2=cy+fy;
+  var fy=Math.sin(t*1.0)*8;
+  var py=cy+fy;
 
-  // Тень под питомцем
-  ctx.save();
-  ctx.translate(cx,cy+sz*0.8);
-  ctx.scale(1,0.3);
-  var shadowAlpha=0.2+0.1*Math.sin(t*1.2);
-  ctx.beginPath();ctx.arc(0,0,sz*0.7,0,Math.PI*2);
-  ctx.fillStyle='rgba(0,0,0,'+shadowAlpha+')';ctx.fill();
-  ctx.restore();
+  // Тень
+  ctx.save();ctx.translate(cx,cy+sz+10);ctx.scale(1,0.2);
+  ctx.beginPath();ctx.arc(0,0,sz*0.6,0,Math.PI*2);
+  ctx.fillStyle='rgba(0,0,0,'+(0.15+0.05*Math.sin(t))+')';ctx.fill();ctx.restore();
 
-  // Частицы вокруг
-  for(var pi=0;pi<6+lv*2;pi++){
-    var pa=t*0.8+pi*(Math.PI*2/(6+lv*2));
-    var pr=sz*1.2+Math.sin(t*2+pi)*sz*0.3;
+  // Аура (несколько слоёв свечения)
+  for(var ai=3;ai>=1;ai--){
+    var ar=sz+ai*12+lv*3;
+    var aa=(0.04+lv*0.01)*ai;
+    var ag=ctx.createRadialGradient(cx,py,0,cx,py,ar);
+    ag.addColorStop(0,'rgba('+r+','+g+','+b+','+aa+')');
+    ag.addColorStop(1,'rgba('+r+','+g+','+b+',0)');
+    ctx.beginPath();ctx.arc(cx,py,ar,0,Math.PI*2);ctx.fillStyle=ag;ctx.fill();
+  }
+
+  // Частицы
+  var numParticles=3+lv*2;
+  for(var pi=0;pi<numParticles;pi++){
+    var pa=t*0.7+pi*(Math.PI*2/numParticles);
+    var pr=sz*0.9+Math.sin(t*1.5+pi)*sz*0.25;
     var px=cx+Math.cos(pa)*pr;
-    var py=cy2+Math.sin(pa)*pr*0.5;
-    var psz=2+lv*0.5;
-    ctx.beginPath();ctx.arc(px,py,psz,0,Math.PI*2);
-    var alpha=0.3+0.4*Math.abs(Math.sin(t+pi));
-    ctx.fillStyle=c1.replace(')',','+alpha+')').replace('rgb','rgba').replace('#',
-      'rgba('+parseInt(c1.slice(1,3),16)+','+parseInt(c1.slice(3,5),16)+','+parseInt(c1.slice(5,7),16)+','+alpha+')');
-    ctx.fillStyle='rgba('+parseInt(c1.slice(1,3),16)+','+parseInt(c1.slice(3,5),16)+','+parseInt(c1.slice(5,7),16)+','+alpha+')';
-    ctx.fill();
+    var ppy=py+Math.sin(pa)*pr*0.45;
+    var psz=1.5+lv*0.4+Math.sin(t*2+pi)*0.5;
+    var pa2=0.4+0.5*Math.abs(Math.sin(t*1.2+pi));
+    ctx.beginPath();ctx.arc(px,ppy,psz,0,Math.PI*2);
+    ctx.fillStyle='rgba('+r+','+g+','+b+','+pa2+')';ctx.fill();
   }
 
-  // Тело — основной круг с градиентом
-  var grad=ctx.createRadialGradient(cx-sz*0.3,cy2-sz*0.3,sz*0.1,cx,cy2,sz);
-  grad.addColorStop(0,'rgba('+parseInt(c1.slice(1,3),16)+','+parseInt(c1.slice(3,5),16)+','+parseInt(c1.slice(5,7),16)+',0.95)');
-  grad.addColorStop(0.6,'rgba('+parseInt(c2.slice(1,3),16)+','+parseInt(c2.slice(3,5),16)+','+parseInt(c2.slice(5,7),16)+',0.8)');
-  grad.addColorStop(1,'rgba('+parseInt(c2.slice(1,3),16)+','+parseInt(c2.slice(3,5),16)+','+parseInt(c2.slice(5,7),16)+',0.3)');
+  // ТЕЛО ПРИЗРАКА — классическая форма
   ctx.save();
-  ctx.shadowColor=c1;ctx.shadowBlur=sz*0.8;
-  ctx.beginPath();ctx.arc(cx,cy2,sz,0,Math.PI*2);
-  ctx.fillStyle=grad;ctx.fill();
+  ctx.shadowColor='rgba('+r+','+g+','+b+',0.8)';
+  ctx.shadowBlur=sz*0.6;
+
+  // Основной градиент тела
+  var bg=ctx.createRadialGradient(cx-sz*.2,py-sz*.2,sz*.05,cx,py,sz);
+  bg.addColorStop(0,'rgba('+r+','+g+','+b+','+(alpha+0.3)+')');
+  bg.addColorStop(0.6,'rgba('+r+','+g+','+b+','+alpha+')');
+  bg.addColorStop(1,'rgba('+r+','+g+','+b+','+(alpha-0.1)+')');
+
+  ctx.beginPath();
+  // Голова (полукруг)
+  ctx.arc(cx,py-sz*0.1,sz,Math.PI,0,false);
+  // Волнистый низ призрака
+  var waveCnt=3+Math.min(lv,3);
+  var waveW=(sz*2)/waveCnt;
+  var bottomY=py-sz*0.1+sz;
+  for(var wi=0;wi<waveCnt;wi++){
+    var wx1=cx+sz-wi*waveW;
+    var wx2=cx+sz-(wi+0.5)*waveW;
+    var wx3=cx+sz-(wi+1)*waveW;
+    var wamp=sz*0.25+Math.sin(t*2+wi)*sz*0.05;
+    ctx.quadraticCurveTo(wx2,bottomY+wamp,wx3,bottomY);
+  }
+  ctx.closePath();
+  ctx.fillStyle=bg;ctx.fill();
   ctx.restore();
 
-  // Крылья (у уровня 3+)
-  if(lv>=3){
-    var wingFlap=Math.sin(t*3)*0.3;
-    // Левое крыло
-    ctx.save();ctx.translate(cx-sz*0.8,cy2);ctx.rotate(-0.4+wingFlap);
-    var wg=ctx.createRadialGradient(0,0,0,0,0,sz*1.0);
-    wg.addColorStop(0,'rgba('+parseInt(c1.slice(1,3),16)+','+parseInt(c1.slice(3,5),16)+','+parseInt(c1.slice(5,7),16)+',0.6)');
-    wg.addColorStop(1,'rgba('+parseInt(c1.slice(1,3),16)+','+parseInt(c1.slice(3,5),16)+','+parseInt(c1.slice(5,7),16)+',0)');
-    ctx.beginPath();ctx.ellipse(0,0,sz*0.8,sz*0.4,0,0,Math.PI*2);
-    ctx.fillStyle=wg;ctx.fill();
-    ctx.restore();
-    // Правое крыло
-    ctx.save();ctx.translate(cx+sz*0.8,cy2);ctx.rotate(0.4-wingFlap);
-    ctx.beginPath();ctx.ellipse(0,0,sz*0.8,sz*0.4,0,0,Math.PI*2);
-    ctx.fillStyle=wg;ctx.fill();
-    ctx.restore();
-  }
+  // Блик на теле
+  var hg=ctx.createRadialGradient(cx-sz*0.25,py-sz*0.45,sz*0.02,cx-sz*0.15,py-sz*0.3,sz*0.55);
+  hg.addColorStop(0,'rgba(255,255,255,0.35)');
+  hg.addColorStop(1,'rgba(255,255,255,0)');
+  ctx.save();ctx.clip&&ctx.beginPath();
+  ctx.beginPath();ctx.arc(cx,py-sz*.1,sz,Math.PI,0,false);
+  ctx.quadraticCurveTo(cx,py-sz*0.1+sz*1.2,cx-sz,py-sz*0.1+sz);ctx.closePath();
+  ctx.clip();ctx.beginPath();ctx.arc(cx,py,sz*1.2,0,Math.PI*2);
+  ctx.fillStyle=hg;ctx.fill();ctx.restore();
 
-  // Рога/корона (у уровня 5+)
-  if(lv>=5){
-    for(var ri=0;ri<3;ri++){
-      var ra=(ri-1)*0.4;
-      var rx=cx+Math.sin(ra)*sz*0.4;
-      var ry=cy2-sz*0.9;
-      var rh=sz*(0.4+ri%2*0.15);
-      ctx.save();ctx.translate(rx,ry);ctx.rotate(ra);
-      ctx.shadowColor=c1;ctx.shadowBlur=10;
-      ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(-sz*0.12,-rh);ctx.lineTo(sz*0.12,0);
-      ctx.fillStyle='rgba('+parseInt(c1.slice(1,3),16)+','+parseInt(c1.slice(3,5),16)+','+parseInt(c1.slice(5,7),16)+',0.9)';
-      ctx.fill();ctx.restore();
-    }
-  }
-
-  // Глаза
-  var eyeX=sz*0.3,eyeY=-sz*0.2;
-  var pupilPulse=0.3+0.1*Math.sin(t*2);
+  // Глаза — большие пустые (призрак)
+  var eyeOff=sz*0.28,eyeY=py-sz*0.22;
   // Левый глаз
-  ctx.beginPath();ctx.arc(cx-eyeX,cy2+eyeY,sz*0.22,0,Math.PI*2);
-  ctx.fillStyle='rgba(255,255,255,0.95)';ctx.fill();
-  ctx.beginPath();ctx.arc(cx-eyeX,cy2+eyeY,sz*pupilPulse,0,Math.PI*2);
-  ctx.fillStyle='rgba('+parseInt(c2.slice(1,3),16)+','+parseInt(c2.slice(3,5),16)+','+parseInt(c2.slice(5,7),16)+',1)';
-  ctx.fill();
+  ctx.beginPath();ctx.ellipse(cx-eyeOff,eyeY,sz*0.18,sz*0.22,0,0,Math.PI*2);
+  ctx.fillStyle='rgba(0,0,0,0.85)';ctx.fill();
+  // Блик левого
+  ctx.beginPath();ctx.ellipse(cx-eyeOff+sz*0.06,eyeY-sz*0.07,sz*0.05,sz*0.06,-0.3,0,Math.PI*2);
+  ctx.fillStyle='rgba(255,255,255,0.8)';ctx.fill();
   // Правый глаз
-  ctx.beginPath();ctx.arc(cx+eyeX,cy2+eyeY,sz*0.22,0,Math.PI*2);
-  ctx.fillStyle='rgba(255,255,255,0.95)';ctx.fill();
-  ctx.beginPath();ctx.arc(cx+eyeX,cy2+eyeY,sz*pupilPulse,0,Math.PI*2);
-  ctx.fillStyle='rgba('+parseInt(c2.slice(1,3),16)+','+parseInt(c2.slice(3,5),16)+','+parseInt(c2.slice(5,7),16)+',1)';
-  ctx.fill();
-  // Блик в глазах
-  ctx.beginPath();ctx.arc(cx-eyeX+sz*0.07,cy2+eyeY-sz*0.08,sz*0.06,0,Math.PI*2);
-  ctx.fillStyle='rgba(255,255,255,0.9)';ctx.fill();
-  ctx.beginPath();ctx.arc(cx+eyeX+sz*0.07,cy2+eyeY-sz*0.08,sz*0.06,0,Math.PI*2);
-  ctx.fillStyle='rgba(255,255,255,0.9)';ctx.fill();
+  ctx.beginPath();ctx.ellipse(cx+eyeOff,eyeY,sz*0.18,sz*0.22,0,0,Math.PI*2);
+  ctx.fillStyle='rgba(0,0,0,0.85)';ctx.fill();
+  ctx.beginPath();ctx.ellipse(cx+eyeOff+sz*0.06,eyeY-sz*0.07,sz*0.05,sz*0.06,-0.3,0,Math.PI*2);
+  ctx.fillStyle='rgba(255,255,255,0.8)';ctx.fill();
 
-  // Рот — улыбка
-  ctx.beginPath();
-  ctx.arc(cx,cy2+sz*0.1,sz*0.3,0.2,Math.PI-0.2);
-  ctx.strokeStyle='rgba('+parseInt(c2.slice(1,3),16)+','+parseInt(c2.slice(3,5),16)+','+parseInt(c2.slice(5,7),16)+',0.8)';
-  ctx.lineWidth=sz*0.06;ctx.stroke();
-
-  // Хвост (у уровня 2+)
-  if(lv>=2){
-    var tailWag=Math.sin(t*2)*0.4;
-    ctx.save();ctx.translate(cx,cy2+sz*0.6);
-    ctx.beginPath();
-    ctx.moveTo(0,0);
-    ctx.bezierCurveTo(sz*0.5+tailWag*sz,sz*0.3,sz*0.8+tailWag*sz,sz*0.6,sz*0.3+tailWag*sz*0.5,sz*0.9);
-    ctx.strokeStyle='rgba('+parseInt(c1.slice(1,3),16)+','+parseInt(c1.slice(3,5),16)+','+parseInt(c1.slice(5,7),16)+',0.7)';
-    ctx.lineWidth=sz*0.15;ctx.lineCap='round';ctx.stroke();
-    ctx.restore();
+  // Рот — О (испуганный) или улыбка (высокий уровень)
+  if(lv>=5){
+    // Улыбка
+    ctx.beginPath();ctx.arc(cx,py+sz*0.15,sz*0.25,0.2,Math.PI-0.2);
+    ctx.strokeStyle='rgba(0,0,0,0.7)';ctx.lineWidth=sz*0.07;ctx.lineCap='round';ctx.stroke();
+  }else{
+    // О-форма
+    ctx.beginPath();ctx.ellipse(cx,py+sz*0.18,sz*0.12,sz*0.15,0,0,Math.PI*2);
+    ctx.fillStyle='rgba(0,0,0,0.75)';ctx.fill();
   }
 
-  // Аура при макс уровне
-  if(lv>=7){
-    for(var ai=0;ai<3;ai++){
-      var aura_r=sz*(1.2+ai*0.35)+Math.sin(t+ai)*sz*0.1;
-      ctx.beginPath();ctx.arc(cx,cy2,aura_r,0,Math.PI*2);
-      ctx.strokeStyle='rgba(255,220,50,'+(0.15-ai*0.04)+')';
-      ctx.lineWidth=2;ctx.stroke();
-    }
+  // Корона на высоких уровнях
+  if(lv>=6){
+    ctx.save();ctx.translate(cx,py-sz*0.9);
+    ctx.shadowColor='rgba('+r+','+g+','+b+',0.9)';ctx.shadowBlur=12;
+    // Корона — зубцы
+    var crColor='rgba('+r+','+g+','+b+',0.95)';
+    ctx.fillStyle=crColor;
+    ctx.beginPath();
+    ctx.moveTo(-sz*0.35,0);
+    ctx.lineTo(-sz*0.35,-sz*0.25);
+    ctx.lineTo(-sz*0.18,-sz*0.12);
+    ctx.lineTo(0,-sz*0.3);
+    ctx.lineTo(sz*0.18,-sz*0.12);
+    ctx.lineTo(sz*0.35,-sz*0.25);
+    ctx.lineTo(sz*0.35,0);
+    ctx.closePath();ctx.fill();
+    ctx.restore();
   }
 }
 
-function drawEgg(ctx,cx,cy,t){
-  var fy=Math.sin(t)*4;
-  var cy2=cy+fy;
+function drawEggInCage(ctx,cx,cy,t,W,H){
+  var fy=Math.sin(t)*4,py=cy+fy;
   // Тень
-  ctx.save();ctx.translate(cx,cy+35);ctx.scale(1,0.3);
-  ctx.beginPath();ctx.arc(0,0,22,0,Math.PI*2);
-  ctx.fillStyle='rgba(0,0,0,0.25)';ctx.fill();ctx.restore();
+  ctx.save();ctx.translate(cx,cy+38);ctx.scale(1,0.25);
+  ctx.beginPath();ctx.arc(0,0,20,0,Math.PI*2);
+  ctx.fillStyle='rgba(0,0,0,0.2)';ctx.fill();ctx.restore();
   // Яйцо
-  var eg=ctx.createRadialGradient(cx-8,cy2-12,3,cx,cy2,28);
+  var eg=ctx.createRadialGradient(cx-8,py-12,3,cx,py,28);
   eg.addColorStop(0,'#c084fc');eg.addColorStop(0.5,'#7c3aed');eg.addColorStop(1,'#3b0764');
-  ctx.save();ctx.shadowColor='#a855f7';ctx.shadowBlur=20;
+  ctx.save();ctx.shadowColor='#a855f7';ctx.shadowBlur=22;
   ctx.beginPath();
-  ctx.moveTo(cx,cy2-30);
-  ctx.bezierCurveTo(cx+22,cy2-30,cx+22,cy2+18,cx,cy2+24);
-  ctx.bezierCurveTo(cx-22,cy2+18,cx-22,cy2-30,cx,cy2-30);
+  ctx.moveTo(cx,py-30);
+  ctx.bezierCurveTo(cx+22,py-30,cx+22,py+18,cx,py+24);
+  ctx.bezierCurveTo(cx-22,py+18,cx-22,py-30,cx,py-30);
   ctx.fillStyle=eg;ctx.fill();ctx.restore();
-  // Звёздочки на яйце
-  for(var si=0;si<3;si++){
-    var sx=cx-8+si*8+Math.sin(t+si)*2;
-    var sy=cy2-10+si*6;
-    var ss=2+si;
-    ctx.beginPath();ctx.arc(sx,sy,ss,0,Math.PI*2);
-    ctx.fillStyle='rgba(255,255,255,'+(0.4+0.3*Math.sin(t*2+si))+')';ctx.fill();
+  // Узор
+  for(var si=0;si<4;si++){
+    var sx=cx-10+si*7+Math.sin(t+si)*1.5;
+    var sy=py-8+si*4;
+    ctx.beginPath();ctx.arc(sx,sy,1.5+si*.5,0,Math.PI*2);
+    ctx.fillStyle='rgba(255,255,255,'+(0.3+0.3*Math.abs(Math.sin(t*2+si)))+')';ctx.fill();
   }
-  // Вопрос
-  ctx.font='bold 16px serif';ctx.textAlign='center';ctx.textBaseline='middle';
-  ctx.fillStyle='rgba(255,255,255,0.7)';ctx.fillText('?',cx,cy2-2);
+  ctx.font='bold 14px serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillStyle='rgba(255,255,255,0.65)';ctx.fillText('?',cx,py-3);
 }
 
 function startPetAnim(){
-  if(_petAnim)return;
-  function loop(){
-    drawPet();
-    _petAnim=requestAnimationFrame(loop);
-  }
+  if(_petAF)return;
+  function loop(){drawGhost();_petAF=requestAnimationFrame(loop);}
   loop();
 }
+function stopPetAnim(){if(_petAF){cancelAnimationFrame(_petAF);_petAF=null;}}
 
 function rPet(){
   var el=document.getElementById('petSection');
   var lv=G.petLevel||0;
-  var info=PET_LVL[lv];
-  var canvasSize=180;
-  var html='<div class="pet-container">';
+  var info=PET[lv];
+  var sz=160;
+  var html='<div class="pet-wrap">';
 
   if(!G.petOwned){
-    // Заблокировано
-    html+='<div class="pet-locked">';
-    html+='<div class="pet-locked-icon">🥚</div>';
-    html+='<div class="pet-locked-text">КРИПТО-ДУХ</div>';
-    html+='<div class="pet-locked-sub">Загадочное существо из мира криптовалют.<br>Откроется на уровне 5.</div>';
+    html+='<div class="pet-locked-info">';
+    html+='<span class="pet-locked-icon">🥚</span>';
+    html+='<div style="font-family:Cinzel,serif;font-size:13px;color:var(--pur3);margin-bottom:3px">ДУХ-ХРАНИТЕЛЬ</div>';
+    html+='<div style="font-size:11px;color:var(--dim);margin-bottom:10px">Призрак из другого мира.<br>Защитит тебя и принесёт богатство.</div>';
     if(G.level>=5){
-      html+='<div class="pet-actions"><button class="pet-btn pet-btn-gold" onclick="buyPet()">ОТКРЫТЬ — $100K</button></div>';
+      html+='<div class="pet-acts"><button class="pet-btn pb-gold" onclick="buyPet()">ПРИЗВАТЬ — $100K</button></div>';
     }else{
-      html+='<div class="pet-upgrade-info">🔒 Нужен уровень 5 (текущий: '+G.level+')</div>';
+      html+='<div style="font-size:11px;color:var(--dim);font-style:italic">🔒 Нужен уровень 5 (текущий: '+G.level+')</div>';
     }
     html+='</div>';
-    // Всё равно рисуем яйцо
-    html+='<div class="pet-canvas-wrap" style="position:relative;display:inline-block">';
-    html+='<canvas id="petCanvas" width="'+canvasSize+'" height="'+canvasSize+'"></canvas>';
-    // Клетка
-    html+='<div class="cage-wrap" style="width:'+canvasSize+'px;height:'+canvasSize+'px">';
-    var bars=6,bw=canvasSize/bars;
+  }
+
+  html+='<div class="pet-canvas-area">';
+  html+='<canvas id="petCanvas" width="'+sz+'" height="'+sz+'"></canvas>';
+
+  if(!G.petOwned){
+    // Клетка поверх яйца
+    html+='<div class="cage-overlay" style="width:'+sz+'px;height:'+sz+'px">';
+    var bars=6;
     for(var bi=0;bi<=bars;bi++){
-      html+='<div class="cage-bar" style="left:'+(bi*bw-1.5)+'px"></div>';
+      var bx=Math.round(bi*(sz/bars))-1;
+      html+='<div class="cage-bar" style="left:'+bx+'px"></div>';
     }
-    html+='<div class="cage-top"></div>';
-    html+='<div class="cage-bot"></div>';
+    html+='<div class="cage-top-bar"></div>';
+    html+='<div class="cage-bot-bar"></div>';
     html+='</div>';
-    html+='</div>';
-  }else{
-    // Питомец куплен
-    html+='<div class="pet-canvas-wrap"><canvas id="petCanvas" width="'+canvasSize+'" height="'+canvasSize+'"></canvas></div>';
-    html+='<div class="pet-name" style="background:linear-gradient(135deg,#a855f7,#f0c96a,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">'+info.n+'</div>';
-    html+='<div class="pet-level">Уровень '+lv+' / '+(PET_LVL.length-1)+'</div>';
-    html+='<div class="pet-bonus">'+info.desc+'</div>';
-    if(lv<PET_LVL.length-1){
-      var nextCost=PET_LVL[lv+1].cost;
+  }
+  html+='</div>';
+
+  if(G.petOwned){
+    html+='<div class="pet-nm">'+info.n+'</div>';
+    html+='<div class="pet-lv">Уровень '+lv+' / '+(PET.length-1)+'</div>';
+    html+='<div class="pet-bonus-txt">+'+Math.round(info.incB*100)+'% к доходу</div>';
+
+    // Ежедневный оберег
+    var dailyReady=!G.petDailyLast||Date.now()-G.petDailyLast>=86400000;
+    if(lv>0){
+      html+='<div class="pet-daily-info">';
+      if(dailyReady){
+        html+='👻 <b>'+info.dailyName+'</b> готов к сбору! (+'+fmt(info.dailyCoins)+')';
+      }else{
+        var r2=86400000-(Date.now()-G.petDailyLast),h2=Math.floor(r2/3600000),m2=Math.floor((r2%3600000)/60000);
+        html+='👻 Следующий оберег через: <b>'+h2+'ч '+m2+'мин</b>';
+      }
+      html+='</div>';
+    }
+
+    html+='<div class="pet-acts">';
+    if(lv>0&&dailyReady){
+      html+='<button class="pet-btn pb-cyan" onclick="claimPetDaily()">ЗАБРАТЬ ОБЕРЕГ</button>';
+    }
+    if(lv<PET.length-1){
+      var nextCost=PET[lv+1].cost;
       var canUpg=G.coins>=nextCost;
-      html+='<div class="pet-actions"><button class="pet-btn pet-btn-pur" '+(canUpg?'':'disabled')+' onclick="upgPet()">ПРОКАЧАТЬ — '+fmt(nextCost)+'</button></div>';
-      html+='<div class="pet-upgrade-info">Следующий: '+PET_LVL[lv+1].n+' (+'+Math.round(PET_LVL[lv+1].bonus*100)+'%)</div>';
+      html+='<button class="pet-btn pb-pur" '+(canUpg?'':'disabled')+' onclick="upgPet()">УСИЛИТЬ — '+fmt(nextCost)+'</button>';
     }else{
-      html+='<div class="pet-actions"><button class="pet-btn pet-btn-gold" disabled>★ МАКСИМУМ ★</button></div>';
+      html+='<button class="pet-btn pb-gold" disabled>★ МАКСИМУМ ★</button>';
+    }
+    html+='</div>';
+    if(lv<PET.length-1){
+      html+='<div class="pet-upg-hint">Следующий: '+PET[lv+1].n+' (+'+Math.round(PET[lv+1].incB*100)+'%, оберег '+fmt(PET[lv+1].dailyCoins)+')</div>';
     }
   }
+
   html+='</div>';
   el.innerHTML=html;
   startPetAnim();
@@ -857,7 +891,6 @@ function updDT(){
     if(dot)dot.style.display='none';
   }
 }
-
 function openBM(id){
   var bz=null,idx=-1;for(var i=0;i<BIZ.length;i++){if(BIZ[i].id===id){bz=BIZ[i];idx=i;break;}}
   if(!bz)return;_cb=bz;
@@ -886,15 +919,13 @@ function rdr(){
   document.getElementById('cpow').textContent='+'+fmt(clk);
   var hint=ipm>0?'Пассивный: '+fmt(ipm)+'/мин · Тап: +'+fmt(clk):'Перейди в Бизнес';
   if((G.rebirths||0)>0)hint+=' · 🔴×'+G.rebirths;
-  if(G.petOwned)hint+=' · 🐉+'+Math.round(PET_LVL[G.petLevel||0].bonus*100)+'%';
+  if(G.petOwned)hint+=' · 👻+'+Math.round(PET[G.petLevel||0].incB*100)+'%';
   document.getElementById('ihint').textContent=hint;
   document.getElementById('rbSub').textContent='+40% К ТАПУ · УР.10 · '+fmt(rbc());
   if(_off>0){document.getElementById('offAmt').textContent=fmt(_off);document.getElementById('offb').classList.add('show');}
   var pa=document.getElementById('pAva');if(pa){pa.textContent=_let;pa.style.background=_col;}
-  rnE();updDT();
-  rPet();rB();rU();rSk();rP();rA();rBon();
+  rnE();updDT();rPet();rB();rU();rSk();rP();rA();rBon();
 }
-
 function rB(){
   var el=document.getElementById('bizGrid'),h='';
   for(var i=0;i<BIZ.length;i++){
@@ -968,9 +999,8 @@ function rBon(){
   }
   document.getElementById('streakEl').innerHTML=h;
 }
-
 function goTab(n,btn){
-  if(_petAnim){cancelAnimationFrame(_petAnim);_petAnim=null;}
+  stopPetAnim();
   var ts=document.querySelectorAll('.tab');for(var i=0;i<ts.length;i++)ts[i].classList.remove('on');
   var bs=document.querySelectorAll('.nb');for(var i=0;i<bs.length;i++)bs[i].classList.remove('on');
   document.getElementById('tab'+n).classList.add('on');btn.classList.add('on');
@@ -982,7 +1012,6 @@ function ntf(msg,tp){
   el.textContent=msg;el.className='notif '+tp+' show';
   clearTimeout(_nt);_nt=setTimeout(function(){el.classList.remove('show');},2800);
 }
-
 document.getElementById('cbtn').addEventListener('click',function(){
   if(G.energy<1){ntf('⚡ Энергия пуста!','err');return;}
   var earn=cClk();G.coins+=earn;G.total+=earn;
@@ -999,7 +1028,6 @@ document.getElementById('cbtn').addEventListener('click',function(){
   setTimeout(function(){if(pop.parentNode)pop.parentNode.removeChild(pop);},950);
   sv();
 });
-
 setInterval(function(){
   updE();
   var ipm=cIPM();if(ipm>0){var inc=ipm/600;G.coins+=inc;G.total+=inc;}
@@ -1008,7 +1036,6 @@ setInterval(function(){
   rnE();sv();
   _stk++;if(_stk>=300){_stk=0;sync();}
 },100);
-
 ld();
 _uid='local_'+(Math.random().toString(36).substr(2,9));
 try{var su=localStorage.getItem('be8_uid');if(su)_uid=su;else localStorage.setItem('be8_uid',_uid);}catch(e){}
